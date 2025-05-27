@@ -66,13 +66,18 @@ python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset ci
 
 ## Pretrained Models
 
-Pretrained models will be provided at:  
-(Coming soon)
+Pretrained models are available on [Hugging Face 🤗](https://huggingface.co/xuanzhu07/Deformable_Convolution_with_Stochasticity_ModelWeight).
+
 
 
 ## Citation
 
 Coming soon. Please consider citing us if you find this work helpful.
+
+
+## Note
+More codes and weights will be provided after further organization.
+
 
 <!-- ## Contact
 
