@@ -1,0 +1,1812 @@
+nohup: ignoring input
+wandb: Currently logged in as: xuanzhu_07 (xuanzhu_07-university-of-sydney). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/yxma/hzx/hzx/hzx/rand_defence/wandb/run-20250330_045621-hygkqkyk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lilac-pyramid-3
+wandb: ⭐️ View project at https://wandb.ai/xuanzhu_07-university-of-sydney/mnist
+wandb: 🚀 View run at https://wandb.ai/xuanzhu_07-university-of-sydney/mnist/runs/hygkqkyk
+[2025/03/30 04:56:25] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR/', dataset='fashion-mnist', epochs=100, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=False, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, seed=0, attack_iters=7, restarts=1, none_adv_training=False, save_dir='ckpt/fashion-mnist/ResNet18/ckpt', pretrain=None, continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=0, num_classes=10)
+[2025/03/30 04:56:25] - ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): ModuleList(
+    (0-1): 2 x BasicBlock(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+)
+/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:143: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:454: UserWarning: To get the last learning rate computed by the scheduler, please use `get_last_lr()`.
+  warnings.warn("To get the last learning rate computed by the scheduler, "
+[2025/03/30 04:56:25] - epoch 0 lr 1.000000e-01
+start_time 20250330045625
+Process ID: 4100545
+
+
+No checkpoint. Train from scratch.
+Training using fixed weight.
+
+
+[2025/03/30 04:56:27] - Iter: [0][0/469]	Loss 2.393 (2.393)	Prec@1 0.000 (0.000)	
+[2025/03/30 04:56:32] - Iter: [0][50/469]	Loss 1.685 (3.104)	Prec@1 0.320 (0.196)	
+[2025/03/30 04:56:38] - Iter: [0][100/469]	Loss 1.266 (2.208)	Prec@1 0.469 (0.347)	
+[2025/03/30 04:56:43] - Iter: [0][150/469]	Loss 0.923 (1.799)	Prec@1 0.602 (0.438)	
+[2025/03/30 04:56:49] - Iter: [0][200/469]	Loss 0.831 (1.573)	Prec@1 0.719 (0.490)	
+[2025/03/30 04:56:54] - Iter: [0][250/469]	Loss 0.856 (1.424)	Prec@1 0.648 (0.527)	
+[2025/03/30 04:57:00] - Iter: [0][300/469]	Loss 0.779 (1.318)	Prec@1 0.734 (0.555)	
+[2025/03/30 04:57:05] - Iter: [0][350/469]	Loss 0.721 (1.242)	Prec@1 0.711 (0.572)	
+[2025/03/30 04:57:11] - Iter: [0][400/469]	Loss 0.577 (1.179)	Prec@1 0.719 (0.589)	
+[2025/03/30 04:57:16] - Iter: [0][450/469]	Loss 0.722 (1.129)	Prec@1 0.672 (0.602)	
+[2025/03/30 04:57:18] - Evaluating with standard images...
+[2025/03/30 04:57:19] - Evaluating with PGD Attack...
+[2025/03/30 04:57:40] - Test Loss: 0.5861  	 Test Acc: 0.7608  
+ PGD Loss: 0.7290 	 PGD Acc: 0.6953 
+ Best PGD Acc: 0.6953 	 Test Acc of best PGD ckpt: 0.7608
+[2025/03/30 04:57:40] - epoch 1 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 04:57:41] - Iter: [1][0/469]	Loss 0.852 (0.852)	Prec@1 0.672 (0.672)	
+[2025/03/30 04:57:46] - Iter: [1][50/469]	Loss 0.774 (0.702)	Prec@1 0.734 (0.717)	
+[2025/03/30 04:57:52] - Iter: [1][100/469]	Loss 0.668 (0.698)	Prec@1 0.742 (0.720)	
+[2025/03/30 04:57:57] - Iter: [1][150/469]	Loss 0.636 (0.684)	Prec@1 0.750 (0.725)	
+[2025/03/30 04:58:03] - Iter: [1][200/469]	Loss 0.669 (0.673)	Prec@1 0.719 (0.729)	
+[2025/03/30 04:58:08] - Iter: [1][250/469]	Loss 0.603 (0.662)	Prec@1 0.719 (0.733)	
+[2025/03/30 04:58:14] - Iter: [1][300/469]	Loss 0.596 (0.654)	Prec@1 0.789 (0.736)	
+[2025/03/30 04:58:19] - Iter: [1][350/469]	Loss 0.466 (0.648)	Prec@1 0.828 (0.738)	
+[2025/03/30 04:58:25] - Iter: [1][400/469]	Loss 0.620 (0.644)	Prec@1 0.727 (0.740)	
+[2025/03/30 04:58:30] - Iter: [1][450/469]	Loss 0.718 (0.638)	Prec@1 0.719 (0.742)	
+[2025/03/30 04:58:32] - Evaluating with standard images...
+[2025/03/30 04:58:33] - Evaluating with PGD Attack...
+[2025/03/30 04:58:55] - Test Loss: 0.4724  	 Test Acc: 0.8158  
+ PGD Loss: 0.5962 	 PGD Acc: 0.7635 
+ Best PGD Acc: 0.7635 	 Test Acc of best PGD ckpt: 0.8158
+[2025/03/30 04:58:55] - epoch 2 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 04:58:55] - Iter: [2][0/469]	Loss 0.487 (0.487)	Prec@1 0.797 (0.797)	
+[2025/03/30 04:59:00] - Iter: [2][50/469]	Loss 0.696 (0.597)	Prec@1 0.742 (0.762)	
+[2025/03/30 04:59:06] - Iter: [2][100/469]	Loss 0.513 (0.587)	Prec@1 0.797 (0.766)	
+[2025/03/30 04:59:12] - Iter: [2][150/469]	Loss 0.566 (0.587)	Prec@1 0.750 (0.765)	
+[2025/03/30 04:59:17] - Iter: [2][200/469]	Loss 0.551 (0.583)	Prec@1 0.766 (0.766)	
+[2025/03/30 04:59:22] - Iter: [2][250/469]	Loss 0.569 (0.579)	Prec@1 0.758 (0.768)	
+[2025/03/30 04:59:28] - Iter: [2][300/469]	Loss 0.643 (0.579)	Prec@1 0.742 (0.768)	
+[2025/03/30 04:59:33] - Iter: [2][350/469]	Loss 0.532 (0.571)	Prec@1 0.805 (0.771)	
+[2025/03/30 04:59:39] - Iter: [2][400/469]	Loss 0.542 (0.572)	Prec@1 0.812 (0.770)	
+[2025/03/30 04:59:44] - Iter: [2][450/469]	Loss 0.517 (0.572)	Prec@1 0.773 (0.770)	
+[2025/03/30 04:59:47] - Evaluating with standard images...
+[2025/03/30 04:59:47] - Evaluating with PGD Attack...
+[2025/03/30 05:00:09] - Test Loss: 0.4177  	 Test Acc: 0.8436  
+ PGD Loss: 0.5293 	 PGD Acc: 0.7891 
+ Best PGD Acc: 0.7891 	 Test Acc of best PGD ckpt: 0.8436
+[2025/03/30 05:00:09] - epoch 3 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:00:09] - Iter: [3][0/469]	Loss 0.487 (0.487)	Prec@1 0.797 (0.797)	
+[2025/03/30 05:00:14] - Iter: [3][50/469]	Loss 0.606 (0.555)	Prec@1 0.703 (0.775)	
+[2025/03/30 05:00:20] - Iter: [3][100/469]	Loss 0.577 (0.563)	Prec@1 0.711 (0.773)	
+[2025/03/30 05:00:25] - Iter: [3][150/469]	Loss 0.653 (0.554)	Prec@1 0.766 (0.775)	
+[2025/03/30 05:00:30] - Iter: [3][200/469]	Loss 0.551 (0.553)	Prec@1 0.766 (0.775)	
+[2025/03/30 05:00:36] - Iter: [3][250/469]	Loss 0.467 (0.547)	Prec@1 0.812 (0.778)	
+[2025/03/30 05:00:42] - Iter: [3][300/469]	Loss 0.547 (0.545)	Prec@1 0.797 (0.779)	
+[2025/03/30 05:00:47] - Iter: [3][350/469]	Loss 0.623 (0.542)	Prec@1 0.758 (0.781)	
+[2025/03/30 05:00:53] - Iter: [3][400/469]	Loss 0.494 (0.539)	Prec@1 0.797 (0.783)	
+[2025/03/30 05:00:58] - Iter: [3][450/469]	Loss 0.534 (0.537)	Prec@1 0.750 (0.783)	
+[2025/03/30 05:01:00] - Evaluating with standard images...
+[2025/03/30 05:01:01] - Evaluating with PGD Attack...
+[2025/03/30 05:01:23] - Test Loss: 0.3946  	 Test Acc: 0.8542  
+ PGD Loss: 0.5173 	 PGD Acc: 0.7987 
+ Best PGD Acc: 0.7987 	 Test Acc of best PGD ckpt: 0.8542
+[2025/03/30 05:01:23] - epoch 4 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:01:23] - Iter: [4][0/469]	Loss 0.609 (0.609)	Prec@1 0.797 (0.797)	
+[2025/03/30 05:01:28] - Iter: [4][50/469]	Loss 0.538 (0.537)	Prec@1 0.781 (0.784)	
+[2025/03/30 05:01:34] - Iter: [4][100/469]	Loss 0.414 (0.519)	Prec@1 0.836 (0.793)	
+[2025/03/30 05:01:39] - Iter: [4][150/469]	Loss 0.637 (0.523)	Prec@1 0.789 (0.792)	
+[2025/03/30 05:01:45] - Iter: [4][200/469]	Loss 0.548 (0.526)	Prec@1 0.797 (0.791)	
+[2025/03/30 05:01:50] - Iter: [4][250/469]	Loss 0.440 (0.523)	Prec@1 0.836 (0.792)	
+[2025/03/30 05:01:56] - Iter: [4][300/469]	Loss 0.470 (0.524)	Prec@1 0.820 (0.790)	
+[2025/03/30 05:02:01] - Iter: [4][350/469]	Loss 0.500 (0.520)	Prec@1 0.773 (0.791)	
+[2025/03/30 05:02:07] - Iter: [4][400/469]	Loss 0.469 (0.520)	Prec@1 0.773 (0.791)	
+[2025/03/30 05:02:12] - Iter: [4][450/469]	Loss 0.518 (0.517)	Prec@1 0.789 (0.793)	
+[2025/03/30 05:02:14] - Evaluating with standard images...
+[2025/03/30 05:02:14] - Evaluating with PGD Attack...
+[2025/03/30 05:02:36] - Test Loss: 0.3817  	 Test Acc: 0.8494  
+ PGD Loss: 0.4880 	 PGD Acc: 0.8027 
+ Best PGD Acc: 0.8027 	 Test Acc of best PGD ckpt: 0.8494
+[2025/03/30 05:02:36] - epoch 5 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:02:36] - Iter: [5][0/469]	Loss 0.474 (0.474)	Prec@1 0.797 (0.797)	
+[2025/03/30 05:02:42] - Iter: [5][50/469]	Loss 0.582 (0.499)	Prec@1 0.742 (0.797)	
+[2025/03/30 05:02:47] - Iter: [5][100/469]	Loss 0.576 (0.492)	Prec@1 0.781 (0.802)	
+[2025/03/30 05:02:53] - Iter: [5][150/469]	Loss 0.471 (0.500)	Prec@1 0.805 (0.798)	
+[2025/03/30 05:02:58] - Iter: [5][200/469]	Loss 0.481 (0.499)	Prec@1 0.805 (0.799)	
+[2025/03/30 05:03:03] - Iter: [5][250/469]	Loss 0.467 (0.499)	Prec@1 0.805 (0.800)	
+[2025/03/30 05:03:09] - Iter: [5][300/469]	Loss 0.459 (0.504)	Prec@1 0.820 (0.797)	
+[2025/03/30 05:03:14] - Iter: [5][350/469]	Loss 0.500 (0.504)	Prec@1 0.781 (0.797)	
+[2025/03/30 05:03:20] - Iter: [5][400/469]	Loss 0.369 (0.503)	Prec@1 0.844 (0.797)	
+[2025/03/30 05:03:25] - Iter: [5][450/469]	Loss 0.498 (0.502)	Prec@1 0.781 (0.798)	
+[2025/03/30 05:03:27] - Evaluating with standard images...
+[2025/03/30 05:03:28] - Evaluating with PGD Attack...
+[2025/03/30 05:03:49] - Test Loss: 0.3831  	 Test Acc: 0.8547  
+ PGD Loss: 0.4971 	 PGD Acc: 0.7945 
+ Best PGD Acc: 0.8027 	 Test Acc of best PGD ckpt: 0.8494
+[2025/03/30 05:03:49] - epoch 6 lr 1.000000e-01
+[2025/03/30 05:03:49] - Iter: [6][0/469]	Loss 0.492 (0.492)	Prec@1 0.766 (0.766)	
+[2025/03/30 05:03:54] - Iter: [6][50/469]	Loss 0.506 (0.507)	Prec@1 0.820 (0.798)	
+[2025/03/30 05:04:00] - Iter: [6][100/469]	Loss 0.480 (0.498)	Prec@1 0.742 (0.799)	
+[2025/03/30 05:04:05] - Iter: [6][150/469]	Loss 0.503 (0.491)	Prec@1 0.766 (0.805)	
+[2025/03/30 05:04:10] - Iter: [6][200/469]	Loss 0.466 (0.495)	Prec@1 0.789 (0.802)	
+[2025/03/30 05:04:16] - Iter: [6][250/469]	Loss 0.569 (0.496)	Prec@1 0.781 (0.802)	
+[2025/03/30 05:04:21] - Iter: [6][300/469]	Loss 0.441 (0.493)	Prec@1 0.828 (0.803)	
+[2025/03/30 05:04:27] - Iter: [6][350/469]	Loss 0.428 (0.495)	Prec@1 0.836 (0.802)	
+[2025/03/30 05:04:32] - Iter: [6][400/469]	Loss 0.509 (0.493)	Prec@1 0.781 (0.803)	
+[2025/03/30 05:04:37] - Iter: [6][450/469]	Loss 0.396 (0.493)	Prec@1 0.812 (0.803)	
+[2025/03/30 05:04:39] - Evaluating with standard images...
+[2025/03/30 05:04:40] - Evaluating with PGD Attack...
+[2025/03/30 05:05:01] - Test Loss: 0.3525  	 Test Acc: 0.8669  
+ PGD Loss: 0.4767 	 PGD Acc: 0.8029 
+ Best PGD Acc: 0.8029 	 Test Acc of best PGD ckpt: 0.8669
+[2025/03/30 05:05:01] - epoch 7 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:05:01] - Iter: [7][0/469]	Loss 0.541 (0.541)	Prec@1 0.773 (0.773)	
+[2025/03/30 05:05:07] - Iter: [7][50/469]	Loss 0.523 (0.491)	Prec@1 0.781 (0.805)	
+[2025/03/30 05:05:13] - Iter: [7][100/469]	Loss 0.548 (0.499)	Prec@1 0.805 (0.801)	
+[2025/03/30 05:05:18] - Iter: [7][150/469]	Loss 0.486 (0.493)	Prec@1 0.789 (0.801)	
+[2025/03/30 05:05:23] - Iter: [7][200/469]	Loss 0.518 (0.491)	Prec@1 0.805 (0.802)	
+[2025/03/30 05:05:29] - Iter: [7][250/469]	Loss 0.522 (0.490)	Prec@1 0.789 (0.803)	
+[2025/03/30 05:05:35] - Iter: [7][300/469]	Loss 0.455 (0.490)	Prec@1 0.797 (0.802)	
+[2025/03/30 05:05:40] - Iter: [7][350/469]	Loss 0.413 (0.491)	Prec@1 0.812 (0.803)	
+[2025/03/30 05:05:46] - Iter: [7][400/469]	Loss 0.535 (0.490)	Prec@1 0.789 (0.803)	
+[2025/03/30 05:05:51] - Iter: [7][450/469]	Loss 0.483 (0.489)	Prec@1 0.789 (0.804)	
+[2025/03/30 05:05:53] - Evaluating with standard images...
+[2025/03/30 05:05:53] - Evaluating with PGD Attack...
+[2025/03/30 05:06:15] - Test Loss: 0.3532  	 Test Acc: 0.8564  
+ PGD Loss: 0.4646 	 PGD Acc: 0.8084 
+ Best PGD Acc: 0.8084 	 Test Acc of best PGD ckpt: 0.8564
+[2025/03/30 05:06:15] - epoch 8 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:06:15] - Iter: [8][0/469]	Loss 0.446 (0.446)	Prec@1 0.828 (0.828)	
+[2025/03/30 05:06:20] - Iter: [8][50/469]	Loss 0.543 (0.473)	Prec@1 0.773 (0.805)	
+[2025/03/30 05:06:26] - Iter: [8][100/469]	Loss 0.445 (0.472)	Prec@1 0.812 (0.808)	
+[2025/03/30 05:06:31] - Iter: [8][150/469]	Loss 0.363 (0.474)	Prec@1 0.875 (0.807)	
+[2025/03/30 05:06:37] - Iter: [8][200/469]	Loss 0.426 (0.474)	Prec@1 0.812 (0.807)	
+[2025/03/30 05:06:42] - Iter: [8][250/469]	Loss 0.580 (0.477)	Prec@1 0.773 (0.806)	
+[2025/03/30 05:06:48] - Iter: [8][300/469]	Loss 0.467 (0.480)	Prec@1 0.805 (0.806)	
+[2025/03/30 05:06:53] - Iter: [8][350/469]	Loss 0.415 (0.478)	Prec@1 0.844 (0.806)	
+[2025/03/30 05:06:58] - Iter: [8][400/469]	Loss 0.481 (0.476)	Prec@1 0.797 (0.807)	
+[2025/03/30 05:07:04] - Iter: [8][450/469]	Loss 0.498 (0.477)	Prec@1 0.836 (0.808)	
+[2025/03/30 05:07:06] - Evaluating with standard images...
+[2025/03/30 05:07:06] - Evaluating with PGD Attack...
+[2025/03/30 05:07:28] - Test Loss: 0.3607  	 Test Acc: 0.8633  
+ PGD Loss: 0.4736 	 PGD Acc: 0.8093 
+ Best PGD Acc: 0.8093 	 Test Acc of best PGD ckpt: 0.8633
+[2025/03/30 05:07:28] - epoch 9 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:07:28] - Iter: [9][0/469]	Loss 0.370 (0.370)	Prec@1 0.812 (0.812)	
+[2025/03/30 05:07:33] - Iter: [9][50/469]	Loss 0.471 (0.467)	Prec@1 0.805 (0.813)	
+[2025/03/30 05:07:39] - Iter: [9][100/469]	Loss 0.475 (0.480)	Prec@1 0.820 (0.807)	
+[2025/03/30 05:07:44] - Iter: [9][150/469]	Loss 0.472 (0.474)	Prec@1 0.836 (0.811)	
+[2025/03/30 05:07:50] - Iter: [9][200/469]	Loss 0.482 (0.474)	Prec@1 0.812 (0.809)	
+[2025/03/30 05:07:56] - Iter: [9][250/469]	Loss 0.540 (0.477)	Prec@1 0.805 (0.808)	
+[2025/03/30 05:08:01] - Iter: [9][300/469]	Loss 0.543 (0.476)	Prec@1 0.742 (0.809)	
+[2025/03/30 05:08:07] - Iter: [9][350/469]	Loss 0.363 (0.476)	Prec@1 0.844 (0.808)	
+[2025/03/30 05:08:12] - Iter: [9][400/469]	Loss 0.383 (0.477)	Prec@1 0.875 (0.808)	
+[2025/03/30 05:08:18] - Iter: [9][450/469]	Loss 0.387 (0.476)	Prec@1 0.844 (0.808)	
+[2025/03/30 05:08:20] - Evaluating with standard images...
+[2025/03/30 05:08:20] - Evaluating with PGD Attack...
+[2025/03/30 05:08:42] - Test Loss: 0.3434  	 Test Acc: 0.8734  
+ PGD Loss: 0.4575 	 PGD Acc: 0.8200 
+ Best PGD Acc: 0.8200 	 Test Acc of best PGD ckpt: 0.8734
+[2025/03/30 05:08:42] - epoch 10 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:08:42] - Iter: [10][0/469]	Loss 0.444 (0.444)	Prec@1 0.844 (0.844)	
+[2025/03/30 05:08:47] - Iter: [10][50/469]	Loss 0.339 (0.448)	Prec@1 0.844 (0.823)	
+[2025/03/30 05:08:53] - Iter: [10][100/469]	Loss 0.416 (0.474)	Prec@1 0.852 (0.812)	
+[2025/03/30 05:08:59] - Iter: [10][150/469]	Loss 0.551 (0.477)	Prec@1 0.758 (0.809)	
+[2025/03/30 05:09:04] - Iter: [10][200/469]	Loss 0.448 (0.476)	Prec@1 0.828 (0.812)	
+[2025/03/30 05:09:09] - Iter: [10][250/469]	Loss 0.509 (0.479)	Prec@1 0.789 (0.810)	
+[2025/03/30 05:09:15] - Iter: [10][300/469]	Loss 0.499 (0.477)	Prec@1 0.836 (0.812)	
+[2025/03/30 05:09:20] - Iter: [10][350/469]	Loss 0.497 (0.477)	Prec@1 0.797 (0.811)	
+[2025/03/30 05:09:26] - Iter: [10][400/469]	Loss 0.452 (0.477)	Prec@1 0.812 (0.811)	
+[2025/03/30 05:09:32] - Iter: [10][450/469]	Loss 0.513 (0.478)	Prec@1 0.797 (0.809)	
+[2025/03/30 05:09:34] - Evaluating with standard images...
+[2025/03/30 05:09:34] - Evaluating with PGD Attack...
+[2025/03/30 05:09:55] - Test Loss: 0.3693  	 Test Acc: 0.8561  
+ PGD Loss: 0.4810 	 PGD Acc: 0.8104 
+ Best PGD Acc: 0.8200 	 Test Acc of best PGD ckpt: 0.8734
+[2025/03/30 05:09:55] - epoch 11 lr 1.000000e-01
+[2025/03/30 05:09:56] - Iter: [11][0/469]	Loss 0.469 (0.469)	Prec@1 0.820 (0.820)	
+[2025/03/30 05:10:01] - Iter: [11][50/469]	Loss 0.438 (0.465)	Prec@1 0.820 (0.811)	
+[2025/03/30 05:10:06] - Iter: [11][100/469]	Loss 0.548 (0.466)	Prec@1 0.781 (0.810)	
+[2025/03/30 05:10:12] - Iter: [11][150/469]	Loss 0.547 (0.461)	Prec@1 0.812 (0.813)	
+[2025/03/30 05:10:17] - Iter: [11][200/469]	Loss 0.481 (0.470)	Prec@1 0.797 (0.809)	
+[2025/03/30 05:10:23] - Iter: [11][250/469]	Loss 0.548 (0.474)	Prec@1 0.766 (0.808)	
+[2025/03/30 05:10:28] - Iter: [11][300/469]	Loss 0.429 (0.475)	Prec@1 0.836 (0.809)	
+[2025/03/30 05:10:34] - Iter: [11][350/469]	Loss 0.424 (0.473)	Prec@1 0.828 (0.809)	
+[2025/03/30 05:10:39] - Iter: [11][400/469]	Loss 0.437 (0.473)	Prec@1 0.828 (0.810)	
+[2025/03/30 05:10:45] - Iter: [11][450/469]	Loss 0.455 (0.473)	Prec@1 0.781 (0.810)	
+[2025/03/30 05:10:47] - Evaluating with standard images...
+[2025/03/30 05:10:47] - Evaluating with PGD Attack...
+[2025/03/30 05:11:09] - Test Loss: 0.3470  	 Test Acc: 0.8667  
+ PGD Loss: 0.4583 	 PGD Acc: 0.8167 
+ Best PGD Acc: 0.8200 	 Test Acc of best PGD ckpt: 0.8734
+[2025/03/30 05:11:09] - epoch 12 lr 1.000000e-01
+[2025/03/30 05:11:09] - Iter: [12][0/469]	Loss 0.531 (0.531)	Prec@1 0.820 (0.820)	
+[2025/03/30 05:11:14] - Iter: [12][50/469]	Loss 0.506 (0.459)	Prec@1 0.797 (0.813)	
+[2025/03/30 05:11:19] - Iter: [12][100/469]	Loss 0.379 (0.468)	Prec@1 0.828 (0.808)	
+[2025/03/30 05:11:25] - Iter: [12][150/469]	Loss 0.495 (0.471)	Prec@1 0.812 (0.807)	
+[2025/03/30 05:11:31] - Iter: [12][200/469]	Loss 0.325 (0.468)	Prec@1 0.852 (0.808)	
+[2025/03/30 05:11:36] - Iter: [12][250/469]	Loss 0.526 (0.470)	Prec@1 0.797 (0.809)	
+[2025/03/30 05:11:42] - Iter: [12][300/469]	Loss 0.467 (0.471)	Prec@1 0.789 (0.809)	
+[2025/03/30 05:11:47] - Iter: [12][350/469]	Loss 0.484 (0.481)	Prec@1 0.836 (0.805)	
+[2025/03/30 05:11:53] - Iter: [12][400/469]	Loss 0.469 (0.482)	Prec@1 0.797 (0.805)	
+[2025/03/30 05:11:59] - Iter: [12][450/469]	Loss 0.419 (0.481)	Prec@1 0.844 (0.805)	
+[2025/03/30 05:12:01] - Evaluating with standard images...
+[2025/03/30 05:12:01] - Evaluating with PGD Attack...
+[2025/03/30 05:12:22] - Test Loss: 0.3563  	 Test Acc: 0.8683  
+ PGD Loss: 0.4862 	 PGD Acc: 0.8109 
+ Best PGD Acc: 0.8200 	 Test Acc of best PGD ckpt: 0.8734
+[2025/03/30 05:12:22] - epoch 13 lr 1.000000e-01
+[2025/03/30 05:12:23] - Iter: [13][0/469]	Loss 0.544 (0.544)	Prec@1 0.797 (0.797)	
+[2025/03/30 05:12:28] - Iter: [13][50/469]	Loss 0.535 (0.480)	Prec@1 0.805 (0.801)	
+[2025/03/30 05:12:34] - Iter: [13][100/469]	Loss 0.405 (0.475)	Prec@1 0.844 (0.805)	
+[2025/03/30 05:12:39] - Iter: [13][150/469]	Loss 0.527 (0.473)	Prec@1 0.766 (0.808)	
+[2025/03/30 05:12:45] - Iter: [13][200/469]	Loss 0.492 (0.469)	Prec@1 0.789 (0.809)	
+[2025/03/30 05:12:50] - Iter: [13][250/469]	Loss 0.424 (0.468)	Prec@1 0.875 (0.810)	
+[2025/03/30 05:12:55] - Iter: [13][300/469]	Loss 0.413 (0.468)	Prec@1 0.852 (0.810)	
+[2025/03/30 05:13:01] - Iter: [13][350/469]	Loss 0.356 (0.467)	Prec@1 0.867 (0.810)	
+[2025/03/30 05:13:07] - Iter: [13][400/469]	Loss 0.482 (0.470)	Prec@1 0.773 (0.809)	
+[2025/03/30 05:13:12] - Iter: [13][450/469]	Loss 0.437 (0.468)	Prec@1 0.812 (0.810)	
+[2025/03/30 05:13:14] - Evaluating with standard images...
+[2025/03/30 05:13:15] - Evaluating with PGD Attack...
+[2025/03/30 05:13:37] - Test Loss: 0.3343  	 Test Acc: 0.8704  
+ PGD Loss: 0.4451 	 PGD Acc: 0.8209 
+ Best PGD Acc: 0.8209 	 Test Acc of best PGD ckpt: 0.8704
+[2025/03/30 05:13:37] - epoch 14 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:13:37] - Iter: [14][0/469]	Loss 0.391 (0.391)	Prec@1 0.898 (0.898)	
+[2025/03/30 05:13:42] - Iter: [14][50/469]	Loss 0.521 (0.465)	Prec@1 0.828 (0.811)	
+[2025/03/30 05:13:48] - Iter: [14][100/469]	Loss 0.343 (0.459)	Prec@1 0.867 (0.817)	
+[2025/03/30 05:13:53] - Iter: [14][150/469]	Loss 0.634 (0.456)	Prec@1 0.766 (0.818)	
+[2025/03/30 05:13:59] - Iter: [14][200/469]	Loss 0.477 (0.457)	Prec@1 0.789 (0.817)	
+[2025/03/30 05:14:04] - Iter: [14][250/469]	Loss 0.514 (0.467)	Prec@1 0.773 (0.813)	
+[2025/03/30 05:14:10] - Iter: [14][300/469]	Loss 0.407 (0.467)	Prec@1 0.883 (0.814)	
+[2025/03/30 05:14:15] - Iter: [14][350/469]	Loss 0.498 (0.467)	Prec@1 0.820 (0.812)	
+[2025/03/30 05:14:21] - Iter: [14][400/469]	Loss 0.431 (0.465)	Prec@1 0.805 (0.813)	
+[2025/03/30 05:14:27] - Iter: [14][450/469]	Loss 0.459 (0.466)	Prec@1 0.773 (0.813)	
+[2025/03/30 05:14:29] - Evaluating with standard images...
+[2025/03/30 05:14:29] - Evaluating with PGD Attack...
+[2025/03/30 05:14:51] - Test Loss: 0.3328  	 Test Acc: 0.8740  
+ PGD Loss: 0.4414 	 PGD Acc: 0.8201 
+ Best PGD Acc: 0.8209 	 Test Acc of best PGD ckpt: 0.8704
+[2025/03/30 05:14:51] - epoch 15 lr 1.000000e-01
+[2025/03/30 05:14:51] - Iter: [15][0/469]	Loss 0.528 (0.528)	Prec@1 0.781 (0.781)	
+[2025/03/30 05:14:56] - Iter: [15][50/469]	Loss 0.710 (0.463)	Prec@1 0.773 (0.813)	
+[2025/03/30 05:15:02] - Iter: [15][100/469]	Loss 0.451 (0.463)	Prec@1 0.828 (0.812)	
+[2025/03/30 05:15:07] - Iter: [15][150/469]	Loss 0.549 (0.469)	Prec@1 0.789 (0.810)	
+[2025/03/30 05:15:13] - Iter: [15][200/469]	Loss 0.444 (0.466)	Prec@1 0.789 (0.811)	
+[2025/03/30 05:15:18] - Iter: [15][250/469]	Loss 0.454 (0.463)	Prec@1 0.812 (0.812)	
+[2025/03/30 05:15:24] - Iter: [15][300/469]	Loss 0.444 (0.462)	Prec@1 0.820 (0.813)	
+[2025/03/30 05:15:29] - Iter: [15][350/469]	Loss 0.417 (0.462)	Prec@1 0.844 (0.813)	
+[2025/03/30 05:15:35] - Iter: [15][400/469]	Loss 0.443 (0.461)	Prec@1 0.789 (0.813)	
+[2025/03/30 05:15:40] - Iter: [15][450/469]	Loss 0.552 (0.461)	Prec@1 0.773 (0.813)	
+[2025/03/30 05:15:42] - Evaluating with standard images...
+[2025/03/30 05:15:43] - Evaluating with PGD Attack...
+[2025/03/30 05:16:04] - Test Loss: 0.3546  	 Test Acc: 0.8604  
+ PGD Loss: 0.4736 	 PGD Acc: 0.8073 
+ Best PGD Acc: 0.8209 	 Test Acc of best PGD ckpt: 0.8704
+[2025/03/30 05:16:04] - epoch 16 lr 1.000000e-01
+[2025/03/30 05:16:05] - Iter: [16][0/469]	Loss 0.436 (0.436)	Prec@1 0.828 (0.828)	
+[2025/03/30 05:16:10] - Iter: [16][50/469]	Loss 0.419 (0.450)	Prec@1 0.844 (0.819)	
+[2025/03/30 05:16:16] - Iter: [16][100/469]	Loss 0.343 (0.463)	Prec@1 0.859 (0.812)	
+[2025/03/30 05:16:21] - Iter: [16][150/469]	Loss 0.521 (0.457)	Prec@1 0.766 (0.816)	
+[2025/03/30 05:16:27] - Iter: [16][200/469]	Loss 0.384 (0.452)	Prec@1 0.867 (0.818)	
+[2025/03/30 05:16:32] - Iter: [16][250/469]	Loss 0.506 (0.456)	Prec@1 0.781 (0.816)	
+[2025/03/30 05:16:38] - Iter: [16][300/469]	Loss 0.484 (0.456)	Prec@1 0.836 (0.815)	
+[2025/03/30 05:16:43] - Iter: [16][350/469]	Loss 0.324 (0.459)	Prec@1 0.898 (0.814)	
+[2025/03/30 05:16:49] - Iter: [16][400/469]	Loss 0.440 (0.460)	Prec@1 0.836 (0.814)	
+[2025/03/30 05:16:54] - Iter: [16][450/469]	Loss 0.524 (0.459)	Prec@1 0.781 (0.814)	
+[2025/03/30 05:16:56] - Evaluating with standard images...
+[2025/03/30 05:16:57] - Evaluating with PGD Attack...
+[2025/03/30 05:17:18] - Test Loss: 0.3265  	 Test Acc: 0.8737  
+ PGD Loss: 0.4385 	 PGD Acc: 0.8275 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:17:18] - epoch 17 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:17:19] - Iter: [17][0/469]	Loss 0.393 (0.393)	Prec@1 0.836 (0.836)	
+[2025/03/30 05:17:24] - Iter: [17][50/469]	Loss 0.522 (0.458)	Prec@1 0.781 (0.817)	
+[2025/03/30 05:17:29] - Iter: [17][100/469]	Loss 0.619 (0.457)	Prec@1 0.766 (0.816)	
+[2025/03/30 05:17:35] - Iter: [17][150/469]	Loss 0.396 (0.460)	Prec@1 0.852 (0.816)	
+[2025/03/30 05:17:40] - Iter: [17][200/469]	Loss 0.502 (0.457)	Prec@1 0.781 (0.817)	
+[2025/03/30 05:17:46] - Iter: [17][250/469]	Loss 0.438 (0.456)	Prec@1 0.805 (0.817)	
+[2025/03/30 05:17:51] - Iter: [17][300/469]	Loss 0.537 (0.454)	Prec@1 0.805 (0.817)	
+[2025/03/30 05:17:57] - Iter: [17][350/469]	Loss 0.480 (0.454)	Prec@1 0.812 (0.817)	
+[2025/03/30 05:18:02] - Iter: [17][400/469]	Loss 0.386 (0.455)	Prec@1 0.844 (0.817)	
+[2025/03/30 05:18:08] - Iter: [17][450/469]	Loss 0.638 (0.456)	Prec@1 0.742 (0.816)	
+[2025/03/30 05:18:10] - Evaluating with standard images...
+[2025/03/30 05:18:10] - Evaluating with PGD Attack...
+[2025/03/30 05:18:31] - Test Loss: 0.3392  	 Test Acc: 0.8683  
+ PGD Loss: 0.4516 	 PGD Acc: 0.8172 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:18:31] - epoch 18 lr 1.000000e-01
+[2025/03/30 05:18:32] - Iter: [18][0/469]	Loss 0.469 (0.469)	Prec@1 0.812 (0.812)	
+[2025/03/30 05:18:37] - Iter: [18][50/469]	Loss 0.478 (0.470)	Prec@1 0.828 (0.809)	
+[2025/03/30 05:18:43] - Iter: [18][100/469]	Loss 0.432 (0.462)	Prec@1 0.812 (0.815)	
+[2025/03/30 05:18:48] - Iter: [18][150/469]	Loss 0.431 (0.462)	Prec@1 0.828 (0.814)	
+[2025/03/30 05:18:53] - Iter: [18][200/469]	Loss 0.470 (0.470)	Prec@1 0.852 (0.812)	
+[2025/03/30 05:18:59] - Iter: [18][250/469]	Loss 0.548 (0.469)	Prec@1 0.805 (0.813)	
+[2025/03/30 05:19:04] - Iter: [18][300/469]	Loss 0.482 (0.464)	Prec@1 0.844 (0.814)	
+[2025/03/30 05:19:10] - Iter: [18][350/469]	Loss 0.404 (0.463)	Prec@1 0.859 (0.814)	
+[2025/03/30 05:19:15] - Iter: [18][400/469]	Loss 0.421 (0.462)	Prec@1 0.828 (0.815)	
+[2025/03/30 05:19:21] - Iter: [18][450/469]	Loss 0.543 (0.464)	Prec@1 0.781 (0.814)	
+[2025/03/30 05:19:23] - Evaluating with standard images...
+[2025/03/30 05:19:23] - Evaluating with PGD Attack...
+[2025/03/30 05:19:45] - Test Loss: 0.3776  	 Test Acc: 0.8544  
+ PGD Loss: 0.5004 	 PGD Acc: 0.7970 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:19:45] - epoch 19 lr 1.000000e-01
+[2025/03/30 05:19:45] - Iter: [19][0/469]	Loss 0.507 (0.507)	Prec@1 0.781 (0.781)	
+[2025/03/30 05:19:50] - Iter: [19][50/469]	Loss 0.459 (0.469)	Prec@1 0.812 (0.814)	
+[2025/03/30 05:19:56] - Iter: [19][100/469]	Loss 0.404 (0.461)	Prec@1 0.852 (0.815)	
+[2025/03/30 05:20:01] - Iter: [19][150/469]	Loss 0.406 (0.457)	Prec@1 0.828 (0.815)	
+[2025/03/30 05:20:07] - Iter: [19][200/469]	Loss 0.502 (0.457)	Prec@1 0.805 (0.815)	
+[2025/03/30 05:20:12] - Iter: [19][250/469]	Loss 0.533 (0.458)	Prec@1 0.789 (0.816)	
+[2025/03/30 05:20:18] - Iter: [19][300/469]	Loss 0.476 (0.457)	Prec@1 0.820 (0.815)	
+[2025/03/30 05:20:23] - Iter: [19][350/469]	Loss 0.401 (0.454)	Prec@1 0.828 (0.816)	
+[2025/03/30 05:20:29] - Iter: [19][400/469]	Loss 0.505 (0.454)	Prec@1 0.805 (0.816)	
+[2025/03/30 05:20:34] - Iter: [19][450/469]	Loss 0.566 (0.455)	Prec@1 0.766 (0.816)	
+[2025/03/30 05:20:36] - Evaluating with standard images...
+[2025/03/30 05:20:37] - Evaluating with PGD Attack...
+[2025/03/30 05:20:58] - Test Loss: 0.3293  	 Test Acc: 0.8685  
+ PGD Loss: 0.4342 	 PGD Acc: 0.8256 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:20:58] - epoch 20 lr 1.000000e-01
+[2025/03/30 05:20:58] - Iter: [20][0/469]	Loss 0.329 (0.329)	Prec@1 0.875 (0.875)	
+[2025/03/30 05:21:03] - Iter: [20][50/469]	Loss 0.523 (0.430)	Prec@1 0.836 (0.826)	
+[2025/03/30 05:21:09] - Iter: [20][100/469]	Loss 0.425 (0.450)	Prec@1 0.797 (0.820)	
+[2025/03/30 05:21:14] - Iter: [20][150/469]	Loss 0.622 (0.454)	Prec@1 0.766 (0.818)	
+[2025/03/30 05:21:20] - Iter: [20][200/469]	Loss 0.323 (0.449)	Prec@1 0.883 (0.820)	
+[2025/03/30 05:21:25] - Iter: [20][250/469]	Loss 0.489 (0.450)	Prec@1 0.750 (0.819)	
+[2025/03/30 05:21:31] - Iter: [20][300/469]	Loss 0.467 (0.456)	Prec@1 0.805 (0.816)	
+[2025/03/30 05:21:36] - Iter: [20][350/469]	Loss 0.452 (0.456)	Prec@1 0.820 (0.816)	
+[2025/03/30 05:21:42] - Iter: [20][400/469]	Loss 0.545 (0.456)	Prec@1 0.734 (0.816)	
+[2025/03/30 05:21:47] - Iter: [20][450/469]	Loss 0.493 (0.455)	Prec@1 0.805 (0.817)	
+[2025/03/30 05:21:49] - Evaluating with standard images...
+[2025/03/30 05:21:50] - Evaluating with PGD Attack...
+[2025/03/30 05:22:11] - Test Loss: 0.3336  	 Test Acc: 0.8730  
+ PGD Loss: 0.4469 	 PGD Acc: 0.8233 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:22:11] - epoch 21 lr 1.000000e-01
+[2025/03/30 05:22:11] - Iter: [21][0/469]	Loss 0.523 (0.523)	Prec@1 0.758 (0.758)	
+[2025/03/30 05:22:17] - Iter: [21][50/469]	Loss 0.381 (0.450)	Prec@1 0.859 (0.815)	
+[2025/03/30 05:22:23] - Iter: [21][100/469]	Loss 0.512 (0.448)	Prec@1 0.758 (0.817)	
+[2025/03/30 05:22:28] - Iter: [21][150/469]	Loss 0.574 (0.442)	Prec@1 0.805 (0.822)	
+[2025/03/30 05:22:34] - Iter: [21][200/469]	Loss 0.480 (0.449)	Prec@1 0.781 (0.819)	
+[2025/03/30 05:22:39] - Iter: [21][250/469]	Loss 0.414 (0.450)	Prec@1 0.844 (0.819)	
+[2025/03/30 05:22:45] - Iter: [21][300/469]	Loss 0.516 (0.450)	Prec@1 0.805 (0.820)	
+[2025/03/30 05:22:50] - Iter: [21][350/469]	Loss 0.396 (0.454)	Prec@1 0.836 (0.818)	
+[2025/03/30 05:22:56] - Iter: [21][400/469]	Loss 0.385 (0.454)	Prec@1 0.852 (0.817)	
+[2025/03/30 05:23:01] - Iter: [21][450/469]	Loss 0.416 (0.453)	Prec@1 0.852 (0.818)	
+[2025/03/30 05:23:03] - Evaluating with standard images...
+[2025/03/30 05:23:04] - Evaluating with PGD Attack...
+[2025/03/30 05:23:25] - Test Loss: 0.3489  	 Test Acc: 0.8669  
+ PGD Loss: 0.4632 	 PGD Acc: 0.8100 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:23:25] - epoch 22 lr 1.000000e-01
+[2025/03/30 05:23:25] - Iter: [22][0/469]	Loss 0.384 (0.384)	Prec@1 0.820 (0.820)	
+[2025/03/30 05:23:31] - Iter: [22][50/469]	Loss 0.392 (0.452)	Prec@1 0.836 (0.813)	
+[2025/03/30 05:23:36] - Iter: [22][100/469]	Loss 0.528 (0.444)	Prec@1 0.789 (0.819)	
+[2025/03/30 05:23:42] - Iter: [22][150/469]	Loss 0.431 (0.449)	Prec@1 0.820 (0.818)	
+[2025/03/30 05:23:47] - Iter: [22][200/469]	Loss 0.420 (0.450)	Prec@1 0.836 (0.819)	
+[2025/03/30 05:23:53] - Iter: [22][250/469]	Loss 0.566 (0.453)	Prec@1 0.750 (0.819)	
+[2025/03/30 05:23:58] - Iter: [22][300/469]	Loss 0.392 (0.456)	Prec@1 0.820 (0.817)	
+[2025/03/30 05:24:04] - Iter: [22][350/469]	Loss 0.529 (0.458)	Prec@1 0.820 (0.817)	
+[2025/03/30 05:24:09] - Iter: [22][400/469]	Loss 0.422 (0.458)	Prec@1 0.828 (0.816)	
+[2025/03/30 05:24:15] - Iter: [22][450/469]	Loss 0.429 (0.458)	Prec@1 0.789 (0.816)	
+[2025/03/30 05:24:17] - Evaluating with standard images...
+[2025/03/30 05:24:18] - Evaluating with PGD Attack...
+[2025/03/30 05:24:39] - Test Loss: 0.3418  	 Test Acc: 0.8649  
+ PGD Loss: 0.4525 	 PGD Acc: 0.8189 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:24:39] - epoch 23 lr 1.000000e-01
+[2025/03/30 05:24:39] - Iter: [23][0/469]	Loss 0.443 (0.443)	Prec@1 0.812 (0.812)	
+[2025/03/30 05:24:45] - Iter: [23][50/469]	Loss 0.488 (0.445)	Prec@1 0.789 (0.824)	
+[2025/03/30 05:24:50] - Iter: [23][100/469]	Loss 0.600 (0.444)	Prec@1 0.734 (0.821)	
+[2025/03/30 05:24:56] - Iter: [23][150/469]	Loss 0.357 (0.452)	Prec@1 0.859 (0.818)	
+[2025/03/30 05:25:01] - Iter: [23][200/469]	Loss 0.544 (0.451)	Prec@1 0.719 (0.818)	
+[2025/03/30 05:25:07] - Iter: [23][250/469]	Loss 0.384 (0.450)	Prec@1 0.828 (0.818)	
+[2025/03/30 05:25:12] - Iter: [23][300/469]	Loss 0.407 (0.449)	Prec@1 0.852 (0.820)	
+[2025/03/30 05:25:18] - Iter: [23][350/469]	Loss 0.464 (0.448)	Prec@1 0.797 (0.819)	
+[2025/03/30 05:25:23] - Iter: [23][400/469]	Loss 0.462 (0.448)	Prec@1 0.844 (0.819)	
+[2025/03/30 05:25:29] - Iter: [23][450/469]	Loss 0.457 (0.448)	Prec@1 0.836 (0.819)	
+[2025/03/30 05:25:31] - Evaluating with standard images...
+[2025/03/30 05:25:31] - Evaluating with PGD Attack...
+[2025/03/30 05:25:53] - Test Loss: 0.3560  	 Test Acc: 0.8698  
+ PGD Loss: 0.4792 	 PGD Acc: 0.8146 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:25:53] - epoch 24 lr 1.000000e-01
+[2025/03/30 05:25:53] - Iter: [24][0/469]	Loss 0.476 (0.476)	Prec@1 0.805 (0.805)	
+[2025/03/30 05:25:59] - Iter: [24][50/469]	Loss 0.476 (0.449)	Prec@1 0.789 (0.821)	
+[2025/03/30 05:26:04] - Iter: [24][100/469]	Loss 0.369 (0.451)	Prec@1 0.883 (0.818)	
+[2025/03/30 05:26:10] - Iter: [24][150/469]	Loss 0.548 (0.451)	Prec@1 0.758 (0.819)	
+[2025/03/30 05:26:15] - Iter: [24][200/469]	Loss 0.383 (0.449)	Prec@1 0.836 (0.820)	
+[2025/03/30 05:26:21] - Iter: [24][250/469]	Loss 0.462 (0.451)	Prec@1 0.781 (0.819)	
+[2025/03/30 05:26:26] - Iter: [24][300/469]	Loss 0.409 (0.453)	Prec@1 0.828 (0.819)	
+[2025/03/30 05:26:32] - Iter: [24][350/469]	Loss 0.729 (0.453)	Prec@1 0.742 (0.818)	
+[2025/03/30 05:26:38] - Iter: [24][400/469]	Loss 0.430 (0.451)	Prec@1 0.820 (0.818)	
+[2025/03/30 05:26:43] - Iter: [24][450/469]	Loss 0.565 (0.452)	Prec@1 0.797 (0.818)	
+[2025/03/30 05:26:45] - Evaluating with standard images...
+[2025/03/30 05:26:45] - Evaluating with PGD Attack...
+[2025/03/30 05:27:07] - Test Loss: 0.3406  	 Test Acc: 0.8715  
+ PGD Loss: 0.4493 	 PGD Acc: 0.8211 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:27:07] - epoch 25 lr 1.000000e-01
+[2025/03/30 05:27:07] - Iter: [25][0/469]	Loss 0.398 (0.398)	Prec@1 0.859 (0.859)	
+[2025/03/30 05:27:13] - Iter: [25][50/469]	Loss 0.508 (0.458)	Prec@1 0.805 (0.816)	
+[2025/03/30 05:27:18] - Iter: [25][100/469]	Loss 0.441 (0.453)	Prec@1 0.836 (0.817)	
+[2025/03/30 05:27:23] - Iter: [25][150/469]	Loss 0.517 (0.449)	Prec@1 0.820 (0.819)	
+[2025/03/30 05:27:29] - Iter: [25][200/469]	Loss 0.370 (0.447)	Prec@1 0.828 (0.820)	
+[2025/03/30 05:27:34] - Iter: [25][250/469]	Loss 0.485 (0.447)	Prec@1 0.812 (0.820)	
+[2025/03/30 05:27:40] - Iter: [25][300/469]	Loss 0.471 (0.447)	Prec@1 0.820 (0.819)	
+[2025/03/30 05:27:45] - Iter: [25][350/469]	Loss 0.443 (0.448)	Prec@1 0.859 (0.819)	
+[2025/03/30 05:27:51] - Iter: [25][400/469]	Loss 0.320 (0.447)	Prec@1 0.906 (0.820)	
+[2025/03/30 05:27:57] - Iter: [25][450/469]	Loss 0.464 (0.447)	Prec@1 0.805 (0.819)	
+[2025/03/30 05:27:59] - Evaluating with standard images...
+[2025/03/30 05:27:59] - Evaluating with PGD Attack...
+[2025/03/30 05:28:21] - Test Loss: 0.3308  	 Test Acc: 0.8755  
+ PGD Loss: 0.4490 	 PGD Acc: 0.8199 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:28:21] - epoch 26 lr 1.000000e-01
+[2025/03/30 05:28:21] - Iter: [26][0/469]	Loss 0.520 (0.520)	Prec@1 0.781 (0.781)	
+[2025/03/30 05:28:27] - Iter: [26][50/469]	Loss 0.506 (0.454)	Prec@1 0.812 (0.823)	
+[2025/03/30 05:28:32] - Iter: [26][100/469]	Loss 0.398 (0.438)	Prec@1 0.805 (0.826)	
+[2025/03/30 05:28:37] - Iter: [26][150/469]	Loss 0.516 (0.443)	Prec@1 0.812 (0.825)	
+[2025/03/30 05:28:43] - Iter: [26][200/469]	Loss 0.379 (0.446)	Prec@1 0.867 (0.822)	
+[2025/03/30 05:28:48] - Iter: [26][250/469]	Loss 0.424 (0.448)	Prec@1 0.820 (0.822)	
+[2025/03/30 05:28:54] - Iter: [26][300/469]	Loss 0.510 (0.450)	Prec@1 0.812 (0.821)	
+[2025/03/30 05:28:59] - Iter: [26][350/469]	Loss 0.570 (0.449)	Prec@1 0.773 (0.821)	
+[2025/03/30 05:29:05] - Iter: [26][400/469]	Loss 0.494 (0.450)	Prec@1 0.797 (0.820)	
+[2025/03/30 05:29:11] - Iter: [26][450/469]	Loss 0.419 (0.451)	Prec@1 0.820 (0.819)	
+[2025/03/30 05:29:13] - Evaluating with standard images...
+[2025/03/30 05:29:13] - Evaluating with PGD Attack...
+[2025/03/30 05:29:34] - Test Loss: 0.3372  	 Test Acc: 0.8635  
+ PGD Loss: 0.4519 	 PGD Acc: 0.8185 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:29:34] - epoch 27 lr 1.000000e-01
+[2025/03/30 05:29:35] - Iter: [27][0/469]	Loss 0.479 (0.479)	Prec@1 0.773 (0.773)	
+[2025/03/30 05:29:40] - Iter: [27][50/469]	Loss 0.466 (0.451)	Prec@1 0.812 (0.815)	
+[2025/03/30 05:29:46] - Iter: [27][100/469]	Loss 0.398 (0.451)	Prec@1 0.844 (0.816)	
+[2025/03/30 05:29:51] - Iter: [27][150/469]	Loss 0.621 (0.452)	Prec@1 0.734 (0.816)	
+[2025/03/30 05:29:57] - Iter: [27][200/469]	Loss 0.505 (0.452)	Prec@1 0.773 (0.816)	
+[2025/03/30 05:30:02] - Iter: [27][250/469]	Loss 0.513 (0.453)	Prec@1 0.812 (0.816)	
+[2025/03/30 05:30:08] - Iter: [27][300/469]	Loss 0.387 (0.450)	Prec@1 0.828 (0.817)	
+[2025/03/30 05:30:13] - Iter: [27][350/469]	Loss 0.401 (0.451)	Prec@1 0.852 (0.817)	
+[2025/03/30 05:30:19] - Iter: [27][400/469]	Loss 0.352 (0.450)	Prec@1 0.867 (0.818)	
+[2025/03/30 05:30:24] - Iter: [27][450/469]	Loss 0.414 (0.450)	Prec@1 0.812 (0.818)	
+[2025/03/30 05:30:26] - Evaluating with standard images...
+[2025/03/30 05:30:27] - Evaluating with PGD Attack...
+[2025/03/30 05:30:48] - Test Loss: 0.3180  	 Test Acc: 0.8842  
+ PGD Loss: 0.4562 	 PGD Acc: 0.8109 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:30:48] - epoch 28 lr 1.000000e-01
+[2025/03/30 05:30:49] - Iter: [28][0/469]	Loss 0.406 (0.406)	Prec@1 0.820 (0.820)	
+[2025/03/30 05:30:54] - Iter: [28][50/469]	Loss 0.397 (0.436)	Prec@1 0.805 (0.823)	
+[2025/03/30 05:31:00] - Iter: [28][100/469]	Loss 0.594 (0.446)	Prec@1 0.805 (0.819)	
+[2025/03/30 05:31:06] - Iter: [28][150/469]	Loss 0.412 (0.445)	Prec@1 0.828 (0.821)	
+[2025/03/30 05:31:11] - Iter: [28][200/469]	Loss 0.505 (0.440)	Prec@1 0.812 (0.824)	
+[2025/03/30 05:31:16] - Iter: [28][250/469]	Loss 0.479 (0.446)	Prec@1 0.789 (0.822)	
+[2025/03/30 05:31:22] - Iter: [28][300/469]	Loss 0.416 (0.446)	Prec@1 0.758 (0.822)	
+[2025/03/30 05:31:27] - Iter: [28][350/469]	Loss 0.419 (0.445)	Prec@1 0.820 (0.822)	
+[2025/03/30 05:31:33] - Iter: [28][400/469]	Loss 0.424 (0.445)	Prec@1 0.844 (0.821)	
+[2025/03/30 05:31:38] - Iter: [28][450/469]	Loss 0.474 (0.446)	Prec@1 0.797 (0.820)	
+[2025/03/30 05:31:40] - Evaluating with standard images...
+[2025/03/30 05:31:41] - Evaluating with PGD Attack...
+[2025/03/30 05:32:02] - Test Loss: 0.3228  	 Test Acc: 0.8830  
+ PGD Loss: 0.4632 	 PGD Acc: 0.8184 
+ Best PGD Acc: 0.8275 	 Test Acc of best PGD ckpt: 0.8737
+[2025/03/30 05:32:02] - epoch 29 lr 1.000000e-01
+[2025/03/30 05:32:02] - Iter: [29][0/469]	Loss 0.337 (0.337)	Prec@1 0.859 (0.859)	
+[2025/03/30 05:32:08] - Iter: [29][50/469]	Loss 0.458 (0.436)	Prec@1 0.820 (0.823)	
+[2025/03/30 05:32:13] - Iter: [29][100/469]	Loss 0.503 (0.441)	Prec@1 0.789 (0.822)	
+[2025/03/30 05:32:18] - Iter: [29][150/469]	Loss 0.568 (0.442)	Prec@1 0.805 (0.821)	
+[2025/03/30 05:32:24] - Iter: [29][200/469]	Loss 0.390 (0.441)	Prec@1 0.797 (0.822)	
+[2025/03/30 05:32:29] - Iter: [29][250/469]	Loss 0.594 (0.443)	Prec@1 0.758 (0.820)	
+[2025/03/30 05:32:35] - Iter: [29][300/469]	Loss 0.479 (0.445)	Prec@1 0.789 (0.820)	
+[2025/03/30 05:32:40] - Iter: [29][350/469]	Loss 0.448 (0.445)	Prec@1 0.797 (0.820)	
+[2025/03/30 05:32:45] - Iter: [29][400/469]	Loss 0.322 (0.445)	Prec@1 0.875 (0.820)	
+[2025/03/30 05:32:51] - Iter: [29][450/469]	Loss 0.371 (0.445)	Prec@1 0.805 (0.819)	
+[2025/03/30 05:32:53] - Evaluating with standard images...
+[2025/03/30 05:32:53] - Evaluating with PGD Attack...
+[2025/03/30 05:33:15] - Test Loss: 0.3295  	 Test Acc: 0.8787  
+ PGD Loss: 0.4304 	 PGD Acc: 0.8327 
+ Best PGD Acc: 0.8327 	 Test Acc of best PGD ckpt: 0.8787
+[2025/03/30 05:33:15] - epoch 30 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:33:15] - Iter: [30][0/469]	Loss 0.412 (0.412)	Prec@1 0.805 (0.805)	
+[2025/03/30 05:33:21] - Iter: [30][50/469]	Loss 0.363 (0.442)	Prec@1 0.867 (0.819)	
+[2025/03/30 05:33:26] - Iter: [30][100/469]	Loss 0.371 (0.449)	Prec@1 0.867 (0.815)	
+[2025/03/30 05:33:32] - Iter: [30][150/469]	Loss 0.419 (0.449)	Prec@1 0.828 (0.817)	
+[2025/03/30 05:33:37] - Iter: [30][200/469]	Loss 0.337 (0.445)	Prec@1 0.859 (0.818)	
+[2025/03/30 05:33:43] - Iter: [30][250/469]	Loss 0.413 (0.446)	Prec@1 0.828 (0.817)	
+[2025/03/30 05:33:48] - Iter: [30][300/469]	Loss 0.401 (0.445)	Prec@1 0.836 (0.819)	
+[2025/03/30 05:33:54] - Iter: [30][350/469]	Loss 0.384 (0.447)	Prec@1 0.820 (0.820)	
+[2025/03/30 05:33:59] - Iter: [30][400/469]	Loss 0.483 (0.450)	Prec@1 0.789 (0.818)	
+[2025/03/30 05:34:05] - Iter: [30][450/469]	Loss 0.485 (0.449)	Prec@1 0.797 (0.819)	
+[2025/03/30 05:34:07] - Evaluating with standard images...
+[2025/03/30 05:34:07] - Evaluating with PGD Attack...
+[2025/03/30 05:34:28] - Test Loss: 0.3397  	 Test Acc: 0.8697  
+ PGD Loss: 0.4618 	 PGD Acc: 0.8174 
+ Best PGD Acc: 0.8327 	 Test Acc of best PGD ckpt: 0.8787
+[2025/03/30 05:34:28] - epoch 31 lr 1.000000e-01
+[2025/03/30 05:34:29] - Iter: [31][0/469]	Loss 0.495 (0.495)	Prec@1 0.812 (0.812)	
+[2025/03/30 05:34:34] - Iter: [31][50/469]	Loss 0.444 (0.439)	Prec@1 0.773 (0.825)	
+[2025/03/30 05:34:40] - Iter: [31][100/469]	Loss 0.484 (0.442)	Prec@1 0.789 (0.819)	
+[2025/03/30 05:34:45] - Iter: [31][150/469]	Loss 0.472 (0.443)	Prec@1 0.812 (0.821)	
+[2025/03/30 05:34:51] - Iter: [31][200/469]	Loss 0.401 (0.443)	Prec@1 0.836 (0.822)	
+[2025/03/30 05:34:57] - Iter: [31][250/469]	Loss 0.423 (0.445)	Prec@1 0.812 (0.821)	
+[2025/03/30 05:35:02] - Iter: [31][300/469]	Loss 0.546 (0.445)	Prec@1 0.758 (0.820)	
+[2025/03/30 05:35:07] - Iter: [31][350/469]	Loss 0.488 (0.447)	Prec@1 0.820 (0.820)	
+[2025/03/30 05:35:13] - Iter: [31][400/469]	Loss 0.389 (0.443)	Prec@1 0.820 (0.822)	
+[2025/03/30 05:35:18] - Iter: [31][450/469]	Loss 0.373 (0.443)	Prec@1 0.828 (0.822)	
+[2025/03/30 05:35:20] - Evaluating with standard images...
+[2025/03/30 05:35:21] - Evaluating with PGD Attack...
+[2025/03/30 05:35:42] - Test Loss: 0.3410  	 Test Acc: 0.8609  
+ PGD Loss: 0.4545 	 PGD Acc: 0.8191 
+ Best PGD Acc: 0.8327 	 Test Acc of best PGD ckpt: 0.8787
+[2025/03/30 05:35:42] - epoch 32 lr 1.000000e-01
+[2025/03/30 05:35:42] - Iter: [32][0/469]	Loss 0.412 (0.412)	Prec@1 0.805 (0.805)	
+[2025/03/30 05:35:48] - Iter: [32][50/469]	Loss 0.369 (0.447)	Prec@1 0.828 (0.818)	
+[2025/03/30 05:35:53] - Iter: [32][100/469]	Loss 0.396 (0.450)	Prec@1 0.820 (0.818)	
+[2025/03/30 05:35:58] - Iter: [32][150/469]	Loss 0.483 (0.449)	Prec@1 0.820 (0.819)	
+[2025/03/30 05:36:04] - Iter: [32][200/469]	Loss 0.458 (0.452)	Prec@1 0.844 (0.819)	
+[2025/03/30 05:36:10] - Iter: [32][250/469]	Loss 0.495 (0.447)	Prec@1 0.797 (0.821)	
+[2025/03/30 05:36:15] - Iter: [32][300/469]	Loss 0.551 (0.446)	Prec@1 0.750 (0.821)	
+[2025/03/30 05:36:21] - Iter: [32][350/469]	Loss 0.470 (0.446)	Prec@1 0.781 (0.821)	
+[2025/03/30 05:36:26] - Iter: [32][400/469]	Loss 0.509 (0.446)	Prec@1 0.773 (0.821)	
+[2025/03/30 05:36:31] - Iter: [32][450/469]	Loss 0.385 (0.446)	Prec@1 0.852 (0.821)	
+[2025/03/30 05:36:33] - Evaluating with standard images...
+[2025/03/30 05:36:34] - Evaluating with PGD Attack...
+[2025/03/30 05:36:56] - Test Loss: 0.3264  	 Test Acc: 0.8822  
+ PGD Loss: 0.4302 	 PGD Acc: 0.8331 
+ Best PGD Acc: 0.8331 	 Test Acc of best PGD ckpt: 0.8822
+[2025/03/30 05:36:56] - epoch 33 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:36:56] - Iter: [33][0/469]	Loss 0.356 (0.356)	Prec@1 0.852 (0.852)	
+[2025/03/30 05:37:02] - Iter: [33][50/469]	Loss 0.396 (0.438)	Prec@1 0.828 (0.827)	
+[2025/03/30 05:37:07] - Iter: [33][100/469]	Loss 0.482 (0.440)	Prec@1 0.805 (0.823)	
+[2025/03/30 05:37:13] - Iter: [33][150/469]	Loss 0.382 (0.443)	Prec@1 0.898 (0.822)	
+[2025/03/30 05:37:18] - Iter: [33][200/469]	Loss 0.416 (0.440)	Prec@1 0.852 (0.822)	
+[2025/03/30 05:37:24] - Iter: [33][250/469]	Loss 0.436 (0.439)	Prec@1 0.820 (0.823)	
+[2025/03/30 05:37:30] - Iter: [33][300/469]	Loss 0.419 (0.438)	Prec@1 0.828 (0.823)	
+[2025/03/30 05:37:35] - Iter: [33][350/469]	Loss 0.474 (0.442)	Prec@1 0.805 (0.822)	
+[2025/03/30 05:37:40] - Iter: [33][400/469]	Loss 0.674 (0.445)	Prec@1 0.711 (0.821)	
+[2025/03/30 05:37:46] - Iter: [33][450/469]	Loss 0.530 (0.445)	Prec@1 0.734 (0.820)	
+[2025/03/30 05:37:48] - Evaluating with standard images...
+[2025/03/30 05:37:48] - Evaluating with PGD Attack...
+[2025/03/30 05:38:10] - Test Loss: 0.3432  	 Test Acc: 0.8644  
+ PGD Loss: 0.4526 	 PGD Acc: 0.8132 
+ Best PGD Acc: 0.8331 	 Test Acc of best PGD ckpt: 0.8822
+[2025/03/30 05:38:10] - epoch 34 lr 1.000000e-01
+[2025/03/30 05:38:10] - Iter: [34][0/469]	Loss 0.483 (0.483)	Prec@1 0.781 (0.781)	
+[2025/03/30 05:38:15] - Iter: [34][50/469]	Loss 0.461 (0.437)	Prec@1 0.805 (0.825)	
+[2025/03/30 05:38:21] - Iter: [34][100/469]	Loss 0.545 (0.438)	Prec@1 0.766 (0.820)	
+[2025/03/30 05:38:26] - Iter: [34][150/469]	Loss 0.444 (0.442)	Prec@1 0.820 (0.819)	
+[2025/03/30 05:38:32] - Iter: [34][200/469]	Loss 0.417 (0.444)	Prec@1 0.859 (0.820)	
+[2025/03/30 05:38:37] - Iter: [34][250/469]	Loss 0.532 (0.449)	Prec@1 0.805 (0.817)	
+[2025/03/30 05:38:43] - Iter: [34][300/469]	Loss 0.377 (0.452)	Prec@1 0.852 (0.816)	
+[2025/03/30 05:38:48] - Iter: [34][350/469]	Loss 0.504 (0.451)	Prec@1 0.781 (0.816)	
+[2025/03/30 05:38:54] - Iter: [34][400/469]	Loss 0.433 (0.452)	Prec@1 0.812 (0.816)	
+[2025/03/30 05:38:59] - Iter: [34][450/469]	Loss 0.481 (0.452)	Prec@1 0.805 (0.816)	
+[2025/03/30 05:39:01] - Evaluating with standard images...
+[2025/03/30 05:39:02] - Evaluating with PGD Attack...
+[2025/03/30 05:39:23] - Test Loss: 0.3356  	 Test Acc: 0.8711  
+ PGD Loss: 0.4569 	 PGD Acc: 0.8103 
+ Best PGD Acc: 0.8331 	 Test Acc of best PGD ckpt: 0.8822
+[2025/03/30 05:39:23] - epoch 35 lr 1.000000e-01
+[2025/03/30 05:39:23] - Iter: [35][0/469]	Loss 0.273 (0.273)	Prec@1 0.898 (0.898)	
+[2025/03/30 05:39:29] - Iter: [35][50/469]	Loss 0.389 (0.431)	Prec@1 0.820 (0.824)	
+[2025/03/30 05:39:34] - Iter: [35][100/469]	Loss 0.523 (0.435)	Prec@1 0.758 (0.821)	
+[2025/03/30 05:39:39] - Iter: [35][150/469]	Loss 0.397 (0.438)	Prec@1 0.828 (0.821)	
+[2025/03/30 05:39:45] - Iter: [35][200/469]	Loss 0.427 (0.440)	Prec@1 0.797 (0.820)	
+[2025/03/30 05:39:50] - Iter: [35][250/469]	Loss 0.415 (0.439)	Prec@1 0.820 (0.822)	
+[2025/03/30 05:39:56] - Iter: [35][300/469]	Loss 0.480 (0.442)	Prec@1 0.828 (0.821)	
+[2025/03/30 05:40:01] - Iter: [35][350/469]	Loss 0.411 (0.440)	Prec@1 0.844 (0.822)	
+[2025/03/30 05:40:07] - Iter: [35][400/469]	Loss 0.368 (0.440)	Prec@1 0.859 (0.821)	
+[2025/03/30 05:40:13] - Iter: [35][450/469]	Loss 0.432 (0.442)	Prec@1 0.805 (0.821)	
+[2025/03/30 05:40:15] - Evaluating with standard images...
+[2025/03/30 05:40:15] - Evaluating with PGD Attack...
+[2025/03/30 05:40:37] - Test Loss: 0.3425  	 Test Acc: 0.8753  
+ PGD Loss: 0.4578 	 PGD Acc: 0.8201 
+ Best PGD Acc: 0.8331 	 Test Acc of best PGD ckpt: 0.8822
+[2025/03/30 05:40:37] - epoch 36 lr 1.000000e-01
+[2025/03/30 05:40:37] - Iter: [36][0/469]	Loss 0.404 (0.404)	Prec@1 0.844 (0.844)	
+[2025/03/30 05:40:42] - Iter: [36][50/469]	Loss 0.458 (0.440)	Prec@1 0.820 (0.824)	
+[2025/03/30 05:40:48] - Iter: [36][100/469]	Loss 0.492 (0.438)	Prec@1 0.773 (0.823)	
+[2025/03/30 05:40:54] - Iter: [36][150/469]	Loss 0.588 (0.438)	Prec@1 0.789 (0.822)	
+[2025/03/30 05:40:59] - Iter: [36][200/469]	Loss 0.439 (0.440)	Prec@1 0.828 (0.822)	
+[2025/03/30 05:41:05] - Iter: [36][250/469]	Loss 0.335 (0.436)	Prec@1 0.844 (0.824)	
+[2025/03/30 05:41:10] - Iter: [36][300/469]	Loss 0.392 (0.436)	Prec@1 0.867 (0.824)	
+[2025/03/30 05:41:15] - Iter: [36][350/469]	Loss 0.491 (0.439)	Prec@1 0.773 (0.823)	
+[2025/03/30 05:41:21] - Iter: [36][400/469]	Loss 0.427 (0.437)	Prec@1 0.828 (0.824)	
+[2025/03/30 05:41:26] - Iter: [36][450/469]	Loss 0.448 (0.437)	Prec@1 0.828 (0.823)	
+[2025/03/30 05:41:28] - Evaluating with standard images...
+[2025/03/30 05:41:29] - Evaluating with PGD Attack...
+[2025/03/30 05:41:50] - Test Loss: 0.3159  	 Test Acc: 0.8848  
+ PGD Loss: 0.4280 	 PGD Acc: 0.8290 
+ Best PGD Acc: 0.8331 	 Test Acc of best PGD ckpt: 0.8822
+[2025/03/30 05:41:50] - epoch 37 lr 1.000000e-01
+[2025/03/30 05:41:50] - Iter: [37][0/469]	Loss 0.293 (0.293)	Prec@1 0.891 (0.891)	
+[2025/03/30 05:41:56] - Iter: [37][50/469]	Loss 0.327 (0.434)	Prec@1 0.859 (0.829)	
+[2025/03/30 05:42:01] - Iter: [37][100/469]	Loss 0.422 (0.439)	Prec@1 0.828 (0.822)	
+[2025/03/30 05:42:07] - Iter: [37][150/469]	Loss 0.477 (0.444)	Prec@1 0.789 (0.820)	
+[2025/03/30 05:42:12] - Iter: [37][200/469]	Loss 0.566 (0.444)	Prec@1 0.805 (0.821)	
+[2025/03/30 05:42:18] - Iter: [37][250/469]	Loss 0.391 (0.442)	Prec@1 0.820 (0.821)	
+[2025/03/30 05:42:23] - Iter: [37][300/469]	Loss 0.313 (0.438)	Prec@1 0.906 (0.823)	
+[2025/03/30 05:42:28] - Iter: [37][350/469]	Loss 0.434 (0.440)	Prec@1 0.797 (0.823)	
+[2025/03/30 05:42:34] - Iter: [37][400/469]	Loss 0.429 (0.440)	Prec@1 0.812 (0.822)	
+[2025/03/30 05:42:40] - Iter: [37][450/469]	Loss 0.375 (0.441)	Prec@1 0.867 (0.822)	
+[2025/03/30 05:42:42] - Evaluating with standard images...
+[2025/03/30 05:42:42] - Evaluating with PGD Attack...
+[2025/03/30 05:43:04] - Test Loss: 0.3071  	 Test Acc: 0.8821  
+ PGD Loss: 0.4192 	 PGD Acc: 0.8359 
+ Best PGD Acc: 0.8359 	 Test Acc of best PGD ckpt: 0.8821
+[2025/03/30 05:43:04] - epoch 38 lr 1.000000e-01
+New Best Adv Training
+[2025/03/30 05:43:04] - Iter: [38][0/469]	Loss 0.469 (0.469)	Prec@1 0.789 (0.789)	
+[2025/03/30 05:43:09] - Iter: [38][50/469]	Loss 0.411 (0.431)	Prec@1 0.820 (0.821)	
+[2025/03/30 05:43:15] - Iter: [38][100/469]	Loss 0.323 (0.437)	Prec@1 0.891 (0.818)	
+[2025/03/30 05:43:20] - Iter: [38][150/469]	Loss 0.495 (0.439)	Prec@1 0.789 (0.821)	
+[2025/03/30 05:43:26] - Iter: [38][200/469]	Loss 0.403 (0.435)	Prec@1 0.797 (0.823)	
+[2025/03/30 05:43:31] - Iter: [38][250/469]	Loss 0.404 (0.436)	Prec@1 0.836 (0.823)	
+[2025/03/30 05:43:37] - Iter: [38][300/469]	Loss 0.478 (0.440)	Prec@1 0.812 (0.822)	
+[2025/03/30 05:43:42] - Iter: [38][350/469]	Loss 0.506 (0.440)	Prec@1 0.781 (0.822)	
+[2025/03/30 05:43:48] - Iter: [38][400/469]	Loss 0.452 (0.441)	Prec@1 0.820 (0.821)	
+[2025/03/30 05:43:53] - Iter: [38][450/469]	Loss 0.491 (0.441)	Prec@1 0.758 (0.821)	
+[2025/03/30 05:43:55] - Evaluating with standard images...
+[2025/03/30 05:43:56] - Evaluating with PGD Attack...
+[2025/03/30 05:44:17] - Test Loss: 0.3375  	 Test Acc: 0.8694  
+ PGD Loss: 0.4596 	 PGD Acc: 0.8124 
+ Best PGD Acc: 0.8359 	 Test Acc of best PGD ckpt: 0.8821
+[2025/03/30 05:44:17] - epoch 39 lr 1.000000e-03
+[2025/03/30 05:44:17] - Iter: [39][0/469]	Loss 0.503 (0.503)	Prec@1 0.797 (0.797)	
+[2025/03/30 05:44:22] - Iter: [39][50/469]	Loss 0.310 (0.428)	Prec@1 0.836 (0.820)	
+[2025/03/30 05:44:28] - Iter: [39][100/469]	Loss 0.325 (0.404)	Prec@1 0.867 (0.833)	
+[2025/03/30 05:44:33] - Iter: [39][150/469]	Loss 0.395 (0.393)	Prec@1 0.836 (0.837)	
+[2025/03/30 05:44:39] - Iter: [39][200/469]	Loss 0.329 (0.386)	Prec@1 0.891 (0.842)	
+[2025/03/30 05:44:44] - Iter: [39][250/469]	Loss 0.379 (0.382)	Prec@1 0.867 (0.845)	
+[2025/03/30 05:44:50] - Iter: [39][300/469]	Loss 0.389 (0.381)	Prec@1 0.828 (0.844)	
+[2025/03/30 05:44:55] - Iter: [39][350/469]	Loss 0.407 (0.379)	Prec@1 0.836 (0.846)	
+[2025/03/30 05:45:01] - Iter: [39][400/469]	Loss 0.457 (0.379)	Prec@1 0.797 (0.846)	
+[2025/03/30 05:45:06] - Iter: [39][450/469]	Loss 0.429 (0.377)	Prec@1 0.836 (0.846)	
+[2025/03/30 05:45:08] - Evaluating with standard images...
+[2025/03/30 05:45:09] - Evaluating with PGD Attack...
+[2025/03/30 05:45:30] - Test Loss: 0.2786  	 Test Acc: 0.8968  
+ PGD Loss: 0.3791 	 PGD Acc: 0.8496 
+ Best PGD Acc: 0.8496 	 Test Acc of best PGD ckpt: 0.8968
+[2025/03/30 05:45:30] - epoch 40 lr 1.000000e-02
+New Best Adv Training
+[2025/03/30 05:45:31] - Iter: [40][0/469]	Loss 0.336 (0.336)	Prec@1 0.852 (0.852)	
+[2025/03/30 05:45:36] - Iter: [40][50/469]	Loss 0.360 (0.357)	Prec@1 0.859 (0.855)	
+[2025/03/30 05:45:42] - Iter: [40][100/469]	Loss 0.406 (0.371)	Prec@1 0.820 (0.847)	
+[2025/03/30 05:45:47] - Iter: [40][150/469]	Loss 0.402 (0.370)	Prec@1 0.812 (0.847)	
+[2025/03/30 05:45:52] - Iter: [40][200/469]	Loss 0.429 (0.362)	Prec@1 0.836 (0.851)	
+[2025/03/30 05:45:58] - Iter: [40][250/469]	Loss 0.292 (0.360)	Prec@1 0.898 (0.851)	
+[2025/03/30 05:46:03] - Iter: [40][300/469]	Loss 0.480 (0.362)	Prec@1 0.812 (0.851)	
+[2025/03/30 05:46:08] - Iter: [40][350/469]	Loss 0.434 (0.362)	Prec@1 0.820 (0.852)	
+[2025/03/30 05:46:14] - Iter: [40][400/469]	Loss 0.280 (0.360)	Prec@1 0.891 (0.853)	
+[2025/03/30 05:46:19] - Iter: [40][450/469]	Loss 0.307 (0.359)	Prec@1 0.883 (0.854)	
+[2025/03/30 05:46:21] - Evaluating with standard images...
+[2025/03/30 05:46:22] - Evaluating with PGD Attack...
+[2025/03/30 05:46:43] - Test Loss: 0.2646  	 Test Acc: 0.9009  
+ PGD Loss: 0.3692 	 PGD Acc: 0.8500 
+ Best PGD Acc: 0.8500 	 Test Acc of best PGD ckpt: 0.9009
+[2025/03/30 05:46:43] - epoch 41 lr 1.000000e-02
+New Best Adv Training
+[2025/03/30 05:46:43] - Iter: [41][0/469]	Loss 0.246 (0.246)	Prec@1 0.891 (0.891)	
+[2025/03/30 05:46:49] - Iter: [41][50/469]	Loss 0.456 (0.366)	Prec@1 0.844 (0.848)	
+[2025/03/30 05:46:54] - Iter: [41][100/469]	Loss 0.328 (0.361)	Prec@1 0.859 (0.853)	
+[2025/03/30 05:47:00] - Iter: [41][150/469]	Loss 0.370 (0.353)	Prec@1 0.844 (0.855)	
+[2025/03/30 05:47:05] - Iter: [41][200/469]	Loss 0.301 (0.353)	Prec@1 0.891 (0.855)	
+[2025/03/30 05:47:11] - Iter: [41][250/469]	Loss 0.376 (0.353)	Prec@1 0.875 (0.856)	
+[2025/03/30 05:47:16] - Iter: [41][300/469]	Loss 0.366 (0.352)	Prec@1 0.852 (0.856)	
+[2025/03/30 05:47:22] - Iter: [41][350/469]	Loss 0.262 (0.351)	Prec@1 0.875 (0.857)	
+[2025/03/30 05:47:27] - Iter: [41][400/469]	Loss 0.345 (0.351)	Prec@1 0.883 (0.857)	
+[2025/03/30 05:47:33] - Iter: [41][450/469]	Loss 0.367 (0.352)	Prec@1 0.867 (0.857)	
+[2025/03/30 05:47:35] - Evaluating with standard images...
+[2025/03/30 05:47:35] - Evaluating with PGD Attack...
+[2025/03/30 05:47:57] - Test Loss: 0.2643  	 Test Acc: 0.9019  
+ PGD Loss: 0.3647 	 PGD Acc: 0.8546 
+ Best PGD Acc: 0.8546 	 Test Acc of best PGD ckpt: 0.9019
+[2025/03/30 05:47:57] - epoch 42 lr 1.000000e-02
+New Best Adv Training
+[2025/03/30 05:47:57] - Iter: [42][0/469]	Loss 0.370 (0.370)	Prec@1 0.836 (0.836)	
+[2025/03/30 05:48:03] - Iter: [42][50/469]	Loss 0.418 (0.343)	Prec@1 0.828 (0.858)	
+[2025/03/30 05:48:08] - Iter: [42][100/469]	Loss 0.339 (0.338)	Prec@1 0.875 (0.862)	
+[2025/03/30 05:48:14] - Iter: [42][150/469]	Loss 0.356 (0.343)	Prec@1 0.859 (0.861)	
+[2025/03/30 05:48:19] - Iter: [42][200/469]	Loss 0.327 (0.345)	Prec@1 0.859 (0.859)	
+[2025/03/30 05:48:25] - Iter: [42][250/469]	Loss 0.437 (0.346)	Prec@1 0.820 (0.860)	
+[2025/03/30 05:48:31] - Iter: [42][300/469]	Loss 0.468 (0.349)	Prec@1 0.797 (0.858)	
+[2025/03/30 05:48:36] - Iter: [42][350/469]	Loss 0.367 (0.349)	Prec@1 0.875 (0.858)	
+[2025/03/30 05:48:42] - Iter: [42][400/469]	Loss 0.407 (0.347)	Prec@1 0.844 (0.858)	
+[2025/03/30 05:48:47] - Iter: [42][450/469]	Loss 0.241 (0.347)	Prec@1 0.898 (0.858)	
+[2025/03/30 05:48:49] - Evaluating with standard images...
+[2025/03/30 05:48:49] - Evaluating with PGD Attack...
+[2025/03/30 05:49:11] - Test Loss: 0.2611  	 Test Acc: 0.9017  
+ PGD Loss: 0.3636 	 PGD Acc: 0.8542 
+ Best PGD Acc: 0.8546 	 Test Acc of best PGD ckpt: 0.9019
+[2025/03/30 05:49:11] - epoch 43 lr 1.000000e-02
+[2025/03/30 05:49:11] - Iter: [43][0/469]	Loss 0.333 (0.333)	Prec@1 0.859 (0.859)	
+[2025/03/30 05:49:16] - Iter: [43][50/469]	Loss 0.359 (0.351)	Prec@1 0.805 (0.855)	
+[2025/03/30 05:49:22] - Iter: [43][100/469]	Loss 0.220 (0.342)	Prec@1 0.930 (0.859)	
+[2025/03/30 05:49:28] - Iter: [43][150/469]	Loss 0.373 (0.346)	Prec@1 0.867 (0.858)	
+[2025/03/30 05:49:33] - Iter: [43][200/469]	Loss 0.267 (0.346)	Prec@1 0.898 (0.858)	
+[2025/03/30 05:49:38] - Iter: [43][250/469]	Loss 0.339 (0.347)	Prec@1 0.852 (0.857)	
+[2025/03/30 05:49:44] - Iter: [43][300/469]	Loss 0.363 (0.348)	Prec@1 0.844 (0.857)	
+[2025/03/30 05:49:49] - Iter: [43][350/469]	Loss 0.404 (0.346)	Prec@1 0.844 (0.858)	
+[2025/03/30 05:49:55] - Iter: [43][400/469]	Loss 0.290 (0.344)	Prec@1 0.883 (0.859)	
+[2025/03/30 05:50:00] - Iter: [43][450/469]	Loss 0.323 (0.344)	Prec@1 0.836 (0.859)	
+[2025/03/30 05:50:02] - Evaluating with standard images...
+[2025/03/30 05:50:03] - Evaluating with PGD Attack...
+[2025/03/30 05:50:24] - Test Loss: 0.2521  	 Test Acc: 0.9035  
+ PGD Loss: 0.3570 	 PGD Acc: 0.8557 
+ Best PGD Acc: 0.8557 	 Test Acc of best PGD ckpt: 0.9035
+[2025/03/30 05:50:24] - epoch 44 lr 1.000000e-02
+New Best Adv Training
+[2025/03/30 05:50:25] - Iter: [44][0/469]	Loss 0.261 (0.261)	Prec@1 0.922 (0.922)	
+[2025/03/30 05:50:30] - Iter: [44][50/469]	Loss 0.395 (0.348)	Prec@1 0.844 (0.853)	
+[2025/03/30 05:50:35] - Iter: [44][100/469]	Loss 0.353 (0.344)	Prec@1 0.883 (0.857)	
+[2025/03/30 05:50:41] - Iter: [44][150/469]	Loss 0.292 (0.340)	Prec@1 0.891 (0.860)	
+[2025/03/30 05:50:46] - Iter: [44][200/469]	Loss 0.339 (0.342)	Prec@1 0.859 (0.859)	
+[2025/03/30 05:50:52] - Iter: [44][250/469]	Loss 0.266 (0.340)	Prec@1 0.875 (0.861)	
+[2025/03/30 05:50:58] - Iter: [44][300/469]	Loss 0.267 (0.342)	Prec@1 0.898 (0.860)	
+[2025/03/30 05:51:03] - Iter: [44][350/469]	Loss 0.291 (0.342)	Prec@1 0.867 (0.860)	
+[2025/03/30 05:51:09] - Iter: [44][400/469]	Loss 0.355 (0.341)	Prec@1 0.828 (0.861)	
+[2025/03/30 05:51:14] - Iter: [44][450/469]	Loss 0.312 (0.342)	Prec@1 0.852 (0.860)	
+[2025/03/30 05:51:16] - Evaluating with standard images...
+[2025/03/30 05:51:17] - Evaluating with PGD Attack...
+[2025/03/30 05:51:38] - Test Loss: 0.2503  	 Test Acc: 0.9059  
+ PGD Loss: 0.3555 	 PGD Acc: 0.8582 
+ Best PGD Acc: 0.8582 	 Test Acc of best PGD ckpt: 0.9059
+[2025/03/30 05:51:38] - epoch 45 lr 1.000000e-02
+New Best Adv Training
+[2025/03/30 05:51:38] - Iter: [45][0/469]	Loss 0.347 (0.347)	Prec@1 0.844 (0.844)	
+[2025/03/30 05:51:44] - Iter: [45][50/469]	Loss 0.386 (0.343)	Prec@1 0.820 (0.862)	
+[2025/03/30 05:51:50] - Iter: [45][100/469]	Loss 0.312 (0.336)	Prec@1 0.844 (0.860)	
+[2025/03/30 05:51:55] - Iter: [45][150/469]	Loss 0.342 (0.340)	Prec@1 0.859 (0.860)	
+[2025/03/30 05:52:00] - Iter: [45][200/469]	Loss 0.335 (0.336)	Prec@1 0.859 (0.862)	
+[2025/03/30 05:52:06] - Iter: [45][250/469]	Loss 0.367 (0.338)	Prec@1 0.828 (0.861)	
+[2025/03/30 05:52:12] - Iter: [45][300/469]	Loss 0.282 (0.341)	Prec@1 0.891 (0.860)	
+[2025/03/30 05:52:17] - Iter: [45][350/469]	Loss 0.311 (0.339)	Prec@1 0.883 (0.861)	
+[2025/03/30 05:52:23] - Iter: [45][400/469]	Loss 0.340 (0.338)	Prec@1 0.859 (0.861)	
+[2025/03/30 05:52:28] - Iter: [45][450/469]	Loss 0.301 (0.339)	Prec@1 0.883 (0.862)	
+[2025/03/30 05:52:30] - Evaluating with standard images...
+[2025/03/30 05:52:31] - Evaluating with PGD Attack...
+[2025/03/30 05:52:52] - Test Loss: 0.2531  	 Test Acc: 0.9052  
+ PGD Loss: 0.3567 	 PGD Acc: 0.8566 
+ Best PGD Acc: 0.8582 	 Test Acc of best PGD ckpt: 0.9059
+[2025/03/30 05:52:52] - epoch 46 lr 1.000000e-02
+[2025/03/30 05:52:52] - Iter: [46][0/469]	Loss 0.396 (0.396)	Prec@1 0.867 (0.867)	
+[2025/03/30 05:52:58] - Iter: [46][50/469]	Loss 0.347 (0.341)	Prec@1 0.891 (0.863)	
+[2025/03/30 05:53:03] - Iter: [46][100/469]	Loss 0.226 (0.327)	Prec@1 0.922 (0.869)	
+[2025/03/30 05:53:09] - Iter: [46][150/469]	Loss 0.381 (0.330)	Prec@1 0.836 (0.866)	
+[2025/03/30 05:53:14] - Iter: [46][200/469]	Loss 0.350 (0.334)	Prec@1 0.844 (0.865)	
+[2025/03/30 05:53:19] - Iter: [46][250/469]	Loss 0.289 (0.337)	Prec@1 0.883 (0.863)	
+[2025/03/30 05:53:25] - Iter: [46][300/469]	Loss 0.304 (0.338)	Prec@1 0.859 (0.862)	
+[2025/03/30 05:53:30] - Iter: [46][350/469]	Loss 0.443 (0.339)	Prec@1 0.805 (0.862)	
+[2025/03/30 05:53:36] - Iter: [46][400/469]	Loss 0.274 (0.338)	Prec@1 0.898 (0.862)	
+[2025/03/30 05:53:41] - Iter: [46][450/469]	Loss 0.327 (0.339)	Prec@1 0.875 (0.862)	
+[2025/03/30 05:53:43] - Evaluating with standard images...
+[2025/03/30 05:53:43] - Evaluating with PGD Attack...
+[2025/03/30 05:54:05] - Test Loss: 0.2523  	 Test Acc: 0.9056  
+ PGD Loss: 0.3575 	 PGD Acc: 0.8562 
+ Best PGD Acc: 0.8582 	 Test Acc of best PGD ckpt: 0.9059
+[2025/03/30 05:54:05] - epoch 47 lr 1.000000e-02
+[2025/03/30 05:54:05] - Iter: [47][0/469]	Loss 0.372 (0.372)	Prec@1 0.820 (0.820)	
+[2025/03/30 05:54:10] - Iter: [47][50/469]	Loss 0.317 (0.342)	Prec@1 0.859 (0.860)	
+[2025/03/30 05:54:16] - Iter: [47][100/469]	Loss 0.365 (0.334)	Prec@1 0.844 (0.865)	
+[2025/03/30 05:54:21] - Iter: [47][150/469]	Loss 0.351 (0.332)	Prec@1 0.859 (0.865)	
+[2025/03/30 05:54:26] - Iter: [47][200/469]	Loss 0.332 (0.334)	Prec@1 0.891 (0.865)	
+[2025/03/30 05:54:32] - Iter: [47][250/469]	Loss 0.345 (0.337)	Prec@1 0.805 (0.863)	
+[2025/03/30 05:54:37] - Iter: [47][300/469]	Loss 0.368 (0.336)	Prec@1 0.852 (0.863)	
+[2025/03/30 05:54:43] - Iter: [47][350/469]	Loss 0.311 (0.336)	Prec@1 0.875 (0.862)	
+[2025/03/30 05:54:48] - Iter: [47][400/469]	Loss 0.353 (0.335)	Prec@1 0.867 (0.863)	
+[2025/03/30 05:54:54] - Iter: [47][450/469]	Loss 0.332 (0.336)	Prec@1 0.875 (0.862)	
+[2025/03/30 05:54:56] - Evaluating with standard images...
+[2025/03/30 05:54:56] - Evaluating with PGD Attack...
+[2025/03/30 05:55:18] - Test Loss: 0.2480  	 Test Acc: 0.9083  
+ PGD Loss: 0.3559 	 PGD Acc: 0.8574 
+ Best PGD Acc: 0.8582 	 Test Acc of best PGD ckpt: 0.9059
+[2025/03/30 05:55:18] - epoch 48 lr 1.000000e-02
+[2025/03/30 05:55:18] - Iter: [48][0/469]	Loss 0.308 (0.308)	Prec@1 0.891 (0.891)	
+[2025/03/30 05:55:24] - Iter: [48][50/469]	Loss 0.290 (0.333)	Prec@1 0.852 (0.860)	
+[2025/03/30 05:55:29] - Iter: [48][100/469]	Loss 0.433 (0.334)	Prec@1 0.820 (0.859)	
+[2025/03/30 05:55:34] - Iter: [48][150/469]	Loss 0.303 (0.333)	Prec@1 0.852 (0.861)	
+[2025/03/30 05:55:40] - Iter: [48][200/469]	Loss 0.380 (0.336)	Prec@1 0.844 (0.858)	
+[2025/03/30 05:55:45] - Iter: [48][250/469]	Loss 0.317 (0.337)	Prec@1 0.859 (0.859)	
+[2025/03/30 05:55:51] - Iter: [48][300/469]	Loss 0.280 (0.335)	Prec@1 0.883 (0.861)	
+[2025/03/30 05:55:57] - Iter: [48][350/469]	Loss 0.307 (0.333)	Prec@1 0.875 (0.863)	
+[2025/03/30 05:56:02] - Iter: [48][400/469]	Loss 0.414 (0.332)	Prec@1 0.820 (0.863)	
+[2025/03/30 05:56:08] - Iter: [48][450/469]	Loss 0.344 (0.333)	Prec@1 0.836 (0.862)	
+[2025/03/30 05:56:10] - Evaluating with standard images...
+[2025/03/30 05:56:11] - Evaluating with PGD Attack...
+[2025/03/30 05:56:32] - Test Loss: 0.2469  	 Test Acc: 0.9067  
+ PGD Loss: 0.3544 	 PGD Acc: 0.8580 
+ Best PGD Acc: 0.8582 	 Test Acc of best PGD ckpt: 0.9059
+[2025/03/30 05:56:32] - epoch 49 lr 1.000000e-02
+[2025/03/30 05:56:32] - Iter: [49][0/469]	Loss 0.377 (0.377)	Prec@1 0.844 (0.844)	
+[2025/03/30 05:56:37] - Iter: [49][50/469]	Loss 0.364 (0.331)	Prec@1 0.812 (0.867)	
+[2025/03/30 05:56:43] - Iter: [49][100/469]	Loss 0.242 (0.325)	Prec@1 0.922 (0.869)	
+[2025/03/30 05:56:48] - Iter: [49][150/469]	Loss 0.343 (0.331)	Prec@1 0.828 (0.865)	
+[2025/03/30 05:56:54] - Iter: [49][200/469]	Loss 0.346 (0.332)	Prec@1 0.859 (0.865)	
+[2025/03/30 05:57:00] - Iter: [49][250/469]	Loss 0.304 (0.332)	Prec@1 0.844 (0.864)	
+[2025/03/30 05:57:05] - Iter: [49][300/469]	Loss 0.364 (0.333)	Prec@1 0.844 (0.864)	
+[2025/03/30 05:57:11] - Iter: [49][350/469]	Loss 0.247 (0.333)	Prec@1 0.891 (0.863)	
+[2025/03/30 05:57:16] - Iter: [49][400/469]	Loss 0.365 (0.333)	Prec@1 0.867 (0.863)	
+[2025/03/30 05:57:22] - Iter: [49][450/469]	Loss 0.222 (0.333)	Prec@1 0.906 (0.864)	
+[2025/03/30 05:57:24] - Evaluating with standard images...
+[2025/03/30 05:57:24] - Evaluating with PGD Attack...
+[2025/03/30 05:57:46] - Test Loss: 0.2468  	 Test Acc: 0.9072  
+ PGD Loss: 0.3529 	 PGD Acc: 0.8602 
+ Best PGD Acc: 0.8602 	 Test Acc of best PGD ckpt: 0.9072
+[2025/03/30 05:57:46] - epoch 50 lr 1.000000e-02
+New Best Adv Training
+[2025/03/30 05:57:46] - Iter: [50][0/469]	Loss 0.387 (0.387)	Prec@1 0.828 (0.828)	
+[2025/03/30 05:57:52] - Iter: [50][50/469]	Loss 0.259 (0.310)	Prec@1 0.891 (0.878)	
+[2025/03/30 05:57:57] - Iter: [50][100/469]	Loss 0.344 (0.319)	Prec@1 0.867 (0.872)	
+[2025/03/30 05:58:02] - Iter: [50][150/469]	Loss 0.371 (0.322)	Prec@1 0.820 (0.869)	
+[2025/03/30 05:58:08] - Iter: [50][200/469]	Loss 0.377 (0.327)	Prec@1 0.828 (0.867)	
+[2025/03/30 05:58:13] - Iter: [50][250/469]	Loss 0.365 (0.329)	Prec@1 0.836 (0.865)	
+[2025/03/30 05:58:18] - Iter: [50][300/469]	Loss 0.389 (0.329)	Prec@1 0.859 (0.866)	
+[2025/03/30 05:58:24] - Iter: [50][350/469]	Loss 0.292 (0.330)	Prec@1 0.859 (0.865)	
+[2025/03/30 05:58:29] - Iter: [50][400/469]	Loss 0.347 (0.331)	Prec@1 0.844 (0.864)	
+[2025/03/30 05:58:35] - Iter: [50][450/469]	Loss 0.382 (0.330)	Prec@1 0.820 (0.865)	
+[2025/03/30 05:58:37] - Evaluating with standard images...
+[2025/03/30 05:58:37] - Evaluating with PGD Attack...
+[2025/03/30 05:58:58] - Test Loss: 0.2426  	 Test Acc: 0.9088  
+ PGD Loss: 0.3559 	 PGD Acc: 0.8563 
+ Best PGD Acc: 0.8602 	 Test Acc of best PGD ckpt: 0.9072
+[2025/03/30 05:58:58] - epoch 51 lr 1.000000e-02
+[2025/03/30 05:58:59] - Iter: [51][0/469]	Loss 0.374 (0.374)	Prec@1 0.852 (0.852)	
+[2025/03/30 05:59:04] - Iter: [51][50/469]	Loss 0.342 (0.341)	Prec@1 0.859 (0.860)	
+[2025/03/30 05:59:10] - Iter: [51][100/469]	Loss 0.274 (0.334)	Prec@1 0.875 (0.861)	
+[2025/03/30 05:59:16] - Iter: [51][150/469]	Loss 0.318 (0.334)	Prec@1 0.867 (0.862)	
+[2025/03/30 05:59:21] - Iter: [51][200/469]	Loss 0.338 (0.334)	Prec@1 0.836 (0.861)	
+[2025/03/30 05:59:26] - Iter: [51][250/469]	Loss 0.344 (0.334)	Prec@1 0.867 (0.862)	
+[2025/03/30 05:59:32] - Iter: [51][300/469]	Loss 0.267 (0.332)	Prec@1 0.891 (0.863)	
+[2025/03/30 05:59:37] - Iter: [51][350/469]	Loss 0.311 (0.332)	Prec@1 0.875 (0.863)	
+[2025/03/30 05:59:42] - Iter: [51][400/469]	Loss 0.284 (0.332)	Prec@1 0.906 (0.864)	
+[2025/03/30 05:59:48] - Iter: [51][450/469]	Loss 0.384 (0.331)	Prec@1 0.805 (0.863)	
+[2025/03/30 05:59:50] - Evaluating with standard images...
+[2025/03/30 05:59:51] - Evaluating with PGD Attack...
+[2025/03/30 06:00:12] - Test Loss: 0.2468  	 Test Acc: 0.9088  
+ PGD Loss: 0.3553 	 PGD Acc: 0.8589 
+ Best PGD Acc: 0.8602 	 Test Acc of best PGD ckpt: 0.9072
+[2025/03/30 06:00:12] - epoch 52 lr 1.000000e-02
+[2025/03/30 06:00:12] - Iter: [52][0/469]	Loss 0.282 (0.282)	Prec@1 0.859 (0.859)	
+[2025/03/30 06:00:18] - Iter: [52][50/469]	Loss 0.385 (0.324)	Prec@1 0.828 (0.871)	
+[2025/03/30 06:00:23] - Iter: [52][100/469]	Loss 0.325 (0.329)	Prec@1 0.867 (0.865)	
+[2025/03/30 06:00:29] - Iter: [52][150/469]	Loss 0.307 (0.328)	Prec@1 0.898 (0.867)	
+[2025/03/30 06:00:34] - Iter: [52][200/469]	Loss 0.306 (0.329)	Prec@1 0.914 (0.866)	
+[2025/03/30 06:00:40] - Iter: [52][250/469]	Loss 0.269 (0.330)	Prec@1 0.906 (0.866)	
+[2025/03/30 06:00:45] - Iter: [52][300/469]	Loss 0.300 (0.328)	Prec@1 0.883 (0.866)	
+[2025/03/30 06:00:51] - Iter: [52][350/469]	Loss 0.311 (0.327)	Prec@1 0.883 (0.866)	
+[2025/03/30 06:00:56] - Iter: [52][400/469]	Loss 0.264 (0.326)	Prec@1 0.898 (0.867)	
+[2025/03/30 06:01:02] - Iter: [52][450/469]	Loss 0.312 (0.326)	Prec@1 0.836 (0.867)	
+[2025/03/30 06:01:04] - Evaluating with standard images...
+[2025/03/30 06:01:05] - Evaluating with PGD Attack...
+[2025/03/30 06:01:26] - Test Loss: 0.2494  	 Test Acc: 0.9055  
+ PGD Loss: 0.3578 	 PGD Acc: 0.8597 
+ Best PGD Acc: 0.8602 	 Test Acc of best PGD ckpt: 0.9072
+[2025/03/30 06:01:26] - epoch 53 lr 1.000000e-02
+[2025/03/30 06:01:26] - Iter: [53][0/469]	Loss 0.426 (0.426)	Prec@1 0.852 (0.852)	
+[2025/03/30 06:01:32] - Iter: [53][50/469]	Loss 0.422 (0.334)	Prec@1 0.828 (0.867)	
+[2025/03/30 06:01:37] - Iter: [53][100/469]	Loss 0.352 (0.330)	Prec@1 0.852 (0.865)	
+[2025/03/30 06:01:43] - Iter: [53][150/469]	Loss 0.330 (0.326)	Prec@1 0.922 (0.867)	
+[2025/03/30 06:01:48] - Iter: [53][200/469]	Loss 0.449 (0.323)	Prec@1 0.805 (0.868)	
+[2025/03/30 06:01:54] - Iter: [53][250/469]	Loss 0.298 (0.324)	Prec@1 0.898 (0.868)	
+[2025/03/30 06:01:59] - Iter: [53][300/469]	Loss 0.351 (0.326)	Prec@1 0.867 (0.868)	
+[2025/03/30 06:02:05] - Iter: [53][350/469]	Loss 0.247 (0.326)	Prec@1 0.906 (0.867)	
+[2025/03/30 06:02:10] - Iter: [53][400/469]	Loss 0.393 (0.327)	Prec@1 0.828 (0.866)	
+[2025/03/30 06:02:16] - Iter: [53][450/469]	Loss 0.340 (0.328)	Prec@1 0.852 (0.866)	
+[2025/03/30 06:02:18] - Evaluating with standard images...
+[2025/03/30 06:02:19] - Evaluating with PGD Attack...
+[2025/03/30 06:02:40] - Test Loss: 0.2392  	 Test Acc: 0.9107  
+ PGD Loss: 0.3495 	 PGD Acc: 0.8619 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:02:40] - epoch 54 lr 1.000000e-02
+New Best Adv Training
+[2025/03/30 06:02:41] - Iter: [54][0/469]	Loss 0.279 (0.279)	Prec@1 0.922 (0.922)	
+[2025/03/30 06:02:46] - Iter: [54][50/469]	Loss 0.335 (0.314)	Prec@1 0.875 (0.870)	
+[2025/03/30 06:02:52] - Iter: [54][100/469]	Loss 0.335 (0.318)	Prec@1 0.883 (0.869)	
+[2025/03/30 06:02:57] - Iter: [54][150/469]	Loss 0.330 (0.317)	Prec@1 0.883 (0.870)	
+[2025/03/30 06:03:02] - Iter: [54][200/469]	Loss 0.255 (0.319)	Prec@1 0.867 (0.869)	
+[2025/03/30 06:03:08] - Iter: [54][250/469]	Loss 0.476 (0.322)	Prec@1 0.805 (0.869)	
+[2025/03/30 06:03:13] - Iter: [54][300/469]	Loss 0.402 (0.322)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:03:19] - Iter: [54][350/469]	Loss 0.284 (0.322)	Prec@1 0.914 (0.868)	
+[2025/03/30 06:03:24] - Iter: [54][400/469]	Loss 0.269 (0.325)	Prec@1 0.914 (0.867)	
+[2025/03/30 06:03:30] - Iter: [54][450/469]	Loss 0.316 (0.326)	Prec@1 0.852 (0.866)	
+[2025/03/30 06:03:32] - Evaluating with standard images...
+[2025/03/30 06:03:32] - Evaluating with PGD Attack...
+[2025/03/30 06:03:53] - Test Loss: 0.2516  	 Test Acc: 0.9085  
+ PGD Loss: 0.3591 	 PGD Acc: 0.8556 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:03:53] - epoch 55 lr 1.000000e-02
+[2025/03/30 06:03:54] - Iter: [55][0/469]	Loss 0.370 (0.370)	Prec@1 0.844 (0.844)	
+[2025/03/30 06:03:59] - Iter: [55][50/469]	Loss 0.407 (0.329)	Prec@1 0.828 (0.864)	
+[2025/03/30 06:04:04] - Iter: [55][100/469]	Loss 0.265 (0.325)	Prec@1 0.898 (0.867)	
+[2025/03/30 06:04:10] - Iter: [55][150/469]	Loss 0.260 (0.323)	Prec@1 0.898 (0.868)	
+[2025/03/30 06:04:15] - Iter: [55][200/469]	Loss 0.303 (0.321)	Prec@1 0.875 (0.869)	
+[2025/03/30 06:04:21] - Iter: [55][250/469]	Loss 0.267 (0.321)	Prec@1 0.891 (0.870)	
+[2025/03/30 06:04:26] - Iter: [55][300/469]	Loss 0.300 (0.323)	Prec@1 0.875 (0.868)	
+[2025/03/30 06:04:32] - Iter: [55][350/469]	Loss 0.401 (0.323)	Prec@1 0.812 (0.868)	
+[2025/03/30 06:04:37] - Iter: [55][400/469]	Loss 0.302 (0.324)	Prec@1 0.883 (0.867)	
+[2025/03/30 06:04:42] - Iter: [55][450/469]	Loss 0.349 (0.325)	Prec@1 0.883 (0.866)	
+[2025/03/30 06:04:44] - Evaluating with standard images...
+[2025/03/30 06:04:45] - Evaluating with PGD Attack...
+[2025/03/30 06:05:06] - Test Loss: 0.2477  	 Test Acc: 0.9087  
+ PGD Loss: 0.3625 	 PGD Acc: 0.8557 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:05:06] - epoch 56 lr 1.000000e-02
+[2025/03/30 06:05:06] - Iter: [56][0/469]	Loss 0.300 (0.300)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:05:11] - Iter: [56][50/469]	Loss 0.258 (0.323)	Prec@1 0.883 (0.867)	
+[2025/03/30 06:05:17] - Iter: [56][100/469]	Loss 0.360 (0.324)	Prec@1 0.844 (0.867)	
+[2025/03/30 06:05:23] - Iter: [56][150/469]	Loss 0.391 (0.325)	Prec@1 0.859 (0.867)	
+[2025/03/30 06:05:28] - Iter: [56][200/469]	Loss 0.209 (0.324)	Prec@1 0.945 (0.868)	
+[2025/03/30 06:05:34] - Iter: [56][250/469]	Loss 0.183 (0.326)	Prec@1 0.938 (0.866)	
+[2025/03/30 06:05:39] - Iter: [56][300/469]	Loss 0.430 (0.325)	Prec@1 0.812 (0.866)	
+[2025/03/30 06:05:44] - Iter: [56][350/469]	Loss 0.347 (0.325)	Prec@1 0.859 (0.866)	
+[2025/03/30 06:05:50] - Iter: [56][400/469]	Loss 0.391 (0.325)	Prec@1 0.859 (0.866)	
+[2025/03/30 06:05:56] - Iter: [56][450/469]	Loss 0.302 (0.325)	Prec@1 0.891 (0.867)	
+[2025/03/30 06:05:58] - Evaluating with standard images...
+[2025/03/30 06:05:58] - Evaluating with PGD Attack...
+[2025/03/30 06:06:19] - Test Loss: 0.2466  	 Test Acc: 0.9068  
+ PGD Loss: 0.3627 	 PGD Acc: 0.8565 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:06:19] - epoch 57 lr 1.000000e-02
+[2025/03/30 06:06:20] - Iter: [57][0/469]	Loss 0.332 (0.332)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:06:25] - Iter: [57][50/469]	Loss 0.250 (0.318)	Prec@1 0.883 (0.870)	
+[2025/03/30 06:06:30] - Iter: [57][100/469]	Loss 0.414 (0.319)	Prec@1 0.812 (0.870)	
+[2025/03/30 06:06:36] - Iter: [57][150/469]	Loss 0.330 (0.320)	Prec@1 0.867 (0.869)	
+[2025/03/30 06:06:42] - Iter: [57][200/469]	Loss 0.326 (0.322)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:06:47] - Iter: [57][250/469]	Loss 0.265 (0.319)	Prec@1 0.883 (0.869)	
+[2025/03/30 06:06:52] - Iter: [57][300/469]	Loss 0.295 (0.322)	Prec@1 0.891 (0.867)	
+[2025/03/30 06:06:58] - Iter: [57][350/469]	Loss 0.413 (0.323)	Prec@1 0.828 (0.866)	
+[2025/03/30 06:07:03] - Iter: [57][400/469]	Loss 0.332 (0.324)	Prec@1 0.836 (0.866)	
+[2025/03/30 06:07:09] - Iter: [57][450/469]	Loss 0.283 (0.324)	Prec@1 0.891 (0.866)	
+[2025/03/30 06:07:11] - Evaluating with standard images...
+[2025/03/30 06:07:11] - Evaluating with PGD Attack...
+[2025/03/30 06:07:32] - Test Loss: 0.2402  	 Test Acc: 0.9081  
+ PGD Loss: 0.3519 	 PGD Acc: 0.8584 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:07:32] - epoch 58 lr 1.000000e-02
+[2025/03/30 06:07:33] - Iter: [58][0/469]	Loss 0.337 (0.337)	Prec@1 0.859 (0.859)	
+[2025/03/30 06:07:38] - Iter: [58][50/469]	Loss 0.333 (0.312)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:07:44] - Iter: [58][100/469]	Loss 0.229 (0.312)	Prec@1 0.891 (0.869)	
+[2025/03/30 06:07:49] - Iter: [58][150/469]	Loss 0.256 (0.312)	Prec@1 0.914 (0.870)	
+[2025/03/30 06:07:55] - Iter: [58][200/469]	Loss 0.371 (0.315)	Prec@1 0.867 (0.869)	
+[2025/03/30 06:08:00] - Iter: [58][250/469]	Loss 0.317 (0.317)	Prec@1 0.859 (0.869)	
+[2025/03/30 06:08:05] - Iter: [58][300/469]	Loss 0.260 (0.318)	Prec@1 0.867 (0.868)	
+[2025/03/30 06:08:11] - Iter: [58][350/469]	Loss 0.262 (0.319)	Prec@1 0.875 (0.868)	
+[2025/03/30 06:08:17] - Iter: [58][400/469]	Loss 0.374 (0.320)	Prec@1 0.844 (0.868)	
+[2025/03/30 06:08:22] - Iter: [58][450/469]	Loss 0.332 (0.321)	Prec@1 0.883 (0.868)	
+[2025/03/30 06:08:24] - Evaluating with standard images...
+[2025/03/30 06:08:25] - Evaluating with PGD Attack...
+[2025/03/30 06:08:46] - Test Loss: 0.2421  	 Test Acc: 0.9107  
+ PGD Loss: 0.3584 	 PGD Acc: 0.8618 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:08:46] - epoch 59 lr 1.000000e-02
+[2025/03/30 06:08:46] - Iter: [59][0/469]	Loss 0.319 (0.319)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:08:52] - Iter: [59][50/469]	Loss 0.328 (0.308)	Prec@1 0.844 (0.876)	
+[2025/03/30 06:08:57] - Iter: [59][100/469]	Loss 0.323 (0.317)	Prec@1 0.820 (0.870)	
+[2025/03/30 06:09:03] - Iter: [59][150/469]	Loss 0.470 (0.320)	Prec@1 0.820 (0.868)	
+[2025/03/30 06:09:08] - Iter: [59][200/469]	Loss 0.308 (0.320)	Prec@1 0.875 (0.867)	
+[2025/03/30 06:09:14] - Iter: [59][250/469]	Loss 0.339 (0.320)	Prec@1 0.836 (0.867)	
+[2025/03/30 06:09:19] - Iter: [59][300/469]	Loss 0.273 (0.320)	Prec@1 0.906 (0.868)	
+[2025/03/30 06:09:25] - Iter: [59][350/469]	Loss 0.327 (0.319)	Prec@1 0.883 (0.868)	
+[2025/03/30 06:09:30] - Iter: [59][400/469]	Loss 0.324 (0.322)	Prec@1 0.820 (0.867)	
+[2025/03/30 06:09:35] - Iter: [59][450/469]	Loss 0.455 (0.325)	Prec@1 0.820 (0.866)	
+[2025/03/30 06:09:37] - Evaluating with standard images...
+[2025/03/30 06:09:38] - Evaluating with PGD Attack...
+[2025/03/30 06:09:59] - Test Loss: 0.2435  	 Test Acc: 0.9097  
+ PGD Loss: 0.3480 	 PGD Acc: 0.8613 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:09:59] - epoch 60 lr 1.000000e-02
+[2025/03/30 06:09:59] - Iter: [60][0/469]	Loss 0.253 (0.253)	Prec@1 0.922 (0.922)	
+[2025/03/30 06:10:05] - Iter: [60][50/469]	Loss 0.415 (0.307)	Prec@1 0.828 (0.875)	
+[2025/03/30 06:10:10] - Iter: [60][100/469]	Loss 0.243 (0.315)	Prec@1 0.914 (0.872)	
+[2025/03/30 06:10:15] - Iter: [60][150/469]	Loss 0.374 (0.320)	Prec@1 0.836 (0.870)	
+[2025/03/30 06:10:21] - Iter: [60][200/469]	Loss 0.358 (0.321)	Prec@1 0.844 (0.869)	
+[2025/03/30 06:10:26] - Iter: [60][250/469]	Loss 0.229 (0.321)	Prec@1 0.906 (0.868)	
+[2025/03/30 06:10:32] - Iter: [60][300/469]	Loss 0.313 (0.321)	Prec@1 0.875 (0.868)	
+[2025/03/30 06:10:37] - Iter: [60][350/469]	Loss 0.341 (0.322)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:10:43] - Iter: [60][400/469]	Loss 0.381 (0.321)	Prec@1 0.844 (0.868)	
+[2025/03/30 06:10:48] - Iter: [60][450/469]	Loss 0.316 (0.321)	Prec@1 0.883 (0.869)	
+[2025/03/30 06:10:50] - Evaluating with standard images...
+[2025/03/30 06:10:51] - Evaluating with PGD Attack...
+[2025/03/30 06:11:12] - Test Loss: 0.2369  	 Test Acc: 0.9110  
+ PGD Loss: 0.3566 	 PGD Acc: 0.8575 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:11:12] - epoch 61 lr 1.000000e-02
+[2025/03/30 06:11:12] - Iter: [61][0/469]	Loss 0.408 (0.408)	Prec@1 0.789 (0.789)	
+[2025/03/30 06:11:17] - Iter: [61][50/469]	Loss 0.384 (0.315)	Prec@1 0.828 (0.868)	
+[2025/03/30 06:11:23] - Iter: [61][100/469]	Loss 0.311 (0.316)	Prec@1 0.867 (0.868)	
+[2025/03/30 06:11:28] - Iter: [61][150/469]	Loss 0.386 (0.314)	Prec@1 0.828 (0.869)	
+[2025/03/30 06:11:34] - Iter: [61][200/469]	Loss 0.335 (0.315)	Prec@1 0.859 (0.869)	
+[2025/03/30 06:11:39] - Iter: [61][250/469]	Loss 0.297 (0.313)	Prec@1 0.844 (0.870)	
+[2025/03/30 06:11:45] - Iter: [61][300/469]	Loss 0.368 (0.317)	Prec@1 0.875 (0.869)	
+[2025/03/30 06:11:50] - Iter: [61][350/469]	Loss 0.342 (0.319)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:11:56] - Iter: [61][400/469]	Loss 0.268 (0.319)	Prec@1 0.875 (0.868)	
+[2025/03/30 06:12:01] - Iter: [61][450/469]	Loss 0.332 (0.321)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:12:03] - Evaluating with standard images...
+[2025/03/30 06:12:04] - Evaluating with PGD Attack...
+[2025/03/30 06:12:25] - Test Loss: 0.2466  	 Test Acc: 0.9034  
+ PGD Loss: 0.3661 	 PGD Acc: 0.8530 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:12:25] - epoch 62 lr 1.000000e-02
+[2025/03/30 06:12:25] - Iter: [62][0/469]	Loss 0.316 (0.316)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:12:31] - Iter: [62][50/469]	Loss 0.323 (0.305)	Prec@1 0.883 (0.871)	
+[2025/03/30 06:12:36] - Iter: [62][100/469]	Loss 0.271 (0.317)	Prec@1 0.898 (0.864)	
+[2025/03/30 06:12:42] - Iter: [62][150/469]	Loss 0.336 (0.317)	Prec@1 0.859 (0.866)	
+[2025/03/30 06:12:47] - Iter: [62][200/469]	Loss 0.365 (0.317)	Prec@1 0.859 (0.868)	
+[2025/03/30 06:12:53] - Iter: [62][250/469]	Loss 0.457 (0.319)	Prec@1 0.812 (0.867)	
+[2025/03/30 06:12:58] - Iter: [62][300/469]	Loss 0.369 (0.319)	Prec@1 0.852 (0.867)	
+[2025/03/30 06:13:04] - Iter: [62][350/469]	Loss 0.331 (0.320)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:13:09] - Iter: [62][400/469]	Loss 0.371 (0.320)	Prec@1 0.852 (0.867)	
+[2025/03/30 06:13:15] - Iter: [62][450/469]	Loss 0.319 (0.321)	Prec@1 0.859 (0.867)	
+[2025/03/30 06:13:17] - Evaluating with standard images...
+[2025/03/30 06:13:18] - Evaluating with PGD Attack...
+[2025/03/30 06:13:39] - Test Loss: 0.2408  	 Test Acc: 0.9104  
+ PGD Loss: 0.3531 	 PGD Acc: 0.8583 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:13:39] - epoch 63 lr 1.000000e-02
+[2025/03/30 06:13:39] - Iter: [63][0/469]	Loss 0.323 (0.323)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:13:45] - Iter: [63][50/469]	Loss 0.350 (0.306)	Prec@1 0.820 (0.872)	
+[2025/03/30 06:13:50] - Iter: [63][100/469]	Loss 0.321 (0.312)	Prec@1 0.867 (0.868)	
+[2025/03/30 06:13:56] - Iter: [63][150/469]	Loss 0.320 (0.314)	Prec@1 0.852 (0.869)	
+[2025/03/30 06:14:01] - Iter: [63][200/469]	Loss 0.388 (0.319)	Prec@1 0.859 (0.869)	
+[2025/03/30 06:14:07] - Iter: [63][250/469]	Loss 0.264 (0.317)	Prec@1 0.891 (0.870)	
+[2025/03/30 06:14:12] - Iter: [63][300/469]	Loss 0.259 (0.317)	Prec@1 0.906 (0.870)	
+[2025/03/30 06:14:18] - Iter: [63][350/469]	Loss 0.384 (0.318)	Prec@1 0.859 (0.870)	
+[2025/03/30 06:14:23] - Iter: [63][400/469]	Loss 0.345 (0.320)	Prec@1 0.852 (0.869)	
+[2025/03/30 06:14:29] - Iter: [63][450/469]	Loss 0.271 (0.319)	Prec@1 0.875 (0.869)	
+[2025/03/30 06:14:31] - Evaluating with standard images...
+[2025/03/30 06:14:31] - Evaluating with PGD Attack...
+[2025/03/30 06:14:53] - Test Loss: 0.2408  	 Test Acc: 0.9100  
+ PGD Loss: 0.3622 	 PGD Acc: 0.8579 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:14:53] - epoch 64 lr 1.000000e-02
+[2025/03/30 06:14:53] - Iter: [64][0/469]	Loss 0.321 (0.321)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:14:58] - Iter: [64][50/469]	Loss 0.315 (0.323)	Prec@1 0.867 (0.863)	
+[2025/03/30 06:15:04] - Iter: [64][100/469]	Loss 0.300 (0.325)	Prec@1 0.891 (0.865)	
+[2025/03/30 06:15:09] - Iter: [64][150/469]	Loss 0.225 (0.319)	Prec@1 0.898 (0.868)	
+[2025/03/30 06:15:14] - Iter: [64][200/469]	Loss 0.422 (0.319)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:15:20] - Iter: [64][250/469]	Loss 0.232 (0.318)	Prec@1 0.914 (0.868)	
+[2025/03/30 06:15:25] - Iter: [64][300/469]	Loss 0.266 (0.316)	Prec@1 0.906 (0.870)	
+[2025/03/30 06:15:31] - Iter: [64][350/469]	Loss 0.329 (0.317)	Prec@1 0.859 (0.870)	
+[2025/03/30 06:15:36] - Iter: [64][400/469]	Loss 0.332 (0.318)	Prec@1 0.844 (0.870)	
+[2025/03/30 06:15:42] - Iter: [64][450/469]	Loss 0.283 (0.318)	Prec@1 0.898 (0.869)	
+[2025/03/30 06:15:44] - Evaluating with standard images...
+[2025/03/30 06:15:44] - Evaluating with PGD Attack...
+[2025/03/30 06:16:05] - Test Loss: 0.2409  	 Test Acc: 0.9084  
+ PGD Loss: 0.3569 	 PGD Acc: 0.8571 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:16:05] - epoch 65 lr 1.000000e-02
+[2025/03/30 06:16:05] - Iter: [65][0/469]	Loss 0.322 (0.322)	Prec@1 0.883 (0.883)	
+[2025/03/30 06:16:11] - Iter: [65][50/469]	Loss 0.318 (0.309)	Prec@1 0.867 (0.870)	
+[2025/03/30 06:16:16] - Iter: [65][100/469]	Loss 0.311 (0.316)	Prec@1 0.891 (0.869)	
+[2025/03/30 06:16:22] - Iter: [65][150/469]	Loss 0.391 (0.318)	Prec@1 0.836 (0.870)	
+[2025/03/30 06:16:27] - Iter: [65][200/469]	Loss 0.253 (0.318)	Prec@1 0.922 (0.870)	
+[2025/03/30 06:16:33] - Iter: [65][250/469]	Loss 0.404 (0.318)	Prec@1 0.836 (0.869)	
+[2025/03/30 06:16:38] - Iter: [65][300/469]	Loss 0.295 (0.319)	Prec@1 0.867 (0.869)	
+[2025/03/30 06:16:43] - Iter: [65][350/469]	Loss 0.379 (0.319)	Prec@1 0.812 (0.868)	
+[2025/03/30 06:16:49] - Iter: [65][400/469]	Loss 0.342 (0.319)	Prec@1 0.867 (0.869)	
+[2025/03/30 06:16:55] - Iter: [65][450/469]	Loss 0.315 (0.318)	Prec@1 0.844 (0.869)	
+[2025/03/30 06:16:57] - Evaluating with standard images...
+[2025/03/30 06:16:57] - Evaluating with PGD Attack...
+[2025/03/30 06:17:18] - Test Loss: 0.2441  	 Test Acc: 0.9071  
+ PGD Loss: 0.3595 	 PGD Acc: 0.8561 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:17:18] - epoch 66 lr 1.000000e-02
+[2025/03/30 06:17:18] - Iter: [66][0/469]	Loss 0.303 (0.303)	Prec@1 0.891 (0.891)	
+[2025/03/30 06:17:24] - Iter: [66][50/469]	Loss 0.276 (0.321)	Prec@1 0.844 (0.866)	
+[2025/03/30 06:17:30] - Iter: [66][100/469]	Loss 0.274 (0.318)	Prec@1 0.891 (0.867)	
+[2025/03/30 06:17:35] - Iter: [66][150/469]	Loss 0.332 (0.315)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:17:41] - Iter: [66][200/469]	Loss 0.291 (0.315)	Prec@1 0.859 (0.868)	
+[2025/03/30 06:17:46] - Iter: [66][250/469]	Loss 0.390 (0.316)	Prec@1 0.867 (0.868)	
+[2025/03/30 06:17:52] - Iter: [66][300/469]	Loss 0.282 (0.318)	Prec@1 0.875 (0.868)	
+[2025/03/30 06:17:57] - Iter: [66][350/469]	Loss 0.301 (0.317)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:18:03] - Iter: [66][400/469]	Loss 0.369 (0.318)	Prec@1 0.852 (0.868)	
+[2025/03/30 06:18:08] - Iter: [66][450/469]	Loss 0.365 (0.318)	Prec@1 0.828 (0.869)	
+[2025/03/30 06:18:10] - Evaluating with standard images...
+[2025/03/30 06:18:10] - Evaluating with PGD Attack...
+[2025/03/30 06:18:32] - Test Loss: 0.2420  	 Test Acc: 0.9063  
+ PGD Loss: 0.3576 	 PGD Acc: 0.8578 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:18:32] - epoch 67 lr 1.000000e-02
+[2025/03/30 06:18:32] - Iter: [67][0/469]	Loss 0.234 (0.234)	Prec@1 0.922 (0.922)	
+[2025/03/30 06:18:37] - Iter: [67][50/469]	Loss 0.227 (0.301)	Prec@1 0.922 (0.877)	
+[2025/03/30 06:18:43] - Iter: [67][100/469]	Loss 0.443 (0.306)	Prec@1 0.844 (0.875)	
+[2025/03/30 06:18:48] - Iter: [67][150/469]	Loss 0.299 (0.310)	Prec@1 0.867 (0.873)	
+[2025/03/30 06:18:54] - Iter: [67][200/469]	Loss 0.307 (0.311)	Prec@1 0.875 (0.872)	
+[2025/03/30 06:18:59] - Iter: [67][250/469]	Loss 0.211 (0.310)	Prec@1 0.914 (0.873)	
+[2025/03/30 06:19:05] - Iter: [67][300/469]	Loss 0.383 (0.314)	Prec@1 0.836 (0.871)	
+[2025/03/30 06:19:10] - Iter: [67][350/469]	Loss 0.345 (0.315)	Prec@1 0.828 (0.870)	
+[2025/03/30 06:19:16] - Iter: [67][400/469]	Loss 0.284 (0.316)	Prec@1 0.875 (0.870)	
+[2025/03/30 06:19:21] - Iter: [67][450/469]	Loss 0.313 (0.317)	Prec@1 0.875 (0.870)	
+[2025/03/30 06:19:23] - Evaluating with standard images...
+[2025/03/30 06:19:24] - Evaluating with PGD Attack...
+[2025/03/30 06:19:45] - Test Loss: 0.2383  	 Test Acc: 0.9089  
+ PGD Loss: 0.3653 	 PGD Acc: 0.8532 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:19:45] - epoch 68 lr 1.000000e-02
+[2025/03/30 06:19:45] - Iter: [68][0/469]	Loss 0.247 (0.247)	Prec@1 0.891 (0.891)	
+[2025/03/30 06:19:50] - Iter: [68][50/469]	Loss 0.343 (0.318)	Prec@1 0.859 (0.865)	
+[2025/03/30 06:19:56] - Iter: [68][100/469]	Loss 0.271 (0.315)	Prec@1 0.891 (0.868)	
+[2025/03/30 06:20:01] - Iter: [68][150/469]	Loss 0.252 (0.315)	Prec@1 0.922 (0.869)	
+[2025/03/30 06:20:07] - Iter: [68][200/469]	Loss 0.306 (0.313)	Prec@1 0.883 (0.871)	
+[2025/03/30 06:20:12] - Iter: [68][250/469]	Loss 0.294 (0.315)	Prec@1 0.852 (0.870)	
+[2025/03/30 06:20:18] - Iter: [68][300/469]	Loss 0.388 (0.312)	Prec@1 0.867 (0.871)	
+[2025/03/30 06:20:23] - Iter: [68][350/469]	Loss 0.339 (0.316)	Prec@1 0.883 (0.869)	
+[2025/03/30 06:20:28] - Iter: [68][400/469]	Loss 0.378 (0.316)	Prec@1 0.812 (0.868)	
+[2025/03/30 06:20:34] - Iter: [68][450/469]	Loss 0.243 (0.315)	Prec@1 0.914 (0.869)	
+[2025/03/30 06:20:36] - Evaluating with standard images...
+[2025/03/30 06:20:36] - Evaluating with PGD Attack...
+[2025/03/30 06:20:58] - Test Loss: 0.2377  	 Test Acc: 0.9082  
+ PGD Loss: 0.3555 	 PGD Acc: 0.8582 
+ Best PGD Acc: 0.8619 	 Test Acc of best PGD ckpt: 0.9107
+[2025/03/30 06:20:58] - epoch 69 lr 1.000000e-04
+[2025/03/30 06:20:58] - Iter: [69][0/469]	Loss 0.383 (0.383)	Prec@1 0.836 (0.836)	
+[2025/03/30 06:21:03] - Iter: [69][50/469]	Loss 0.290 (0.304)	Prec@1 0.883 (0.875)	
+[2025/03/30 06:21:09] - Iter: [69][100/469]	Loss 0.268 (0.298)	Prec@1 0.914 (0.876)	
+[2025/03/30 06:21:14] - Iter: [69][150/469]	Loss 0.254 (0.296)	Prec@1 0.930 (0.878)	
+[2025/03/30 06:21:20] - Iter: [69][200/469]	Loss 0.307 (0.295)	Prec@1 0.867 (0.878)	
+[2025/03/30 06:21:25] - Iter: [69][250/469]	Loss 0.298 (0.292)	Prec@1 0.859 (0.879)	
+[2025/03/30 06:21:31] - Iter: [69][300/469]	Loss 0.220 (0.293)	Prec@1 0.898 (0.879)	
+[2025/03/30 06:21:36] - Iter: [69][350/469]	Loss 0.366 (0.290)	Prec@1 0.836 (0.880)	
+[2025/03/30 06:21:42] - Iter: [69][400/469]	Loss 0.275 (0.290)	Prec@1 0.867 (0.880)	
+[2025/03/30 06:21:47] - Iter: [69][450/469]	Loss 0.228 (0.290)	Prec@1 0.906 (0.880)	
+[2025/03/30 06:21:49] - Evaluating with standard images...
+[2025/03/30 06:21:50] - Evaluating with PGD Attack...
+[2025/03/30 06:22:11] - Test Loss: 0.2213  	 Test Acc: 0.9191  
+ PGD Loss: 0.3393 	 PGD Acc: 0.8638 
+ Best PGD Acc: 0.8638 	 Test Acc of best PGD ckpt: 0.9191
+[2025/03/30 06:22:11] - epoch 70 lr 1.000000e-03
+New Best Adv Training
+[2025/03/30 06:22:11] - Iter: [70][0/469]	Loss 0.335 (0.335)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:22:17] - Iter: [70][50/469]	Loss 0.294 (0.276)	Prec@1 0.867 (0.887)	
+[2025/03/30 06:22:22] - Iter: [70][100/469]	Loss 0.374 (0.276)	Prec@1 0.852 (0.888)	
+[2025/03/30 06:22:28] - Iter: [70][150/469]	Loss 0.251 (0.280)	Prec@1 0.898 (0.884)	
+[2025/03/30 06:22:33] - Iter: [70][200/469]	Loss 0.274 (0.280)	Prec@1 0.883 (0.883)	
+[2025/03/30 06:22:39] - Iter: [70][250/469]	Loss 0.190 (0.278)	Prec@1 0.914 (0.885)	
+[2025/03/30 06:22:44] - Iter: [70][300/469]	Loss 0.299 (0.277)	Prec@1 0.898 (0.886)	
+[2025/03/30 06:22:49] - Iter: [70][350/469]	Loss 0.369 (0.277)	Prec@1 0.859 (0.886)	
+[2025/03/30 06:22:55] - Iter: [70][400/469]	Loss 0.207 (0.277)	Prec@1 0.922 (0.886)	
+[2025/03/30 06:23:01] - Iter: [70][450/469]	Loss 0.283 (0.278)	Prec@1 0.898 (0.885)	
+[2025/03/30 06:23:03] - Evaluating with standard images...
+[2025/03/30 06:23:03] - Evaluating with PGD Attack...
+[2025/03/30 06:23:25] - Test Loss: 0.2213  	 Test Acc: 0.9182  
+ PGD Loss: 0.3398 	 PGD Acc: 0.8656 
+ Best PGD Acc: 0.8656 	 Test Acc of best PGD ckpt: 0.9182
+[2025/03/30 06:23:25] - epoch 71 lr 1.000000e-03
+New Best Adv Training
+[2025/03/30 06:23:25] - Iter: [71][0/469]	Loss 0.283 (0.283)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:23:30] - Iter: [71][50/469]	Loss 0.250 (0.283)	Prec@1 0.891 (0.881)	
+[2025/03/30 06:23:36] - Iter: [71][100/469]	Loss 0.270 (0.281)	Prec@1 0.914 (0.882)	
+[2025/03/30 06:23:41] - Iter: [71][150/469]	Loss 0.258 (0.280)	Prec@1 0.883 (0.884)	
+[2025/03/30 06:23:47] - Iter: [71][200/469]	Loss 0.245 (0.279)	Prec@1 0.891 (0.883)	
+[2025/03/30 06:23:52] - Iter: [71][250/469]	Loss 0.229 (0.276)	Prec@1 0.906 (0.885)	
+[2025/03/30 06:23:58] - Iter: [71][300/469]	Loss 0.348 (0.276)	Prec@1 0.859 (0.885)	
+[2025/03/30 06:24:03] - Iter: [71][350/469]	Loss 0.307 (0.276)	Prec@1 0.836 (0.885)	
+[2025/03/30 06:24:09] - Iter: [71][400/469]	Loss 0.294 (0.275)	Prec@1 0.875 (0.886)	
+[2025/03/30 06:24:15] - Iter: [71][450/469]	Loss 0.274 (0.276)	Prec@1 0.898 (0.886)	
+[2025/03/30 06:24:17] - Evaluating with standard images...
+[2025/03/30 06:24:17] - Evaluating with PGD Attack...
+[2025/03/30 06:24:39] - Test Loss: 0.2194  	 Test Acc: 0.9215  
+ PGD Loss: 0.3407 	 PGD Acc: 0.8655 
+ Best PGD Acc: 0.8656 	 Test Acc of best PGD ckpt: 0.9182
+[2025/03/30 06:24:39] - epoch 72 lr 1.000000e-03
+[2025/03/30 06:24:39] - Iter: [72][0/469]	Loss 0.253 (0.253)	Prec@1 0.906 (0.906)	
+[2025/03/30 06:24:45] - Iter: [72][50/469]	Loss 0.214 (0.268)	Prec@1 0.914 (0.889)	
+[2025/03/30 06:24:50] - Iter: [72][100/469]	Loss 0.306 (0.272)	Prec@1 0.867 (0.888)	
+[2025/03/30 06:24:56] - Iter: [72][150/469]	Loss 0.175 (0.273)	Prec@1 0.961 (0.888)	
+[2025/03/30 06:25:02] - Iter: [72][200/469]	Loss 0.253 (0.274)	Prec@1 0.883 (0.886)	
+[2025/03/30 06:25:07] - Iter: [72][250/469]	Loss 0.238 (0.273)	Prec@1 0.922 (0.887)	
+[2025/03/30 06:25:13] - Iter: [72][300/469]	Loss 0.325 (0.274)	Prec@1 0.859 (0.886)	
+[2025/03/30 06:25:18] - Iter: [72][350/469]	Loss 0.283 (0.273)	Prec@1 0.875 (0.886)	
+[2025/03/30 06:25:24] - Iter: [72][400/469]	Loss 0.304 (0.272)	Prec@1 0.891 (0.887)	
+[2025/03/30 06:25:29] - Iter: [72][450/469]	Loss 0.233 (0.273)	Prec@1 0.906 (0.887)	
+[2025/03/30 06:25:31] - Evaluating with standard images...
+[2025/03/30 06:25:32] - Evaluating with PGD Attack...
+[2025/03/30 06:25:53] - Test Loss: 0.2175  	 Test Acc: 0.9190  
+ PGD Loss: 0.3385 	 PGD Acc: 0.8665 
+ Best PGD Acc: 0.8665 	 Test Acc of best PGD ckpt: 0.9190
+[2025/03/30 06:25:53] - epoch 73 lr 1.000000e-03
+New Best Adv Training
+[2025/03/30 06:25:53] - Iter: [73][0/469]	Loss 0.324 (0.324)	Prec@1 0.852 (0.852)	
+[2025/03/30 06:25:59] - Iter: [73][50/469]	Loss 0.320 (0.277)	Prec@1 0.875 (0.883)	
+[2025/03/30 06:26:04] - Iter: [73][100/469]	Loss 0.283 (0.271)	Prec@1 0.898 (0.888)	
+[2025/03/30 06:26:10] - Iter: [73][150/469]	Loss 0.208 (0.272)	Prec@1 0.914 (0.887)	
+[2025/03/30 06:26:16] - Iter: [73][200/469]	Loss 0.316 (0.272)	Prec@1 0.852 (0.887)	
+[2025/03/30 06:26:21] - Iter: [73][250/469]	Loss 0.218 (0.271)	Prec@1 0.922 (0.888)	
+[2025/03/30 06:26:26] - Iter: [73][300/469]	Loss 0.289 (0.272)	Prec@1 0.898 (0.888)	
+[2025/03/30 06:26:32] - Iter: [73][350/469]	Loss 0.279 (0.270)	Prec@1 0.844 (0.888)	
+[2025/03/30 06:26:37] - Iter: [73][400/469]	Loss 0.242 (0.271)	Prec@1 0.906 (0.887)	
+[2025/03/30 06:26:42] - Iter: [73][450/469]	Loss 0.234 (0.271)	Prec@1 0.867 (0.887)	
+[2025/03/30 06:26:44] - Evaluating with standard images...
+[2025/03/30 06:26:45] - Evaluating with PGD Attack...
+[2025/03/30 06:27:06] - Test Loss: 0.2188  	 Test Acc: 0.9182  
+ PGD Loss: 0.3445 	 PGD Acc: 0.8649 
+ Best PGD Acc: 0.8665 	 Test Acc of best PGD ckpt: 0.9190
+[2025/03/30 06:27:06] - epoch 74 lr 1.000000e-03
+[2025/03/30 06:27:06] - Iter: [74][0/469]	Loss 0.281 (0.281)	Prec@1 0.883 (0.883)	
+[2025/03/30 06:27:12] - Iter: [74][50/469]	Loss 0.227 (0.266)	Prec@1 0.922 (0.892)	
+[2025/03/30 06:27:17] - Iter: [74][100/469]	Loss 0.284 (0.260)	Prec@1 0.891 (0.893)	
+[2025/03/30 06:27:23] - Iter: [74][150/469]	Loss 0.323 (0.263)	Prec@1 0.867 (0.892)	
+[2025/03/30 06:27:28] - Iter: [74][200/469]	Loss 0.289 (0.263)	Prec@1 0.875 (0.892)	
+[2025/03/30 06:27:34] - Iter: [74][250/469]	Loss 0.263 (0.265)	Prec@1 0.883 (0.891)	
+[2025/03/30 06:27:39] - Iter: [74][300/469]	Loss 0.347 (0.266)	Prec@1 0.852 (0.891)	
+[2025/03/30 06:27:45] - Iter: [74][350/469]	Loss 0.261 (0.265)	Prec@1 0.906 (0.891)	
+[2025/03/30 06:27:51] - Iter: [74][400/469]	Loss 0.315 (0.265)	Prec@1 0.898 (0.891)	
+[2025/03/30 06:27:56] - Iter: [74][450/469]	Loss 0.268 (0.267)	Prec@1 0.898 (0.890)	
+[2025/03/30 06:27:58] - Evaluating with standard images...
+[2025/03/30 06:27:59] - Evaluating with PGD Attack...
+[2025/03/30 06:28:20] - Test Loss: 0.2151  	 Test Acc: 0.9199  
+ PGD Loss: 0.3361 	 PGD Acc: 0.8672 
+ Best PGD Acc: 0.8672 	 Test Acc of best PGD ckpt: 0.9199
+[2025/03/30 06:28:20] - epoch 75 lr 1.000000e-03
+New Best Adv Training
+[2025/03/30 06:28:21] - Iter: [75][0/469]	Loss 0.285 (0.285)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:28:26] - Iter: [75][50/469]	Loss 0.311 (0.257)	Prec@1 0.883 (0.893)	
+[2025/03/30 06:28:32] - Iter: [75][100/469]	Loss 0.272 (0.260)	Prec@1 0.875 (0.894)	
+[2025/03/30 06:28:37] - Iter: [75][150/469]	Loss 0.321 (0.265)	Prec@1 0.859 (0.892)	
+[2025/03/30 06:28:43] - Iter: [75][200/469]	Loss 0.344 (0.266)	Prec@1 0.859 (0.890)	
+[2025/03/30 06:28:48] - Iter: [75][250/469]	Loss 0.211 (0.267)	Prec@1 0.914 (0.889)	
+[2025/03/30 06:28:54] - Iter: [75][300/469]	Loss 0.196 (0.266)	Prec@1 0.930 (0.889)	
+[2025/03/30 06:28:59] - Iter: [75][350/469]	Loss 0.150 (0.266)	Prec@1 0.961 (0.890)	
+[2025/03/30 06:29:05] - Iter: [75][400/469]	Loss 0.352 (0.266)	Prec@1 0.852 (0.890)	
+[2025/03/30 06:29:10] - Iter: [75][450/469]	Loss 0.293 (0.266)	Prec@1 0.883 (0.889)	
+[2025/03/30 06:29:12] - Evaluating with standard images...
+[2025/03/30 06:29:13] - Evaluating with PGD Attack...
+[2025/03/30 06:29:34] - Test Loss: 0.2162  	 Test Acc: 0.9179  
+ PGD Loss: 0.3433 	 PGD Acc: 0.8655 
+ Best PGD Acc: 0.8672 	 Test Acc of best PGD ckpt: 0.9199
+[2025/03/30 06:29:34] - epoch 76 lr 1.000000e-03
+[2025/03/30 06:29:34] - Iter: [76][0/469]	Loss 0.348 (0.348)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:29:40] - Iter: [76][50/469]	Loss 0.190 (0.266)	Prec@1 0.953 (0.890)	
+[2025/03/30 06:29:45] - Iter: [76][100/469]	Loss 0.249 (0.266)	Prec@1 0.883 (0.891)	
+[2025/03/30 06:29:51] - Iter: [76][150/469]	Loss 0.221 (0.264)	Prec@1 0.891 (0.891)	
+[2025/03/30 06:29:56] - Iter: [76][200/469]	Loss 0.346 (0.265)	Prec@1 0.844 (0.891)	
+[2025/03/30 06:30:01] - Iter: [76][250/469]	Loss 0.259 (0.264)	Prec@1 0.867 (0.891)	
+[2025/03/30 06:30:07] - Iter: [76][300/469]	Loss 0.258 (0.264)	Prec@1 0.875 (0.890)	
+[2025/03/30 06:30:13] - Iter: [76][350/469]	Loss 0.248 (0.265)	Prec@1 0.906 (0.890)	
+[2025/03/30 06:30:18] - Iter: [76][400/469]	Loss 0.192 (0.265)	Prec@1 0.930 (0.890)	
+[2025/03/30 06:30:24] - Iter: [76][450/469]	Loss 0.257 (0.264)	Prec@1 0.875 (0.890)	
+[2025/03/30 06:30:26] - Evaluating with standard images...
+[2025/03/30 06:30:26] - Evaluating with PGD Attack...
+[2025/03/30 06:30:47] - Test Loss: 0.2157  	 Test Acc: 0.9204  
+ PGD Loss: 0.3452 	 PGD Acc: 0.8659 
+ Best PGD Acc: 0.8672 	 Test Acc of best PGD ckpt: 0.9199
+[2025/03/30 06:30:47] - epoch 77 lr 1.000000e-03
+[2025/03/30 06:30:48] - Iter: [77][0/469]	Loss 0.233 (0.233)	Prec@1 0.891 (0.891)	
+[2025/03/30 06:30:53] - Iter: [77][50/469]	Loss 0.353 (0.262)	Prec@1 0.836 (0.893)	
+[2025/03/30 06:30:59] - Iter: [77][100/469]	Loss 0.272 (0.264)	Prec@1 0.883 (0.889)	
+[2025/03/30 06:31:04] - Iter: [77][150/469]	Loss 0.252 (0.263)	Prec@1 0.883 (0.891)	
+[2025/03/30 06:31:10] - Iter: [77][200/469]	Loss 0.221 (0.263)	Prec@1 0.875 (0.890)	
+[2025/03/30 06:31:15] - Iter: [77][250/469]	Loss 0.236 (0.266)	Prec@1 0.898 (0.888)	
+[2025/03/30 06:31:20] - Iter: [77][300/469]	Loss 0.263 (0.267)	Prec@1 0.914 (0.888)	
+[2025/03/30 06:31:26] - Iter: [77][350/469]	Loss 0.271 (0.268)	Prec@1 0.914 (0.888)	
+[2025/03/30 06:31:31] - Iter: [77][400/469]	Loss 0.357 (0.266)	Prec@1 0.828 (0.889)	
+[2025/03/30 06:31:37] - Iter: [77][450/469]	Loss 0.218 (0.264)	Prec@1 0.914 (0.889)	
+[2025/03/30 06:31:39] - Evaluating with standard images...
+[2025/03/30 06:31:39] - Evaluating with PGD Attack...
+[2025/03/30 06:32:01] - Test Loss: 0.2147  	 Test Acc: 0.9201  
+ PGD Loss: 0.3390 	 PGD Acc: 0.8682 
+ Best PGD Acc: 0.8682 	 Test Acc of best PGD ckpt: 0.9201
+[2025/03/30 06:32:01] - epoch 78 lr 1.000000e-03
+New Best Adv Training
+[2025/03/30 06:32:01] - Iter: [78][0/469]	Loss 0.294 (0.294)	Prec@1 0.844 (0.844)	
+[2025/03/30 06:32:06] - Iter: [78][50/469]	Loss 0.238 (0.259)	Prec@1 0.906 (0.894)	
+[2025/03/30 06:32:12] - Iter: [78][100/469]	Loss 0.286 (0.263)	Prec@1 0.898 (0.892)	
+[2025/03/30 06:32:17] - Iter: [78][150/469]	Loss 0.164 (0.259)	Prec@1 0.945 (0.894)	
+[2025/03/30 06:32:22] - Iter: [78][200/469]	Loss 0.298 (0.258)	Prec@1 0.867 (0.894)	
+[2025/03/30 06:32:28] - Iter: [78][250/469]	Loss 0.316 (0.260)	Prec@1 0.867 (0.893)	
+[2025/03/30 06:32:33] - Iter: [78][300/469]	Loss 0.242 (0.261)	Prec@1 0.914 (0.891)	
+[2025/03/30 06:32:39] - Iter: [78][350/469]	Loss 0.250 (0.262)	Prec@1 0.875 (0.890)	
+[2025/03/30 06:32:44] - Iter: [78][400/469]	Loss 0.227 (0.261)	Prec@1 0.914 (0.890)	
+[2025/03/30 06:32:50] - Iter: [78][450/469]	Loss 0.196 (0.262)	Prec@1 0.930 (0.890)	
+[2025/03/30 06:32:52] - Evaluating with standard images...
+[2025/03/30 06:32:52] - Evaluating with PGD Attack...
+[2025/03/30 06:33:13] - Test Loss: 0.2142  	 Test Acc: 0.9213  
+ PGD Loss: 0.3406 	 PGD Acc: 0.8667 
+ Best PGD Acc: 0.8682 	 Test Acc of best PGD ckpt: 0.9201
+[2025/03/30 06:33:13] - epoch 79 lr 1.000000e-03
+[2025/03/30 06:33:14] - Iter: [79][0/469]	Loss 0.293 (0.293)	Prec@1 0.859 (0.859)	
+[2025/03/30 06:33:19] - Iter: [79][50/469]	Loss 0.335 (0.241)	Prec@1 0.844 (0.902)	
+[2025/03/30 06:33:25] - Iter: [79][100/469]	Loss 0.244 (0.258)	Prec@1 0.898 (0.893)	
+[2025/03/30 06:33:30] - Iter: [79][150/469]	Loss 0.330 (0.257)	Prec@1 0.844 (0.893)	
+[2025/03/30 06:33:36] - Iter: [79][200/469]	Loss 0.240 (0.258)	Prec@1 0.898 (0.892)	
+[2025/03/30 06:33:41] - Iter: [79][250/469]	Loss 0.286 (0.259)	Prec@1 0.898 (0.892)	
+[2025/03/30 06:33:47] - Iter: [79][300/469]	Loss 0.335 (0.260)	Prec@1 0.859 (0.891)	
+[2025/03/30 06:33:53] - Iter: [79][350/469]	Loss 0.397 (0.259)	Prec@1 0.844 (0.892)	
+[2025/03/30 06:33:58] - Iter: [79][400/469]	Loss 0.216 (0.260)	Prec@1 0.922 (0.891)	
+[2025/03/30 06:34:03] - Iter: [79][450/469]	Loss 0.236 (0.261)	Prec@1 0.883 (0.891)	
+[2025/03/30 06:34:05] - Evaluating with standard images...
+[2025/03/30 06:34:06] - Evaluating with PGD Attack...
+[2025/03/30 06:34:27] - Test Loss: 0.2171  	 Test Acc: 0.9196  
+ PGD Loss: 0.3468 	 PGD Acc: 0.8643 
+ Best PGD Acc: 0.8682 	 Test Acc of best PGD ckpt: 0.9201
+[2025/03/30 06:34:27] - epoch 80 lr 1.000000e-03
+[2025/03/30 06:34:27] - Iter: [80][0/469]	Loss 0.161 (0.161)	Prec@1 0.945 (0.945)	
+[2025/03/30 06:34:33] - Iter: [80][50/469]	Loss 0.298 (0.263)	Prec@1 0.859 (0.886)	
+[2025/03/30 06:34:39] - Iter: [80][100/469]	Loss 0.283 (0.259)	Prec@1 0.875 (0.889)	
+[2025/03/30 06:34:44] - Iter: [80][150/469]	Loss 0.219 (0.259)	Prec@1 0.891 (0.890)	
+[2025/03/30 06:34:50] - Iter: [80][200/469]	Loss 0.211 (0.258)	Prec@1 0.883 (0.891)	
+[2025/03/30 06:34:55] - Iter: [80][250/469]	Loss 0.265 (0.258)	Prec@1 0.891 (0.892)	
+[2025/03/30 06:35:00] - Iter: [80][300/469]	Loss 0.242 (0.257)	Prec@1 0.898 (0.892)	
+[2025/03/30 06:35:06] - Iter: [80][350/469]	Loss 0.297 (0.258)	Prec@1 0.867 (0.891)	
+[2025/03/30 06:35:11] - Iter: [80][400/469]	Loss 0.239 (0.259)	Prec@1 0.891 (0.891)	
+[2025/03/30 06:35:17] - Iter: [80][450/469]	Loss 0.320 (0.260)	Prec@1 0.828 (0.891)	
+[2025/03/30 06:35:19] - Evaluating with standard images...
+[2025/03/30 06:35:19] - Evaluating with PGD Attack...
+[2025/03/30 06:35:40] - Test Loss: 0.2141  	 Test Acc: 0.9198  
+ PGD Loss: 0.3440 	 PGD Acc: 0.8666 
+ Best PGD Acc: 0.8682 	 Test Acc of best PGD ckpt: 0.9201
+[2025/03/30 06:35:40] - epoch 81 lr 1.000000e-03
+[2025/03/30 06:35:41] - Iter: [81][0/469]	Loss 0.275 (0.275)	Prec@1 0.898 (0.898)	
+[2025/03/30 06:35:46] - Iter: [81][50/469]	Loss 0.310 (0.248)	Prec@1 0.867 (0.898)	
+[2025/03/30 06:35:52] - Iter: [81][100/469]	Loss 0.268 (0.252)	Prec@1 0.898 (0.898)	
+[2025/03/30 06:35:57] - Iter: [81][150/469]	Loss 0.216 (0.254)	Prec@1 0.930 (0.896)	
+[2025/03/30 06:36:03] - Iter: [81][200/469]	Loss 0.338 (0.256)	Prec@1 0.867 (0.894)	
+[2025/03/30 06:36:08] - Iter: [81][250/469]	Loss 0.369 (0.255)	Prec@1 0.828 (0.895)	
+[2025/03/30 06:36:14] - Iter: [81][300/469]	Loss 0.204 (0.257)	Prec@1 0.914 (0.894)	
+[2025/03/30 06:36:19] - Iter: [81][350/469]	Loss 0.169 (0.258)	Prec@1 0.906 (0.893)	
+[2025/03/30 06:36:25] - Iter: [81][400/469]	Loss 0.196 (0.257)	Prec@1 0.914 (0.893)	
+[2025/03/30 06:36:30] - Iter: [81][450/469]	Loss 0.230 (0.257)	Prec@1 0.867 (0.892)	
+[2025/03/30 06:36:32] - Evaluating with standard images...
+[2025/03/30 06:36:33] - Evaluating with PGD Attack...
+[2025/03/30 06:36:54] - Test Loss: 0.2141  	 Test Acc: 0.9201  
+ PGD Loss: 0.3447 	 PGD Acc: 0.8663 
+ Best PGD Acc: 0.8682 	 Test Acc of best PGD ckpt: 0.9201
+[2025/03/30 06:36:54] - epoch 82 lr 1.000000e-03
+[2025/03/30 06:36:54] - Iter: [82][0/469]	Loss 0.373 (0.373)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:37:00] - Iter: [82][50/469]	Loss 0.257 (0.249)	Prec@1 0.906 (0.894)	
+[2025/03/30 06:37:05] - Iter: [82][100/469]	Loss 0.337 (0.251)	Prec@1 0.852 (0.893)	
+[2025/03/30 06:37:10] - Iter: [82][150/469]	Loss 0.221 (0.251)	Prec@1 0.898 (0.893)	
+[2025/03/30 06:37:16] - Iter: [82][200/469]	Loss 0.202 (0.252)	Prec@1 0.898 (0.894)	
+[2025/03/30 06:37:21] - Iter: [82][250/469]	Loss 0.273 (0.254)	Prec@1 0.891 (0.893)	
+[2025/03/30 06:37:27] - Iter: [82][300/469]	Loss 0.165 (0.255)	Prec@1 0.938 (0.892)	
+[2025/03/30 06:37:32] - Iter: [82][350/469]	Loss 0.303 (0.255)	Prec@1 0.867 (0.892)	
+[2025/03/30 06:37:38] - Iter: [82][400/469]	Loss 0.233 (0.256)	Prec@1 0.891 (0.892)	
+[2025/03/30 06:37:43] - Iter: [82][450/469]	Loss 0.247 (0.257)	Prec@1 0.906 (0.892)	
+[2025/03/30 06:37:45] - Evaluating with standard images...
+[2025/03/30 06:37:46] - Evaluating with PGD Attack...
+[2025/03/30 06:38:08] - Test Loss: 0.2129  	 Test Acc: 0.9213  
+ PGD Loss: 0.3431 	 PGD Acc: 0.8683 
+ Best PGD Acc: 0.8683 	 Test Acc of best PGD ckpt: 0.9213
+[2025/03/30 06:38:08] - epoch 83 lr 1.000000e-03
+New Best Adv Training
+[2025/03/30 06:38:08] - Iter: [83][0/469]	Loss 0.265 (0.265)	Prec@1 0.898 (0.898)	
+[2025/03/30 06:38:13] - Iter: [83][50/469]	Loss 0.317 (0.252)	Prec@1 0.867 (0.895)	
+[2025/03/30 06:38:19] - Iter: [83][100/469]	Loss 0.274 (0.250)	Prec@1 0.883 (0.897)	
+[2025/03/30 06:38:24] - Iter: [83][150/469]	Loss 0.287 (0.254)	Prec@1 0.891 (0.896)	
+[2025/03/30 06:38:30] - Iter: [83][200/469]	Loss 0.257 (0.255)	Prec@1 0.883 (0.895)	
+[2025/03/30 06:38:36] - Iter: [83][250/469]	Loss 0.223 (0.255)	Prec@1 0.891 (0.894)	
+[2025/03/30 06:38:41] - Iter: [83][300/469]	Loss 0.249 (0.256)	Prec@1 0.883 (0.893)	
+[2025/03/30 06:38:47] - Iter: [83][350/469]	Loss 0.309 (0.256)	Prec@1 0.898 (0.893)	
+[2025/03/30 06:38:52] - Iter: [83][400/469]	Loss 0.222 (0.256)	Prec@1 0.898 (0.893)	
+[2025/03/30 06:38:57] - Iter: [83][450/469]	Loss 0.245 (0.256)	Prec@1 0.883 (0.893)	
+[2025/03/30 06:38:59] - Evaluating with standard images...
+[2025/03/30 06:39:00] - Evaluating with PGD Attack...
+[2025/03/30 06:39:21] - Test Loss: 0.2131  	 Test Acc: 0.9215  
+ PGD Loss: 0.3431 	 PGD Acc: 0.8669 
+ Best PGD Acc: 0.8683 	 Test Acc of best PGD ckpt: 0.9213
+[2025/03/30 06:39:21] - epoch 84 lr 1.000000e-03
+[2025/03/30 06:39:22] - Iter: [84][0/469]	Loss 0.264 (0.264)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:39:27] - Iter: [84][50/469]	Loss 0.292 (0.249)	Prec@1 0.883 (0.898)	
+[2025/03/30 06:39:33] - Iter: [84][100/469]	Loss 0.205 (0.252)	Prec@1 0.906 (0.896)	
+[2025/03/30 06:39:38] - Iter: [84][150/469]	Loss 0.217 (0.251)	Prec@1 0.898 (0.895)	
+[2025/03/30 06:39:44] - Iter: [84][200/469]	Loss 0.276 (0.251)	Prec@1 0.852 (0.894)	
+[2025/03/30 06:39:49] - Iter: [84][250/469]	Loss 0.273 (0.254)	Prec@1 0.898 (0.893)	
+[2025/03/30 06:39:55] - Iter: [84][300/469]	Loss 0.226 (0.254)	Prec@1 0.883 (0.893)	
+[2025/03/30 06:40:00] - Iter: [84][350/469]	Loss 0.324 (0.254)	Prec@1 0.883 (0.893)	
+[2025/03/30 06:40:06] - Iter: [84][400/469]	Loss 0.222 (0.255)	Prec@1 0.891 (0.893)	
+[2025/03/30 06:40:11] - Iter: [84][450/469]	Loss 0.305 (0.255)	Prec@1 0.875 (0.893)	
+[2025/03/30 06:40:13] - Evaluating with standard images...
+[2025/03/30 06:40:14] - Evaluating with PGD Attack...
+[2025/03/30 06:40:35] - Test Loss: 0.2142  	 Test Acc: 0.9212  
+ PGD Loss: 0.3493 	 PGD Acc: 0.8675 
+ Best PGD Acc: 0.8683 	 Test Acc of best PGD ckpt: 0.9213
+[2025/03/30 06:40:35] - epoch 85 lr 1.000000e-03
+[2025/03/30 06:40:36] - Iter: [85][0/469]	Loss 0.214 (0.214)	Prec@1 0.914 (0.914)	
+[2025/03/30 06:40:41] - Iter: [85][50/469]	Loss 0.203 (0.258)	Prec@1 0.953 (0.891)	
+[2025/03/30 06:40:46] - Iter: [85][100/469]	Loss 0.188 (0.255)	Prec@1 0.914 (0.892)	
+[2025/03/30 06:40:52] - Iter: [85][150/469]	Loss 0.295 (0.253)	Prec@1 0.875 (0.893)	
+[2025/03/30 06:40:57] - Iter: [85][200/469]	Loss 0.295 (0.253)	Prec@1 0.875 (0.894)	
+[2025/03/30 06:41:03] - Iter: [85][250/469]	Loss 0.254 (0.253)	Prec@1 0.906 (0.895)	
+[2025/03/30 06:41:08] - Iter: [85][300/469]	Loss 0.308 (0.253)	Prec@1 0.844 (0.894)	
+[2025/03/30 06:41:13] - Iter: [85][350/469]	Loss 0.140 (0.255)	Prec@1 0.961 (0.893)	
+[2025/03/30 06:41:19] - Iter: [85][400/469]	Loss 0.326 (0.254)	Prec@1 0.828 (0.893)	
+[2025/03/30 06:41:24] - Iter: [85][450/469]	Loss 0.263 (0.254)	Prec@1 0.891 (0.893)	
+[2025/03/30 06:41:26] - Evaluating with standard images...
+[2025/03/30 06:41:27] - Evaluating with PGD Attack...
+[2025/03/30 06:41:48] - Test Loss: 0.2111  	 Test Acc: 0.9224  
+ PGD Loss: 0.3481 	 PGD Acc: 0.8657 
+ Best PGD Acc: 0.8683 	 Test Acc of best PGD ckpt: 0.9213
+[2025/03/30 06:41:48] - epoch 86 lr 1.000000e-03
+[2025/03/30 06:41:48] - Iter: [86][0/469]	Loss 0.171 (0.171)	Prec@1 0.930 (0.930)	
+[2025/03/30 06:41:54] - Iter: [86][50/469]	Loss 0.231 (0.248)	Prec@1 0.898 (0.894)	
+[2025/03/30 06:41:59] - Iter: [86][100/469]	Loss 0.181 (0.252)	Prec@1 0.930 (0.895)	
+[2025/03/30 06:42:05] - Iter: [86][150/469]	Loss 0.235 (0.251)	Prec@1 0.914 (0.894)	
+[2025/03/30 06:42:10] - Iter: [86][200/469]	Loss 0.179 (0.252)	Prec@1 0.906 (0.894)	
+[2025/03/30 06:42:16] - Iter: [86][250/469]	Loss 0.319 (0.253)	Prec@1 0.859 (0.894)	
+[2025/03/30 06:42:21] - Iter: [86][300/469]	Loss 0.251 (0.255)	Prec@1 0.906 (0.893)	
+[2025/03/30 06:42:27] - Iter: [86][350/469]	Loss 0.300 (0.253)	Prec@1 0.875 (0.894)	
+[2025/03/30 06:42:32] - Iter: [86][400/469]	Loss 0.224 (0.253)	Prec@1 0.914 (0.894)	
+[2025/03/30 06:42:37] - Iter: [86][450/469]	Loss 0.323 (0.253)	Prec@1 0.867 (0.894)	
+[2025/03/30 06:42:39] - Evaluating with standard images...
+[2025/03/30 06:42:40] - Evaluating with PGD Attack...
+[2025/03/30 06:43:02] - Test Loss: 0.2118  	 Test Acc: 0.9222  
+ PGD Loss: 0.3454 	 PGD Acc: 0.8689 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:43:02] - epoch 87 lr 1.000000e-03
+New Best Adv Training
+[2025/03/30 06:43:02] - Iter: [87][0/469]	Loss 0.303 (0.303)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:43:07] - Iter: [87][50/469]	Loss 0.289 (0.239)	Prec@1 0.898 (0.899)	
+[2025/03/30 06:43:13] - Iter: [87][100/469]	Loss 0.330 (0.245)	Prec@1 0.867 (0.898)	
+[2025/03/30 06:43:18] - Iter: [87][150/469]	Loss 0.214 (0.247)	Prec@1 0.891 (0.896)	
+[2025/03/30 06:43:24] - Iter: [87][200/469]	Loss 0.233 (0.248)	Prec@1 0.891 (0.895)	
+[2025/03/30 06:43:29] - Iter: [87][250/469]	Loss 0.297 (0.250)	Prec@1 0.898 (0.895)	
+[2025/03/30 06:43:35] - Iter: [87][300/469]	Loss 0.260 (0.249)	Prec@1 0.906 (0.895)	
+[2025/03/30 06:43:40] - Iter: [87][350/469]	Loss 0.284 (0.249)	Prec@1 0.867 (0.895)	
+[2025/03/30 06:43:46] - Iter: [87][400/469]	Loss 0.281 (0.250)	Prec@1 0.891 (0.895)	
+[2025/03/30 06:43:52] - Iter: [87][450/469]	Loss 0.264 (0.251)	Prec@1 0.867 (0.895)	
+[2025/03/30 06:43:54] - Evaluating with standard images...
+[2025/03/30 06:43:54] - Evaluating with PGD Attack...
+[2025/03/30 06:44:15] - Test Loss: 0.2112  	 Test Acc: 0.9207  
+ PGD Loss: 0.3505 	 PGD Acc: 0.8659 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:44:15] - epoch 88 lr 1.000000e-03
+[2025/03/30 06:44:16] - Iter: [88][0/469]	Loss 0.312 (0.312)	Prec@1 0.867 (0.867)	
+[2025/03/30 06:44:21] - Iter: [88][50/469]	Loss 0.306 (0.242)	Prec@1 0.867 (0.900)	
+[2025/03/30 06:44:27] - Iter: [88][100/469]	Loss 0.306 (0.248)	Prec@1 0.867 (0.897)	
+[2025/03/30 06:44:32] - Iter: [88][150/469]	Loss 0.308 (0.250)	Prec@1 0.867 (0.895)	
+[2025/03/30 06:44:38] - Iter: [88][200/469]	Loss 0.258 (0.252)	Prec@1 0.875 (0.895)	
+[2025/03/30 06:44:43] - Iter: [88][250/469]	Loss 0.291 (0.251)	Prec@1 0.891 (0.895)	
+[2025/03/30 06:44:49] - Iter: [88][300/469]	Loss 0.301 (0.251)	Prec@1 0.891 (0.895)	
+[2025/03/30 06:44:54] - Iter: [88][350/469]	Loss 0.260 (0.251)	Prec@1 0.891 (0.896)	
+[2025/03/30 06:44:59] - Iter: [88][400/469]	Loss 0.176 (0.252)	Prec@1 0.930 (0.895)	
+[2025/03/30 06:45:05] - Iter: [88][450/469]	Loss 0.241 (0.251)	Prec@1 0.875 (0.895)	
+[2025/03/30 06:45:07] - Evaluating with standard images...
+[2025/03/30 06:45:07] - Evaluating with PGD Attack...
+[2025/03/30 06:45:29] - Test Loss: 0.2145  	 Test Acc: 0.9213  
+ PGD Loss: 0.3537 	 PGD Acc: 0.8668 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:45:29] - epoch 89 lr 1.000000e-03
+[2025/03/30 06:45:29] - Iter: [89][0/469]	Loss 0.243 (0.243)	Prec@1 0.898 (0.898)	
+[2025/03/30 06:45:34] - Iter: [89][50/469]	Loss 0.291 (0.256)	Prec@1 0.883 (0.895)	
+[2025/03/30 06:45:40] - Iter: [89][100/469]	Loss 0.265 (0.250)	Prec@1 0.875 (0.895)	
+[2025/03/30 06:45:45] - Iter: [89][150/469]	Loss 0.266 (0.247)	Prec@1 0.922 (0.898)	
+[2025/03/30 06:45:51] - Iter: [89][200/469]	Loss 0.271 (0.247)	Prec@1 0.883 (0.897)	
+[2025/03/30 06:45:56] - Iter: [89][250/469]	Loss 0.241 (0.248)	Prec@1 0.922 (0.896)	
+[2025/03/30 06:46:02] - Iter: [89][300/469]	Loss 0.244 (0.248)	Prec@1 0.914 (0.896)	
+[2025/03/30 06:46:07] - Iter: [89][350/469]	Loss 0.258 (0.250)	Prec@1 0.906 (0.896)	
+[2025/03/30 06:46:13] - Iter: [89][400/469]	Loss 0.262 (0.250)	Prec@1 0.852 (0.895)	
+[2025/03/30 06:46:18] - Iter: [89][450/469]	Loss 0.220 (0.251)	Prec@1 0.938 (0.895)	
+[2025/03/30 06:46:20] - Evaluating with standard images...
+[2025/03/30 06:46:21] - Evaluating with PGD Attack...
+[2025/03/30 06:46:42] - Test Loss: 0.2103  	 Test Acc: 0.9232  
+ PGD Loss: 0.3501 	 PGD Acc: 0.8637 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:46:42] - epoch 90 lr 1.000000e-03
+[2025/03/30 06:46:42] - Iter: [90][0/469]	Loss 0.286 (0.286)	Prec@1 0.859 (0.859)	
+[2025/03/30 06:46:48] - Iter: [90][50/469]	Loss 0.205 (0.248)	Prec@1 0.914 (0.896)	
+[2025/03/30 06:46:53] - Iter: [90][100/469]	Loss 0.162 (0.249)	Prec@1 0.938 (0.895)	
+[2025/03/30 06:46:59] - Iter: [90][150/469]	Loss 0.157 (0.250)	Prec@1 0.953 (0.896)	
+[2025/03/30 06:47:05] - Iter: [90][200/469]	Loss 0.256 (0.249)	Prec@1 0.891 (0.896)	
+[2025/03/30 06:47:10] - Iter: [90][250/469]	Loss 0.206 (0.248)	Prec@1 0.922 (0.896)	
+[2025/03/30 06:47:16] - Iter: [90][300/469]	Loss 0.213 (0.249)	Prec@1 0.898 (0.896)	
+[2025/03/30 06:47:21] - Iter: [90][350/469]	Loss 0.199 (0.249)	Prec@1 0.906 (0.895)	
+[2025/03/30 06:47:27] - Iter: [90][400/469]	Loss 0.208 (0.248)	Prec@1 0.906 (0.896)	
+[2025/03/30 06:47:32] - Iter: [90][450/469]	Loss 0.232 (0.249)	Prec@1 0.922 (0.895)	
+[2025/03/30 06:47:34] - Evaluating with standard images...
+[2025/03/30 06:47:35] - Evaluating with PGD Attack...
+[2025/03/30 06:47:56] - Test Loss: 0.2123  	 Test Acc: 0.9221  
+ PGD Loss: 0.3485 	 PGD Acc: 0.8647 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:47:56] - epoch 91 lr 1.000000e-03
+[2025/03/30 06:47:56] - Iter: [91][0/469]	Loss 0.246 (0.246)	Prec@1 0.922 (0.922)	
+[2025/03/30 06:48:02] - Iter: [91][50/469]	Loss 0.216 (0.247)	Prec@1 0.906 (0.893)	
+[2025/03/30 06:48:07] - Iter: [91][100/469]	Loss 0.291 (0.246)	Prec@1 0.836 (0.896)	
+[2025/03/30 06:48:13] - Iter: [91][150/469]	Loss 0.273 (0.245)	Prec@1 0.883 (0.897)	
+[2025/03/30 06:48:19] - Iter: [91][200/469]	Loss 0.225 (0.246)	Prec@1 0.883 (0.896)	
+[2025/03/30 06:48:24] - Iter: [91][250/469]	Loss 0.309 (0.247)	Prec@1 0.859 (0.895)	
+[2025/03/30 06:48:30] - Iter: [91][300/469]	Loss 0.252 (0.246)	Prec@1 0.891 (0.897)	
+[2025/03/30 06:48:35] - Iter: [91][350/469]	Loss 0.230 (0.246)	Prec@1 0.898 (0.897)	
+[2025/03/30 06:48:41] - Iter: [91][400/469]	Loss 0.261 (0.245)	Prec@1 0.891 (0.897)	
+[2025/03/30 06:48:46] - Iter: [91][450/469]	Loss 0.222 (0.247)	Prec@1 0.906 (0.896)	
+[2025/03/30 06:48:48] - Evaluating with standard images...
+[2025/03/30 06:48:49] - Evaluating with PGD Attack...
+[2025/03/30 06:49:10] - Test Loss: 0.2151  	 Test Acc: 0.9208  
+ PGD Loss: 0.3536 	 PGD Acc: 0.8632 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:49:10] - epoch 92 lr 1.000000e-03
+[2025/03/30 06:49:10] - Iter: [92][0/469]	Loss 0.231 (0.231)	Prec@1 0.898 (0.898)	
+[2025/03/30 06:49:16] - Iter: [92][50/469]	Loss 0.313 (0.250)	Prec@1 0.852 (0.890)	
+[2025/03/30 06:49:21] - Iter: [92][100/469]	Loss 0.197 (0.250)	Prec@1 0.914 (0.896)	
+[2025/03/30 06:49:27] - Iter: [92][150/469]	Loss 0.235 (0.245)	Prec@1 0.938 (0.898)	
+[2025/03/30 06:49:32] - Iter: [92][200/469]	Loss 0.162 (0.244)	Prec@1 0.945 (0.898)	
+[2025/03/30 06:49:38] - Iter: [92][250/469]	Loss 0.305 (0.246)	Prec@1 0.867 (0.897)	
+[2025/03/30 06:49:43] - Iter: [92][300/469]	Loss 0.229 (0.247)	Prec@1 0.898 (0.896)	
+[2025/03/30 06:49:48] - Iter: [92][350/469]	Loss 0.252 (0.248)	Prec@1 0.867 (0.896)	
+[2025/03/30 06:49:54] - Iter: [92][400/469]	Loss 0.204 (0.248)	Prec@1 0.914 (0.896)	
+[2025/03/30 06:49:59] - Iter: [92][450/469]	Loss 0.272 (0.248)	Prec@1 0.898 (0.896)	
+[2025/03/30 06:50:01] - Evaluating with standard images...
+[2025/03/30 06:50:02] - Evaluating with PGD Attack...
+[2025/03/30 06:50:23] - Test Loss: 0.2120  	 Test Acc: 0.9228  
+ PGD Loss: 0.3470 	 PGD Acc: 0.8666 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:50:23] - epoch 93 lr 1.000000e-03
+[2025/03/30 06:50:23] - Iter: [93][0/469]	Loss 0.230 (0.230)	Prec@1 0.906 (0.906)	
+[2025/03/30 06:50:29] - Iter: [93][50/469]	Loss 0.221 (0.236)	Prec@1 0.922 (0.901)	
+[2025/03/30 06:50:34] - Iter: [93][100/469]	Loss 0.355 (0.241)	Prec@1 0.836 (0.900)	
+[2025/03/30 06:50:40] - Iter: [93][150/469]	Loss 0.198 (0.244)	Prec@1 0.930 (0.899)	
+[2025/03/30 06:50:45] - Iter: [93][200/469]	Loss 0.283 (0.244)	Prec@1 0.898 (0.899)	
+[2025/03/30 06:50:51] - Iter: [93][250/469]	Loss 0.198 (0.243)	Prec@1 0.914 (0.899)	
+[2025/03/30 06:50:56] - Iter: [93][300/469]	Loss 0.273 (0.242)	Prec@1 0.875 (0.899)	
+[2025/03/30 06:51:01] - Iter: [93][350/469]	Loss 0.337 (0.243)	Prec@1 0.828 (0.898)	
+[2025/03/30 06:51:07] - Iter: [93][400/469]	Loss 0.237 (0.245)	Prec@1 0.906 (0.897)	
+[2025/03/30 06:51:12] - Iter: [93][450/469]	Loss 0.263 (0.246)	Prec@1 0.883 (0.897)	
+[2025/03/30 06:51:14] - Evaluating with standard images...
+[2025/03/30 06:51:15] - Evaluating with PGD Attack...
+[2025/03/30 06:51:36] - Test Loss: 0.2140  	 Test Acc: 0.9195  
+ PGD Loss: 0.3552 	 PGD Acc: 0.8655 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:51:36] - epoch 94 lr 1.000000e-03
+[2025/03/30 06:51:36] - Iter: [94][0/469]	Loss 0.176 (0.176)	Prec@1 0.922 (0.922)	
+[2025/03/30 06:51:42] - Iter: [94][50/469]	Loss 0.204 (0.233)	Prec@1 0.930 (0.905)	
+[2025/03/30 06:51:47] - Iter: [94][100/469]	Loss 0.261 (0.233)	Prec@1 0.898 (0.905)	
+[2025/03/30 06:51:52] - Iter: [94][150/469]	Loss 0.252 (0.240)	Prec@1 0.891 (0.900)	
+[2025/03/30 06:51:58] - Iter: [94][200/469]	Loss 0.329 (0.241)	Prec@1 0.836 (0.899)	
+[2025/03/30 06:52:03] - Iter: [94][250/469]	Loss 0.261 (0.241)	Prec@1 0.883 (0.900)	
+[2025/03/30 06:52:08] - Iter: [94][300/469]	Loss 0.310 (0.243)	Prec@1 0.867 (0.899)	
+[2025/03/30 06:52:14] - Iter: [94][350/469]	Loss 0.349 (0.244)	Prec@1 0.836 (0.898)	
+[2025/03/30 06:52:20] - Iter: [94][400/469]	Loss 0.261 (0.245)	Prec@1 0.867 (0.897)	
+[2025/03/30 06:52:25] - Iter: [94][450/469]	Loss 0.307 (0.245)	Prec@1 0.820 (0.897)	
+[2025/03/30 06:52:27] - Evaluating with standard images...
+[2025/03/30 06:52:28] - Evaluating with PGD Attack...
+[2025/03/30 06:52:49] - Test Loss: 0.2126  	 Test Acc: 0.9205  
+ PGD Loss: 0.3571 	 PGD Acc: 0.8636 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:52:49] - epoch 95 lr 1.000000e-03
+[2025/03/30 06:52:49] - Iter: [95][0/469]	Loss 0.190 (0.190)	Prec@1 0.930 (0.930)	
+[2025/03/30 06:52:55] - Iter: [95][50/469]	Loss 0.236 (0.243)	Prec@1 0.914 (0.899)	
+[2025/03/30 06:53:00] - Iter: [95][100/469]	Loss 0.191 (0.246)	Prec@1 0.922 (0.897)	
+[2025/03/30 06:53:05] - Iter: [95][150/469]	Loss 0.243 (0.245)	Prec@1 0.906 (0.896)	
+[2025/03/30 06:53:11] - Iter: [95][200/469]	Loss 0.281 (0.243)	Prec@1 0.883 (0.898)	
+[2025/03/30 06:53:16] - Iter: [95][250/469]	Loss 0.233 (0.243)	Prec@1 0.891 (0.899)	
+[2025/03/30 06:53:22] - Iter: [95][300/469]	Loss 0.363 (0.245)	Prec@1 0.852 (0.898)	
+[2025/03/30 06:53:27] - Iter: [95][350/469]	Loss 0.200 (0.244)	Prec@1 0.922 (0.898)	
+[2025/03/30 06:53:33] - Iter: [95][400/469]	Loss 0.215 (0.244)	Prec@1 0.922 (0.898)	
+[2025/03/30 06:53:39] - Iter: [95][450/469]	Loss 0.312 (0.245)	Prec@1 0.875 (0.897)	
+[2025/03/30 06:53:40] - Evaluating with standard images...
+[2025/03/30 06:53:41] - Evaluating with PGD Attack...
+[2025/03/30 06:54:02] - Test Loss: 0.2145  	 Test Acc: 0.9228  
+ PGD Loss: 0.3551 	 PGD Acc: 0.8660 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:54:02] - epoch 96 lr 1.000000e-03
+[2025/03/30 06:54:02] - Iter: [96][0/469]	Loss 0.251 (0.251)	Prec@1 0.906 (0.906)	
+[2025/03/30 06:54:07] - Iter: [96][50/469]	Loss 0.269 (0.243)	Prec@1 0.883 (0.896)	
+[2025/03/30 06:54:13] - Iter: [96][100/469]	Loss 0.226 (0.243)	Prec@1 0.914 (0.896)	
+[2025/03/30 06:54:18] - Iter: [96][150/469]	Loss 0.239 (0.246)	Prec@1 0.867 (0.894)	
+[2025/03/30 06:54:24] - Iter: [96][200/469]	Loss 0.312 (0.244)	Prec@1 0.906 (0.897)	
+[2025/03/30 06:54:29] - Iter: [96][250/469]	Loss 0.212 (0.243)	Prec@1 0.922 (0.898)	
+[2025/03/30 06:54:35] - Iter: [96][300/469]	Loss 0.269 (0.243)	Prec@1 0.875 (0.898)	
+[2025/03/30 06:54:40] - Iter: [96][350/469]	Loss 0.221 (0.242)	Prec@1 0.914 (0.898)	
+[2025/03/30 06:54:46] - Iter: [96][400/469]	Loss 0.256 (0.242)	Prec@1 0.867 (0.898)	
+[2025/03/30 06:54:51] - Iter: [96][450/469]	Loss 0.232 (0.242)	Prec@1 0.914 (0.898)	
+[2025/03/30 06:54:53] - Evaluating with standard images...
+[2025/03/30 06:54:54] - Evaluating with PGD Attack...
+[2025/03/30 06:55:15] - Test Loss: 0.2121  	 Test Acc: 0.9199  
+ PGD Loss: 0.3553 	 PGD Acc: 0.8656 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:55:15] - epoch 97 lr 1.000000e-03
+[2025/03/30 06:55:15] - Iter: [97][0/469]	Loss 0.243 (0.243)	Prec@1 0.891 (0.891)	
+[2025/03/30 06:55:21] - Iter: [97][50/469]	Loss 0.269 (0.244)	Prec@1 0.875 (0.898)	
+[2025/03/30 06:55:26] - Iter: [97][100/469]	Loss 0.333 (0.242)	Prec@1 0.875 (0.898)	
+[2025/03/30 06:55:32] - Iter: [97][150/469]	Loss 0.223 (0.241)	Prec@1 0.930 (0.899)	
+[2025/03/30 06:55:37] - Iter: [97][200/469]	Loss 0.179 (0.238)	Prec@1 0.930 (0.900)	
+[2025/03/30 06:55:43] - Iter: [97][250/469]	Loss 0.302 (0.240)	Prec@1 0.859 (0.899)	
+[2025/03/30 06:55:48] - Iter: [97][300/469]	Loss 0.208 (0.241)	Prec@1 0.914 (0.899)	
+[2025/03/30 06:55:54] - Iter: [97][350/469]	Loss 0.201 (0.242)	Prec@1 0.906 (0.898)	
+[2025/03/30 06:55:59] - Iter: [97][400/469]	Loss 0.179 (0.243)	Prec@1 0.922 (0.897)	
+[2025/03/30 06:56:05] - Iter: [97][450/469]	Loss 0.316 (0.243)	Prec@1 0.859 (0.897)	
+[2025/03/30 06:56:07] - Evaluating with standard images...
+[2025/03/30 06:56:07] - Evaluating with PGD Attack...
+[2025/03/30 06:56:28] - Test Loss: 0.2105  	 Test Acc: 0.9231  
+ PGD Loss: 0.3576 	 PGD Acc: 0.8633 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:56:28] - epoch 98 lr 1.000000e-03
+[2025/03/30 06:56:29] - Iter: [98][0/469]	Loss 0.253 (0.253)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:56:34] - Iter: [98][50/469]	Loss 0.209 (0.237)	Prec@1 0.906 (0.901)	
+[2025/03/30 06:56:39] - Iter: [98][100/469]	Loss 0.176 (0.236)	Prec@1 0.938 (0.901)	
+[2025/03/30 06:56:45] - Iter: [98][150/469]	Loss 0.332 (0.239)	Prec@1 0.844 (0.898)	
+[2025/03/30 06:56:51] - Iter: [98][200/469]	Loss 0.192 (0.242)	Prec@1 0.883 (0.897)	
+[2025/03/30 06:56:56] - Iter: [98][250/469]	Loss 0.224 (0.243)	Prec@1 0.898 (0.897)	
+[2025/03/30 06:57:02] - Iter: [98][300/469]	Loss 0.178 (0.244)	Prec@1 0.930 (0.896)	
+[2025/03/30 06:57:07] - Iter: [98][350/469]	Loss 0.174 (0.241)	Prec@1 0.945 (0.898)	
+[2025/03/30 06:57:13] - Iter: [98][400/469]	Loss 0.255 (0.241)	Prec@1 0.898 (0.898)	
+[2025/03/30 06:57:18] - Iter: [98][450/469]	Loss 0.229 (0.241)	Prec@1 0.922 (0.898)	
+[2025/03/30 06:57:20] - Evaluating with standard images...
+[2025/03/30 06:57:21] - Evaluating with PGD Attack...
+[2025/03/30 06:57:42] - Test Loss: 0.2124  	 Test Acc: 0.9231  
+ PGD Loss: 0.3587 	 PGD Acc: 0.8637 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:57:42] - epoch 99 lr 1.000000e-03
+[2025/03/30 06:57:42] - Iter: [99][0/469]	Loss 0.267 (0.267)	Prec@1 0.875 (0.875)	
+[2025/03/30 06:57:48] - Iter: [99][50/469]	Loss 0.303 (0.249)	Prec@1 0.852 (0.891)	
+[2025/03/30 06:57:53] - Iter: [99][100/469]	Loss 0.252 (0.244)	Prec@1 0.883 (0.895)	
+[2025/03/30 06:57:58] - Iter: [99][150/469]	Loss 0.222 (0.243)	Prec@1 0.922 (0.898)	
+[2025/03/30 06:58:04] - Iter: [99][200/469]	Loss 0.265 (0.244)	Prec@1 0.891 (0.896)	
+[2025/03/30 06:58:09] - Iter: [99][250/469]	Loss 0.245 (0.243)	Prec@1 0.898 (0.897)	
+[2025/03/30 06:58:15] - Iter: [99][300/469]	Loss 0.202 (0.243)	Prec@1 0.930 (0.897)	
+[2025/03/30 06:58:21] - Iter: [99][350/469]	Loss 0.260 (0.242)	Prec@1 0.875 (0.898)	
+[2025/03/30 06:58:26] - Iter: [99][400/469]	Loss 0.224 (0.243)	Prec@1 0.906 (0.898)	
+[2025/03/30 06:58:32] - Iter: [99][450/469]	Loss 0.297 (0.242)	Prec@1 0.859 (0.898)	
+[2025/03/30 06:58:34] - Evaluating with standard images...
+[2025/03/30 06:58:34] - Evaluating with PGD Attack...
+[2025/03/30 06:58:55] - Test Loss: 0.2147  	 Test Acc: 0.9214  
+ PGD Loss: 0.3617 	 PGD Acc: 0.8643 
+ Best PGD Acc: 0.8689 	 Test Acc of best PGD ckpt: 0.9222
+[2025/03/30 06:58:55] - Total train time: 122.4971 minutes
+wandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.005 MB uploadedwandb: / 0.005 MB of 0.005 MB uploadedwandb: - 0.013 MB of 0.139 MB uploaded (0.003 MB deduped)wandb: \ 0.018 MB of 0.141 MB uploaded (0.003 MB deduped)wandb: | 0.018 MB of 0.141 MB uploaded (0.003 MB deduped)wandb: / 0.136 MB of 0.141 MB uploaded (0.003 MB deduped)wandb: - 0.141 MB of 0.141 MB uploaded (0.003 MB deduped)wandb: 
+wandb: Run history:
+wandb:       best_pgd_acc ▁▇▇▇████████████████████████████████████
+wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:            pgd_acc ▁▅▅▆▆▆▆▆▆▆▆▆▆▆▆▆▇▇██▇█▇█████████████████
+wandb:           pgd_loss █▄▄▃▄▄▃▃▃▃▃▃▃▃▃▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               step ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇████
+wandb:           test_acc ▁▅▅▅▅▆▅▆▆▆▆▆▆▅▆▆▇▇▇▇▇█▇██▇▇▇████████████
+wandb:  test_acc_best_pgd ▁▇▇█████████████████████████████████████
+wandb:          test_loss █▅▄▄▄▄▄▃▃▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train_acc ▁▁▅▄▅▅▄▇▄▄▆▆▆▅▆▅▆▇▆▅▆▅▇▅▆▆▇▆▆▆▆██▆▇▇███▅
+wandb:         train_loss █▇▅▄▄▄▆▃▆▅▄▃▄▄▄▃▃▂▃▃▃▃▂▃▂▃▃▃▂▃▂▁▂▃▂▃▁▁▁▃
+wandb: train_time_minutes ▁
+wandb: 
+wandb: Run summary:
+wandb:       best_pgd_acc 0.8689
+wandb:              epoch 99
+wandb:            pgd_acc 0.8643
+wandb:           pgd_loss 0.3617
+wandb:               step 46899
+wandb:           test_acc 0.9214
+wandb:  test_acc_best_pgd 0.9222
+wandb:          test_loss 0.21465
+wandb:          train_acc 0.90625
+wandb:         train_loss 0.21678
+wandb: train_time_minutes 122.49713
+wandb: 
+wandb: 🚀 View run lilac-pyramid-3 at: https://wandb.ai/xuanzhu_07-university-of-sydney/mnist/runs/hygkqkyk
+wandb: ️⚡ View job at https://wandb.ai/xuanzhu_07-university-of-sydney/mnist/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjU5MzgxNjE5OA==/version_details/v2
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250330_045621-hygkqkyk/logs
+Exception in thread IntMsgThr:
+Traceback (most recent call last):
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 300, in check_internal_messages
+    self._loop_check_status(
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+    local_handle = request()
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 800, in deliver_internal_messages
+    return self._deliver_internal_messages(internal_message)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 506, in _deliver_internal_messages
+    return self._deliver_record(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 449, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+Exception in thread ChkStopThr:
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+Traceback (most recent call last):
+    self.send_server_request(server_req)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self.run()
+    self._send_message(msg)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/threading.py", line 910, in run
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._target(*self._args, **self._kwargs)
+    self._sendall_with_error_handle(header + data)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 286, in check_stop_status
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    self._loop_check_status(
+    sent = self._sock.send(data)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+BrokenPipeError: [Errno 32] Broken pipe
+    local_handle = request()
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 784, in deliver_stop_status
+    return self._deliver_stop_status(status)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 484, in _deliver_stop_status
+    return self._deliver_record(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 449, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe

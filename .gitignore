@@ -1,0 +1,5 @@
+data/
+ckpt/
+__pycache__/
+.vscode/
+model/__pycache__/

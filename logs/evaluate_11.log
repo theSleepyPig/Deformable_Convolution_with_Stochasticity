@@ -1,0 +1,177 @@
+nohup: ignoring input
+wandb: Currently logged in as: xuanzhu_07 (xuanzhu_07-university-of-sydney). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: wandb version 0.19.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/yxma/hzx/hzx/hzx/rand_defence/wandb/run-20250131_201808-nkyrx5tq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run jumping-puddle-58
+wandb: ⭐️ View project at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square
+wandb: 🚀 View run at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square/runs/nkyrx5tq
+[2025/01/31 20:18:14] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=True, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='/home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20240928164626.pth', continue_training=False, lb=2048, pos=0, eot=False, bapp_iterations=1000, bapp_stepsize='geometric_progression', bapp_max_evals=100, bapp_initial_evals=100, hang=False, device=2)
+[2025/01/31 20:18:14] - Dataset: cifar10
+/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+[2025/01/31 20:18:16] - Evaluating with standard images with random mask...
+Process ID: 3686787
+Pretrain model path: /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20240928164626.pth
+Does pretrain model path exist? True
+Files already downloaded and verified
+Files already downloaded and verified
+ResNetPartmask5(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): ModuleList(
+    (0): RandonBasicBlock02(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): MaskedConv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer11): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+  (normalize): NormalizeByChannelMeanStd(mean=tensor([0.4914, 0.4822, 0.4465], device='cuda:2'), std=tensor([0.2471, 0.2435, 0.2616], device='cuda:2'))
+)
+Different keys:
+normalize.mean
+normalize.std
+Nature:
+[2025/01/31 20:18:17] - Nature Acc Mean: 0.8907, Std: 0.0000
+tensor([[[[1., 0., 0., 0., 0.],
+          [1., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.]]],
+
+
+        [[[1., 0., 0., 0., 0.],
+          [1., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.]]],
+
+
+        [[[1., 0., 0., 0., 0.],
+          [1., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.]]],
+
+
+        ...,
+
+
+        [[[1., 0., 0., 0., 0.],
+          [1., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.]]],
+
+
+        [[[1., 0., 0., 0., 0.],
+          [1., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.]]],
+
+
+        [[[1., 0., 0., 0., 0.],
+          [1., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.]]]], device='cuda:2')
+Pixel attacking
+[00:00<?,?it/s]/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torchattacks/attacks/_differential_evolution.py:592: RuntimeWarning: divide by zero encountered in scalar divide
+  convergence=self.tol / convergence) is True):
+[00:05<07:14, 5.57s/it][00:10<07:01, 5.47s/it][00:16<06:54, 5.45s/it][00:21<06:51, 5.49s/it][00:27<06:46, 5.49s/it][00:32<06:41, 5.50s/it][00:38<06:37, 5.52s/it][00:44<06:31, 5.52s/it][00:49<06:22, 5.47s/it][00:54<06:17, 5.47s/it][01:00<06:12, 5.48s/it][01:06<06:14, 5.58s/it][01:11<06:06, 5.55s/it][01:16<05:53, 5.45s/it][01:22<05:44, 5.39s/it][01:27<05:36, 5.34s/it][01:32<05:31, 5.34s/it][01:38<05:27, 5.37s/it][01:43<05:24, 5.40s/it][01:48<05:17, 5.38s/it][01:54<05:14, 5.41s/it][01:59<05:10, 5.45s/it][02:05<05:07, 5.50s/it][02:10<05:01, 5.47s/it][02:16<04:54, 5.46s/it][02:21<04:47, 5.43s/it][02:27<04:42, 5.43s/it][02:32<04:39, 5.48s/it][02:38<04:33, 5.46s/it][02:43<04:24, 5.40s/it][02:49<04:21, 5.46s/it][02:54<04:16, 5.47s/it][03:00<04:13, 5.51s/it][03:05<04:07, 5.51s/it][03:11<04:03, 5.53s/it][03:16<03:56, 5.50s/it][03:22<03:50, 5.50s/it][03:27<03:44, 5.47s/it][03:32<03:37, 5.44s/it][03:38<03:36, 5.54s/it][03:44<03:31, 5.56s/it][03:50<03:28, 5.63s/it][03:55<03:22, 5.61s/it][04:01<03:16, 5.61s/it][04:06<03:11, 5.64s/it][04:12<03:04, 5.59s/it][04:18<02:59, 5.60s/it][04:23<02:50, 5.51s/it][04:28<02:46, 5.53s/it][04:34<02:43, 5.65s/it][04:40<02:37, 5.64s/it][04:46<02:33, 5.69s/it][04:51<02:27, 5.68s/it][04:57<02:22, 5.68s/it][05:03<02:17, 5.72s/it][05:08<02:09, 5.63s/it][05:15<02:07, 5.79s/it][05:20<02:00, 5.76s/it][05:26<01:54, 5.72s/it][05:32<01:48, 5.70s/it][05:37<01:42, 5.71s/it][05:43<01:37, 5.71s/it][05:49<01:31, 5.69s/it][05:54<01:25, 5.67s/it][06:00<01:19, 5.67s/it][06:06<01:13, 5.69s/it][06:11<01:07, 5.63s/it][06:17<01:01, 5.60s/it][06:22<00:55, 5.55s/it][06:28<00:51, 5.72s/it][06:34<00:45, 5.75s/it][06:40<00:40, 5.82s/it][06:45<00:34, 5.67s/it][06:51<00:28, 5.62s/it][06:56<00:22, 5.63s/it][07:02<00:17, 5.70s/it][07:08<00:11, 5.69s/it][07:14<00:05, 5.65s/it][07:14<00:00, 4.19s/it][07:14<00:00, 5.50s/it][2025/01/31 20:25:32] - pixel - Run 79: Accuracy: 0.8649
+
+[00:00<?,?it/s][00:05<07:31, 5.78s/it][00:11<07:22, 5.74s/it][00:17<07:22, 5.82s/it][00:23<07:13, 5.78s/it][00:29<07:10, 5.82s/it][00:34<07:06, 5.84s/it][00:41<07:14, 6.04s/it][00:47<07:03, 5.96s/it][00:53<06:59, 5.99s/it][00:58<06:47, 5.90s/it][01:04<06:36, 5.84s/it][01:10<06:32, 5.85s/it][01:16<06:23, 5.81s/it][01:21<06:11, 5.72s/it][01:27<06:02, 5.66s/it][01:32<05:54, 5.63s/it][01:38<05:48, 5.63s/it][01:44<05:45, 5.67s/it][01:50<05:45, 5.76s/it][01:55<05:38, 5.73s/it][02:01<05:40, 5.87s/it][02:07<05:35, 5.88s/it][02:14<05:38, 6.04s/it][02:20<05:32, 6.05s/it][02:26<05:30, 6.13s/it][02:32<05:16, 5.98s/it][02:37<05:05, 5.87s/it][02:43<04:57, 5.83s/it][02:49<04:48, 5.76s/it][02:54<04:36, 5.65s/it][03:01<04:42, 5.88s/it][03:07<04:41, 5.99s/it][03:13<04:38, 6.05s/it][03:19<04:31, 6.03s/it][03:25<04:29, 6.13s/it][03:31<04:21, 6.08s/it][03:37<04:14, 6.06s/it][03:43<04:01, 5.88s/it][03:48<03:51, 5.79s/it][03:54<03:48, 5.85s/it][04:00<03:42, 5.85s/it][04:06<03:36, 5.84s/it][04:12<03:26, 5.73s/it][04:17<03:20, 5.72s/it][04:23<03:19, 5.86s/it][04:29<03:13, 5.86s/it][04:35<03:05, 5.80s/it][04:40<02:55, 5.65s/it][04:46<02:49, 5.65s/it][04:52<02:47, 5.78s/it][04:58<02:40, 5.74s/it][05:04<02:36, 5.81s/it][05:09<02:29, 5.74s/it][05:15<02:22, 5.70s/it][05:20<02:14, 5.59s/it][05:26<02:07, 5.56s/it][05:32<02:05, 5.69s/it][05:37<01:59, 5.71s/it][05:43<01:54, 5.71s/it][05:49<01:48, 5.71s/it][05:55<01:43, 5.77s/it][06:00<01:37, 5.72s/it][06:06<01:32, 5.75s/it][06:12<01:25, 5.72s/it][06:17<01:19, 5.70s/it][06:23<01:13, 5.69s/it][06:28<01:07, 5.61s/it][06:34<01:01, 5.61s/it][06:40<00:56, 5.61s/it][06:46<00:51, 5.69s/it][06:51<00:45, 5.71s/it][06:57<00:40, 5.79s/it][07:03<00:34, 5.70s/it][07:09<00:29, 5.86s/it][07:15<00:23, 5.91s/it][07:21<00:17, 5.90s/it][07:27<00:11, 5.89s/it][07:32<00:05, 5.82s/it][07:33<00:00, 4.30s/it][07:33<00:00, 5.74s/it][2025/01/31 20:33:05] - pixel - Run 79: Accuracy: 0.8615
+[2025/01/31 20:33:05] - pixel Mean: 0.8632, Std: 0.0017
+[2025/01/31 20:33:05] - Testing done.
+
+wandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.005 MB uploadedwandb: / 0.005 MB of 0.005 MB uploadedwandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.005 MB uploadedwandb: / 0.013 MB of 0.028 MB uploaded (0.003 MB deduped)wandb: - 0.018 MB of 0.035 MB uploaded (0.003 MB deduped)wandb: \ 0.018 MB of 0.035 MB uploaded (0.003 MB deduped)wandb: | 0.018 MB of 0.035 MB uploaded (0.003 MB deduped)wandb: / 0.035 MB of 0.035 MB uploaded (0.003 MB deduped)wandb: 
+wandb: Run history:
+wandb: Nature Acc Mean ▁
+wandb:  Nature Acc Std ▁
+wandb:  pixel_mean_adv ▁
+wandb:   pixel_std_adv ▁
+wandb: 
+wandb: Run summary:
+wandb: Nature Acc Mean 0.8907
+wandb:  Nature Acc Std 0.0
+wandb:  pixel_mean_adv 0.8632
+wandb:   pixel_std_adv 0.0017
+wandb: 
+wandb: 🚀 View run jumping-puddle-58 at: https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square/runs/nkyrx5tq
+wandb: ️⚡ View job at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjU1NDQ3MTUxMg==/version_details/v3
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250131_201808-nkyrx5tq/logs

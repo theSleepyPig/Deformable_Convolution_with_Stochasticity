@@ -1,0 +1,129 @@
+nohup: ignoring input
+wandb: Currently logged in as: xuanzhu_07 (xuanzhu_07-university-of-sydney). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.19.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/yxma/hzx/hzx/hzx/rand_defence/wandb/run-20250325_180542-olwfp64k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run copper-valley-25
+wandb: ⭐️ View project at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer
+wandb: 🚀 View run at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer/runs/olwfp64k
+[2025/03/25 18:05:47] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=False, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='/home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20240805133819.pth', continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=1)
+[2025/03/25 18:05:47] - Dataset: cifar10
+[2025/03/25 18:05:49] - Evaluating with standard images...
+Process ID: 172553
+Pretrain model path: /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20240805133819.pth
+Does pretrain model path exist? True
+Files already downloaded and verified
+Files already downloaded and verified
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): ModuleList(
+    (0-1): 2 x BasicBlock(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+  (normalize): NormalizeByChannelMeanStd(mean=tensor([0.4914, 0.4822, 0.4465], device='cuda:1'), std=tensor([0.2471, 0.2435, 0.2616], device='cuda:1'))
+)
+Different keys:
+normalize.mean
+normalize.std
+Nature:
+[2025/03/25 18:05:50] - Nature Acc Mean: 0.8117, Std: 0.0000
+FGSM attacking
+=> Loading model resnet18 from torchvision.models
+[00:00<?,?it/s][00:00<?,?it/s]
+Traceback (most recent call last):
+  File "/home/yxma/hzx/hzx/hzx/rand_defence/evaluate_nonrepeated_blacktransfer.py", line 381, in <module>
+    main()
+  File "/home/yxma/hzx/hzx/hzx/rand_defence/evaluate_nonrepeated_blacktransfer.py", line 356, in main
+    evaluate_attack(device, model, test_loader, args, atk, 'FGSM', logger, repeat=3, is_uap=True)
+  File "/home/yxma/hzx/hzx/hzx/rand_defence/evaluate_nonrepeated_blacktransfer.py", line 135, in evaluate_attack
+    X_adv = X + atk(X, y)
+  File "/home/yxma/hzx/hzx/hzx/rand_defence/TransferAttack/transferattack/attack.py", line 171, in __call__
+    return self.forward(*input, **kwargs)
+  File "/home/yxma/hzx/hzx/hzx/rand_defence/TransferAttack/transferattack/attack.py", line 85, in forward
+    delta = self.init_delta(data)
+  File "/home/yxma/hzx/hzx/hzx/rand_defence/TransferAttack/transferattack/attack.py", line 133, in init_delta
+    delta = torch.zeros_like(data).to(self.device)
+RuntimeError: CUDA error: unspecified launch failure
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+wandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.005 MB uploadedwandb: / 0.005 MB of 0.005 MB uploadedwandb: - 0.005 MB of 0.022 MB uploadedwandb: \ 0.005 MB of 0.022 MB uploadedwandb: | 0.015 MB of 0.022 MB uploadedwandb: / 0.015 MB of 0.022 MB uploadedwandb: - 0.015 MB of 0.022 MB uploadedwandb: 
+wandb: Run history:
+wandb: Nature Acc Mean ▁
+wandb:  Nature Acc Std ▁
+wandb: 
+wandb: Run summary:
+wandb: Nature Acc Mean 0.8117
+wandb:  Nature Acc Std 0.0
+wandb: 
+wandb: 🚀 View run copper-valley-25 at: https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer/runs/olwfp64k
+wandb: ️⚡ View job at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjU5MDU0NTI2Mg==/version_details/v6
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250325_180542-olwfp64k/logs

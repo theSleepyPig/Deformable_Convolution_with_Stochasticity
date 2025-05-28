@@ -1,0 +1,244 @@
+nohup: ignoring input
+wandb: Currently logged in as: xuanzhu_07 (xuanzhu_07-university-of-sydney). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: wandb version 0.19.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/yxma/hzx/hzx/hzx/rand_defence/wandb/run-20250324_221438-x5zjzxue
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fragrant-elevator-13
+wandb: ⭐️ View project at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer
+wandb: 🚀 View run at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer/runs/x5zjzxue
+[2025/03/24 22:14:45] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=True, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='/home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20240928164626.pth', continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=0)
+[2025/03/24 22:14:45] - Dataset: cifar10
+[2025/03/24 22:14:47] - Evaluating with standard images with random mask...
+Process ID: 3948895
+Pretrain model path: /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20240928164626.pth
+Does pretrain model path exist? True
+Files already downloaded and verified
+Files already downloaded and verified
+ResNetPartmask5(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): ModuleList(
+    (0): RandonBasicBlock02(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): MaskedConv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer11): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+  (normalize): NormalizeByChannelMeanStd(mean=tensor([0.4914, 0.4822, 0.4465], device='cuda:0'), std=tensor([0.2471, 0.2435, 0.2616], device='cuda:0'))
+)
+Different keys:
+normalize.mean
+normalize.std
+Nature:
+[2025/03/24 22:14:48] - Nature Acc Mean: 0.8900, Std: 0.0000
+tensor([[[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 1., 0., 0.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 1., 0., 0.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 1., 0., 0.]]],
+
+
+        ...,
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 1., 0., 0.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 1., 0., 0.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 1., 0., 0.]]]], device='cuda:0')
+FGSM attacking
+=> Loading model resnet18 from torchvision.models
+[00:00<?,?it/s][00:00<00:13, 5.64it/s][00:00<00:05,14.70it/s][00:00<00:03,18.39it/s][00:00<00:03,20.29it/s][00:00<00:03,21.36it/s][00:00<00:02,22.01it/s][00:00<00:02,22.44it/s][00:01<00:02,22.74it/s][00:01<00:02,22.96it/s][00:01<00:02,23.05it/s][00:01<00:02,23.11it/s][00:01<00:01,23.16it/s][00:01<00:01,23.26it/s][00:01<00:01,23.32it/s][00:01<00:01,23.35it/s][00:02<00:01,23.30it/s][00:02<00:01,23.34it/s][00:02<00:01,23.38it/s][00:02<00:01,23.41it/s][00:02<00:00,23.41it/s][00:02<00:00,23.41it/s][00:02<00:00,23.41it/s][00:02<00:00,23.41it/s][00:03<00:00,23.35it/s][00:03<00:00,23.36it/s][00:03<00:00,23.44it/s][00:03<00:00,23.32it/s][00:03<00:00,22.48it/s][2025/03/24 22:14:52] - FGSM - Run 79: Accuracy: 0.8499
+
+[00:00<?,?it/s][00:00<00:03,23.10it/s][00:00<00:03,23.32it/s][00:00<00:02,23.39it/s][00:00<00:02,23.43it/s][00:00<00:02,23.46it/s][00:00<00:02,23.46it/s][00:00<00:02,23.45it/s][00:01<00:02,23.39it/s][00:01<00:02,23.42it/s][00:01<00:02,23.41it/s][00:01<00:01,23.42it/s][00:01<00:01,23.43it/s][00:01<00:01,23.42it/s][00:01<00:01,23.39it/s][00:01<00:01,23.38it/s][00:02<00:01,23.38it/s][00:02<00:01,23.40it/s][00:02<00:01,23.38it/s][00:02<00:00,23.40it/s][00:02<00:00,23.42it/s][00:02<00:00,23.42it/s][00:02<00:00,23.40it/s][00:02<00:00,23.40it/s][00:03<00:00,23.44it/s][00:03<00:00,23.47it/s][00:03<00:00,23.52it/s][00:03<00:00,23.65it/s][2025/03/24 22:14:55] - FGSM - Run 79: Accuracy: 0.8505
+
+[00:00<?,?it/s][00:00<00:03,23.03it/s][00:00<00:03,23.29it/s][00:00<00:02,23.37it/s][00:00<00:02,23.38it/s][00:00<00:02,23.40it/s][00:00<00:02,23.42it/s][00:00<00:02,23.44it/s][00:01<00:02,23.43it/s][00:01<00:02,23.46it/s][00:01<00:02,23.47it/s][00:01<00:01,23.44it/s][00:01<00:01,23.45it/s][00:01<00:01,23.47it/s][00:01<00:01,23.46it/s][00:01<00:01,23.44it/s][00:02<00:01,23.45it/s][00:02<00:01,23.42it/s][00:02<00:01,23.42it/s][00:02<00:00,23.43it/s][00:02<00:00,23.41it/s][00:02<00:00,23.39it/s][00:02<00:00,23.43it/s][00:02<00:00,23.44it/s][00:03<00:00,23.46it/s][00:03<00:00,23.45it/s][00:03<00:00,23.51it/s][00:03<00:00,23.66it/s][2025/03/24 22:14:59] - FGSM - Run 79: Accuracy: 0.8533
+[2025/03/24 22:14:59] - FGSM Mean: 0.8512, Std: 0.0015
+
+DeCowA attacking
+=> Loading model resnet18 from torchvision.models
+[00:00<?,?it/s]/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[00:15<20:47,15.99s/it][00:31<20:15,15.79s/it][00:47<19:56,15.75s/it][01:03<19:39,15.73s/it][01:18<19:22,15.71s/it][01:34<19:06,15.70s/it][01:50<18:50,15.70s/it][02:05<18:34,15.70s/it][02:21<18:18,15.69s/it][02:37<18:02,15.69s/it][02:52<17:46,15.69s/it][03:08<17:30,15.68s/it][03:24<17:15,15.68s/it][03:39<16:59,15.69s/it][03:55<16:44,15.69s/it][04:11<16:28,15.69s/it][04:26<16:12,15.69s/it][04:42<15:56,15.68s/it][04:58<15:40,15.68s/it][05:13<15:25,15.68s/it][05:29<15:09,15.68s/it][05:45<14:54,15.69s/it][06:01<14:38,15.69s/it][06:16<14:22,15.68s/it][06:32<14:06,15.68s/it][06:48<13:51,15.68s/it][07:03<13:35,15.69s/it][07:19<13:19,15.68s/it][07:35<13:04,15.69s/it][07:50<12:48,15.69s/it][08:06<12:33,15.69s/it][08:22<12:17,15.69s/it][08:37<12:01,15.69s/it][08:53<11:45,15.68s/it][09:09<11:30,15.68s/it][09:24<11:14,15.68s/it][09:40<10:58,15.68s/it][09:56<10:42,15.68s/it][10:11<10:27,15.68s/it][10:27<10:11,15.68s/it][10:43<09:56,15.69s/it][10:59<09:40,15.69s/it][11:14<09:24,15.69s/it][11:30<09:08,15.68s/it][11:46<08:53,15.68s/it][12:01<08:37,15.68s/it][12:17<08:21,15.68s/it][12:33<08:06,15.68s/it][12:48<07:50,15.68s/it][13:04<07:35,15.69s/it][13:20<07:19,15.69s/it][13:35<07:03,15.69s/it][13:51<06:47,15.69s/it][14:07<06:32,15.69s/it][14:22<06:16,15.69s/it][14:38<06:00,15.68s/it][14:54<05:44,15.68s/it][15:10<05:29,15.69s/it][15:25<05:14,15.70s/it][15:41<04:58,15.72s/it][15:57<04:42,15.71s/it][16:12<04:27,15.71s/it][16:28<04:11,15.71s/it][16:44<03:55,15.71s/it][17:00<03:40,15.72s/it][17:15<03:24,15.72s/it][17:31<03:08,15.72s/it][17:47<02:52,15.72s/it][18:02<02:37,15.72s/it][18:18<02:21,15.73s/it][18:34<02:05,15.73s/it][18:50<01:50,15.73s/it][19:05<01:34,15.72s/it][19:21<01:18,15.72s/it][19:37<01:02,15.72s/it][19:53<00:47,15.72s/it][20:08<00:31,15.72s/it][20:24<00:15,15.71s/it][20:27<00:00,11.87s/it][20:27<00:00,15.54s/it][2025/03/24 22:35:26] - DeCowA - Run 79: Accuracy: 0.8802
+
+[00:00<?,?it/s][00:15<20:24,15.69s/it][00:31<20:07,15.69s/it][00:47<19:52,15.70s/it][01:02<19:37,15.70s/it][01:18<19:21,15.69s/it][01:34<19:05,15.69s/it][01:49<18:49,15.69s/it][02:05<18:33,15.69s/it][02:21<18:18,15.69s/it][02:36<18:02,15.69s/it][02:52<17:47,15.69s/it][03:08<17:31,15.70s/it][03:24<17:16,15.70s/it][03:39<17:00,15.71s/it][03:55<16:45,15.71s/it][04:11<16:29,15.71s/it][04:26<16:14,15.71s/it][04:42<15:58,15.72s/it][04:58<15:43,15.72s/it][05:14<15:27,15.73s/it][05:29<15:12,15.72s/it][05:45<14:56,15.73s/it][06:01<14:40,15.72s/it][06:16<14:24,15.72s/it][06:32<14:08,15.72s/it][06:48<13:52,15.72s/it][07:04<13:37,15.72s/it][07:19<13:21,15.72s/it][07:35<13:05,15.72s/it][07:51<12:50,15.72s/it][08:06<12:34,15.72s/it][08:22<12:18,15.72s/it][08:38<12:03,15.73s/it][08:54<11:47,15.72s/it][09:09<11:31,15.72s/it][09:25<11:16,15.72s/it][09:41<11:00,15.73s/it][09:57<10:44,15.72s/it][10:12<10:28,15.71s/it][10:28<10:12,15.71s/it][10:44<09:56,15.70s/it][10:59<09:41,15.71s/it][11:15<09:25,15.70s/it][11:31<09:09,15.70s/it][11:46<08:53,15.70s/it][12:02<08:38,15.70s/it][12:18<08:22,15.70s/it][12:34<08:07,15.72s/it][12:49<07:51,15.70s/it][13:05<07:35,15.70s/it][13:21<07:19,15.69s/it][13:36<07:04,15.71s/it][13:52<06:48,15.72s/it][14:08<06:33,15.73s/it][14:24<06:18,15.75s/it][14:39<06:02,15.75s/it][14:55<05:46,15.76s/it][15:11<05:30,15.74s/it][15:27<05:14,15.73s/it][15:42<04:58,15.72s/it][15:58<04:42,15.72s/it][16:14<04:27,15.71s/it][16:29<04:11,15.72s/it][16:45<03:55,15.72s/it][17:01<03:40,15.72s/it][17:17<03:24,15.72s/it][17:32<03:08,15.72s/it][17:48<02:52,15.72s/it][18:04<02:37,15.72s/it][18:20<02:21,15.74s/it][18:35<02:05,15.73s/it][18:51<01:50,15.72s/it][19:07<01:34,15.72s/it][19:22<01:18,15.72s/it][19:38<01:02,15.73s/it][19:54<00:47,15.73s/it][20:10<00:31,15.72s/it][20:25<00:15,15.72s/it][20:28<00:00,11.80s/it][20:28<00:00,15.55s/it][2025/03/24 22:55:55] - DeCowA - Run 79: Accuracy: 0.8811
+
+[00:00<?,?it/s][00:15<20:27,15.73s/it][00:31<20:10,15.72s/it][00:47<19:53,15.71s/it][01:02<19:37,15.70s/it][01:18<19:21,15.70s/it][01:34<19:07,15.72s/it][01:50<18:52,15.72s/it][02:05<18:35,15.72s/it][02:21<18:19,15.71s/it][02:37<18:03,15.71s/it][02:52<17:48,15.71s/it][03:08<17:33,15.73s/it][03:24<17:17,15.72s/it][03:40<17:01,15.72s/it][03:55<16:45,15.72s/it][04:11<16:30,15.72s/it][04:27<16:14,15.72s/it][04:42<15:59,15.73s/it][04:58<15:43,15.73s/it][05:14<15:29,15.75s/it][05:30<15:13,15.74s/it][05:45<14:57,15.74s/it][06:01<14:41,15.73s/it][06:17<14:25,15.73s/it][06:33<14:09,15.73s/it][06:48<13:53,15.73s/it][07:04<13:37,15.73s/it][07:20<13:22,15.73s/it][07:36<13:06,15.73s/it][07:51<12:50,15.73s/it][08:07<12:34,15.71s/it][08:23<12:18,15.71s/it][08:38<12:02,15.70s/it][08:54<11:46,15.70s/it][09:10<11:30,15.70s/it][09:25<11:15,15.70s/it][09:41<11:00,15.72s/it][09:57<10:44,15.72s/it][10:13<10:29,15.73s/it][10:28<10:12,15.72s/it][10:44<09:56,15.71s/it][11:00<09:41,15.71s/it][11:15<09:25,15.71s/it][11:31<09:09,15.70s/it][11:47<08:54,15.71s/it][12:03<08:38,15.71s/it][12:18<08:22,15.71s/it][12:34<08:07,15.72s/it][12:50<07:51,15.73s/it][13:05<07:36,15.73s/it][13:21<07:20,15.73s/it][13:37<07:04,15.73s/it][13:53<06:49,15.74s/it][14:08<06:33,15.73s/it][14:24<06:17,15.72s/it][14:40<06:01,15.72s/it][14:56<05:45,15.73s/it][15:11<05:30,15.72s/it][15:27<05:14,15.71s/it][15:43<04:58,15.71s/it][15:58<04:42,15.70s/it][16:14<04:27,15.71s/it][16:30<04:11,15.71s/it][16:46<03:55,15.71s/it][17:01<03:40,15.72s/it][17:17<03:24,15.72s/it][17:33<03:08,15.72s/it][17:48<02:52,15.73s/it][18:04<02:37,15.73s/it][18:20<02:21,15.73s/it][18:36<02:05,15.73s/it][18:51<01:50,15.73s/it][19:07<01:34,15.73s/it][19:23<01:18,15.73s/it][19:39<01:02,15.74s/it][19:54<00:47,15.73s/it][20:10<00:31,15.73s/it][20:26<00:15,15.72s/it][20:29<00:00,11.85s/it][20:29<00:00,15.56s/it][2025/03/24 23:16:24] - DeCowA - Run 79: Accuracy: 0.8851
+[2025/03/24 23:16:24] - DeCowA Mean: 0.8821, Std: 0.0021
+
+FMAA attacking
+=> Loading model resnet18 from torchvision.models
+[00:00<?,?it/s][00:15<19:45,15.20s/it][00:30<19:22,15.09s/it][00:45<19:09,15.13s/it][01:00<18:51,15.09s/it][01:15<18:36,15.08s/it][01:30<18:19,15.07s/it][01:45<18:00,15.01s/it][02:00<17:47,15.04s/it][02:15<17:30,15.00s/it][02:30<17:12,14.97s/it][02:44<16:51,14.88s/it][02:59<16:38,14.90s/it][03:14<16:21,14.88s/it][03:29<16:08,14.89s/it][03:44<15:54,14.91s/it][03:59<15:40,14.94s/it][04:14<15:29,14.99s/it][04:29<15:15,15.01s/it][04:44<15:02,15.04s/it][05:00<14:49,15.07s/it][05:21<16:19,16.89s/it][05:44<17:58,18.91s/it][06:09<19:12,20.58s/it][06:29<18:43,20.43s/it][06:51<18:42,20.79s/it][07:15<19:26,22.02s/it][07:39<19:29,22.49s/it][07:59<18:36,21.88s/it][08:22<18:16,21.93s/it][08:45<18:24,22.53s/it][09:10<18:25,23.03s/it][09:30<17:24,22.22s/it][09:51<16:45,21.87s/it][10:14<16:43,22.29s/it][10:38<16:39,22.72s/it][11:01<16:24,22.90s/it][11:25<16:12,23.16s/it][11:58<17:51,26.13s/it][12:30<18:34,27.86s/it][12:59<18:19,28.20s/it][13:20<16:23,25.89s/it][13:43<15:35,25.27s/it][14:07<14:55,24.88s/it][14:30<14:04,24.12s/it][14:50<13:00,22.96s/it][15:13<12:39,23.03s/it][15:38<12:33,23.54s/it][16:01<12:05,23.42s/it][16:20<11:04,22.15s/it][16:43<10:45,22.24s/it][17:06<10:33,22.64s/it][17:31<10:25,23.16s/it][17:50<09:33,22.05s/it][18:11<09:04,21.77s/it][18:35<08:59,22.46s/it][18:59<08:42,22.71s/it][19:22<08:26,23.04s/it][19:52<08:46,25.08s/it][20:41<10:44,32.25s/it][21:28<11:35,36.63s/it][22:16<12:03,40.18s/it][23:06<12:09,42.90s/it][23:55<11:56,44.81s/it][24:43<11:28,45.91s/it][25:11<09:26,40.48s/it][25:36<07:46,35.86s/it][26:04<06:41,33.49s/it][26:27<05:33,30.30s/it][26:50<04:40,28.06s/it][27:17<04:10,27.80s/it][27:44<03:40,27.61s/it][28:05<02:58,25.43s/it][28:29<02:31,25.19s/it][28:57<02:09,25.85s/it][29:23<01:43,25.88s/it][29:43<01:12,24.26s/it][30:06<00:47,23.95s/it][30:31<00:24,24.05s/it][30:34<00:00,17.95s/it][30:34<00:00,23.23s/it][2025/03/24 23:46:59] - fmaa - Run 79: Accuracy: 0.1000
+
+[00:00<?,?it/s][00:24<31:21,24.12s/it][00:45<28:58,22.58s/it][01:21<36:05,28.50s/it][02:01<41:25,33.14s/it][02:43<44:39,36.21s/it][03:23<45:36,37.48s/it][04:04<46:25,38.68s/it][04:44<46:34,39.36s/it][05:17<43:18,37.12s/it][05:39<37:15,32.40s/it][06:05<34:30,30.45s/it][06:31<32:35,29.18s/it][06:50<28:41,26.08s/it][07:14<27:34,25.45s/it][07:41<27:33,25.84s/it][08:03<26:02,24.80s/it][08:24<24:30,23.71s/it][08:50<24:48,24.41s/it][09:17<25:13,25.23s/it][09:37<23:10,23.57s/it][09:58<22:09,22.91s/it][10:23<22:22,23.55s/it][10:48<22:23,23.99s/it][11:13<22:15,24.28s/it][11:30<19:48,22.01s/it][11:45<17:35,19.92s/it][12:00<15:58,18.43s/it][12:15<14:47,17.40s/it][12:30<13:54,16.70s/it][12:45<13:14,16.21s/it][13:00<12:40,15.85s/it][13:15<12:12,15.59s/it][13:30<11:49,15.43s/it][13:45<11:31,15.36s/it][14:01<11:13,15.32s/it][14:16<10:54,15.22s/it][14:31<10:38,15.19s/it][14:46<10:22,15.19s/it][15:01<10:08,15.21s/it][15:16<09:51,15.18s/it][15:31<09:35,15.15s/it][15:46<09:19,15.12s/it][16:01<09:03,15.09s/it][16:17<08:47,15.08s/it][16:31<08:30,15.00s/it][16:46<08:14,15.00s/it][17:01<08:00,15.01s/it][17:16<07:46,15.03s/it][17:31<07:30,15.01s/it][17:46<07:15,15.01s/it][18:02<07:01,15.04s/it][18:17<06:46,15.06s/it][18:32<06:32,15.09s/it][18:47<06:17,15.10s/it][19:02<06:02,15.12s/it][19:17<05:47,15.12s/it][19:32<05:31,15.09s/it][19:47<05:16,15.07s/it][20:02<05:01,15.10s/it][20:17<04:46,15.09s/it][20:32<04:30,15.05s/it][20:47<04:15,15.04s/it][21:11<04:39,17.49s/it][21:50<06:02,24.14s/it][22:33<06:54,29.62s/it][23:16<07:18,33.76s/it][23:57<07:10,35.88s/it][24:38<06:52,37.50s/it][25:14<06:09,36.97s/it][25:35<04:48,32.08s/it][25:56<03:49,28.73s/it][26:16<03:03,26.23s/it][26:35<02:25,24.22s/it][26:57<01:57,23.47s/it][27:27<01:40,25.22s/it][27:56<01:19,26.46s/it][28:21<00:52,26.09s/it][28:42<00:24,24.48s/it][28:44<00:00,17.94s/it][28:44<00:00,21.84s/it][2025/03/25 00:15:44] - fmaa - Run 79: Accuracy: 0.1000
+
+[00:00<?,?it/s][00:20<26:44,20.57s/it][00:41<26:56,21.00s/it][01:01<25:40,20.27s/it][01:24<26:51,21.48s/it][02:01<33:23,27.08s/it][02:37<36:46,30.22s/it][03:14<38:35,32.15s/it][03:50<39:37,33.49s/it][04:27<40:25,34.65s/it][05:02<39:58,34.77s/it][05:22<34:04,30.07s/it][05:41<29:54,26.78s/it][06:00<26:57,24.50s/it][06:19<24:51,22.94s/it][06:40<23:42,22.22s/it][07:40<35:19,33.64s/it][08:40<42:52,41.49s/it][09:38<47:22,46.60s/it][10:39<50:55,50.92s/it][11:40<53:02,53.93s/it][12:41<54:13,56.09s/it][13:38<53:17,56.10s/it][14:41<54:32,58.45s/it][15:45<54:50,59.83s/it][16:42<53:18,59.23s/it][17:00<41:19,46.79s/it][17:24<34:30,39.81s/it][18:00<33:04,38.91s/it][18:19<27:22,32.84s/it][18:55<27:36,33.80s/it][19:23<25:42,32.13s/it][20:06<27:39,35.31s/it][20:25<23:14,30.32s/it][21:01<24:08,32.19s/it][21:23<21:14,28.96s/it][21:38<17:46,24.80s/it][21:53<15:20,21.90s/it][22:08<13:34,19.87s/it][22:23<12:16,18.42s/it][22:38<11:18,17.40s/it][22:53<10:34,16.70s/it][23:08<09:59,16.20s/it][23:23<09:30,15.86s/it][23:39<09:08,15.67s/it][23:54<08:46,15.49s/it][24:09<08:27,15.37s/it][24:24<08:09,15.29s/it][24:39<07:51,15.22s/it][24:54<07:35,15.17s/it][25:09<07:19,15.16s/it][25:24<07:05,15.21s/it][25:40<06:50,15.20s/it][25:55<06:33,15.15s/it][26:10<06:17,15.12s/it][26:25<06:02,15.10s/it][26:40<05:47,15.09s/it][26:55<05:31,15.06s/it][27:10<05:14,15.00s/it][27:25<05:00,15.03s/it][27:40<04:45,15.02s/it][27:55<04:30,15.02s/it][28:10<04:15,15.01s/it][28:25<04:00,15.03s/it][28:40<03:46,15.07s/it][28:55<03:30,15.06s/it][29:10<03:15,15.04s/it][29:25<03:00,15.05s/it][29:40<02:45,15.06s/it][29:55<02:30,15.07s/it][30:11<02:15,15.11s/it][30:26<02:01,15.14s/it][30:41<01:45,15.09s/it][30:56<01:30,15.06s/it][31:11<01:15,15.06s/it][31:26<01:00,15.05s/it][31:41<00:45,15.08s/it][31:56<00:30,15.09s/it][32:11<00:15,15.07s/it][32:13<00:00,11.26s/it][32:13<00:00,24.48s/it][2025/03/25 00:47:58] - fmaa - Run 79: Accuracy: 0.1000
+[2025/03/25 00:47:58] - fmaa Mean: 0.1000, Std: 0.0000
+
+PGN attacking
+=> Loading model resnet18 from torchvision.models
+[00:00<?,?it/s][00:15<19:51,15.27s/it][00:30<19:35,15.26s/it][00:45<19:19,15.26s/it][01:01<19:04,15.26s/it][01:16<18:48,15.25s/it][01:31<18:33,15.25s/it][01:46<18:18,15.25s/it][02:02<18:02,15.25s/it][02:17<17:47,15.25s/it][02:32<17:32,15.25s/it][02:47<17:17,15.25s/it][03:03<17:01,15.25s/it][03:18<16:46,15.25s/it][03:33<16:31,15.25s/it][03:48<16:16,15.25s/it][04:04<16:00,15.25s/it][04:19<15:45,15.25s/it][04:34<15:30,15.25s/it][04:49<15:15,15.25s/it][05:05<14:59,15.25s/it][05:20<14:44,15.25s/it][05:35<14:29,15.25s/it][05:50<14:14,15.25s/it][06:06<13:58,15.25s/it][06:21<13:43,15.25s/it][06:36<13:28,15.25s/it][06:51<13:13,15.25s/it][07:07<12:57,15.25s/it][07:22<12:42,15.25s/it][07:37<12:27,15.25s/it][07:52<12:12,15.25s/it][08:08<11:56,15.25s/it][08:23<11:41,15.25s/it][08:38<11:26,15.25s/it][08:53<11:11,15.25s/it][09:09<10:55,15.25s/it][09:24<10:40,15.25s/it][09:39<10:25,15.25s/it][09:54<10:10,15.25s/it][10:10<09:54,15.25s/it][10:25<09:39,15.25s/it][10:40<09:24,15.25s/it][10:55<09:09,15.26s/it][11:11<08:53,15.25s/it][11:26<08:38,15.25s/it][11:41<08:23,15.25s/it][11:56<08:08,15.25s/it][12:12<07:52,15.25s/it][12:27<07:37,15.25s/it][12:42<07:22,15.25s/it][12:57<07:07,15.25s/it][13:13<06:51,15.25s/it][13:28<06:36,15.25s/it][13:43<06:21,15.25s/it][13:58<06:06,15.25s/it][14:14<05:50,15.26s/it][14:29<05:35,15.25s/it][14:44<05:20,15.25s/it][14:59<05:05,15.25s/it][15:15<04:49,15.25s/it][15:30<04:34,15.25s/it][15:45<04:19,15.25s/it][16:00<04:04,15.25s/it][16:16<03:48,15.25s/it][16:31<03:33,15.25s/it][16:46<03:18,15.25s/it][17:01<03:03,15.25s/it][17:17<02:47,15.25s/it][17:32<02:32,15.25s/it][17:47<02:17,15.25s/it][18:02<02:02,15.25s/it][18:18<01:46,15.25s/it][18:33<01:31,15.25s/it][18:48<01:16,15.26s/it][19:04<01:01,15.26s/it][19:19<00:45,15.25s/it][19:34<00:30,15.25s/it][19:49<00:15,15.25s/it][19:52<00:00,11.43s/it][19:52<00:00,15.09s/it][2025/03/25 01:07:51] - pgn - Run 79: Accuracy: 0.1000
+
+[00:00<?,?it/s][00:15<19:48,15.23s/it][00:30<19:32,15.23s/it][00:45<19:17,15.23s/it][01:00<19:02,15.23s/it][01:16<18:47,15.23s/it][01:31<18:31,15.23s/it][01:46<18:16,15.23s/it][02:01<18:01,15.23s/it][02:17<17:46,15.23s/it][02:32<17:31,15.23s/it][02:47<17:15,15.23s/it][03:02<17:00,15.23s/it][03:18<16:45,15.23s/it][03:33<16:30,15.23s/it][03:48<16:14,15.23s/it][04:03<15:59,15.23s/it][04:18<15:44,15.23s/it][04:34<15:29,15.23s/it][04:49<15:13,15.23s/it][05:04<14:58,15.23s/it][05:19<14:43,15.23s/it][05:35<14:28,15.23s/it][05:50<14:12,15.23s/it][06:05<13:57,15.23s/it][06:20<13:42,15.23s/it][06:36<13:27,15.23s/it][06:51<13:12,15.23s/it][07:06<12:56,15.23s/it][07:21<12:41,15.23s/it][07:36<12:26,15.23s/it][07:52<12:11,15.23s/it][08:07<11:55,15.23s/it][08:22<11:40,15.23s/it][08:37<11:25,15.23s/it][08:53<11:10,15.23s/it][09:08<10:54,15.23s/it][09:23<10:39,15.23s/it][09:38<10:24,15.23s/it][09:54<10:09,15.23s/it][10:09<09:54,15.23s/it][10:24<09:38,15.23s/it][10:39<09:23,15.23s/it][10:54<09:08,15.23s/it][11:10<08:53,15.23s/it][11:25<08:37,15.23s/it][11:40<08:22,15.23s/it][11:55<08:07,15.23s/it][12:11<07:52,15.23s/it][12:26<07:36,15.23s/it][12:41<07:21,15.23s/it][12:56<07:06,15.23s/it][13:12<06:51,15.23s/it][13:27<06:36,15.23s/it][13:42<06:20,15.23s/it][13:57<06:05,15.23s/it][14:13<05:50,15.23s/it][14:28<05:35,15.23s/it][14:43<05:19,15.23s/it][14:58<05:04,15.23s/it][15:13<04:49,15.23s/it][15:29<04:34,15.23s/it][15:44<04:18,15.23s/it][15:59<04:03,15.23s/it][16:14<03:48,15.23s/it][16:30<03:33,15.23s/it][16:45<03:18,15.23s/it][17:00<03:02,15.23s/it][17:15<02:47,15.23s/it][17:31<02:32,15.23s/it][17:46<02:17,15.23s/it][18:01<02:01,15.23s/it][18:16<01:46,15.23s/it][18:31<01:31,15.23s/it][18:47<01:16,15.23s/it][19:02<01:00,15.23s/it][19:17<00:45,15.23s/it][19:32<00:30,15.23s/it][19:48<00:15,15.23s/it][19:50<00:00,11.33s/it][19:50<00:00,15.07s/it][2025/03/25 01:27:41] - pgn - Run 79: Accuracy: 0.1000
+
+[00:00<?,?it/s][00:15<19:48,15.23s/it][00:30<19:33,15.23s/it][00:45<19:17,15.23s/it][01:00<19:02,15.23s/it][01:16<18:47,15.23s/it][01:31<18:32,15.23s/it][01:46<18:16,15.23s/it][02:01<18:01,15.23s/it][02:17<17:46,15.23s/it][02:32<17:30,15.23s/it][02:47<17:15,15.23s/it][03:02<17:00,15.23s/it][03:18<16:45,15.23s/it][03:33<16:29,15.23s/it][03:48<16:14,15.23s/it][04:03<15:59,15.23s/it][04:18<15:44,15.23s/it][04:34<15:29,15.23s/it][04:49<15:13,15.23s/it][05:04<14:58,15.23s/it][05:19<14:43,15.23s/it][05:35<14:28,15.23s/it][05:50<14:12,15.23s/it][06:05<13:57,15.23s/it][06:20<13:42,15.23s/it][06:36<13:27,15.23s/it][06:51<13:12,15.23s/it][07:06<12:56,15.23s/it][07:21<12:41,15.23s/it][07:36<12:26,15.23s/it][07:52<12:11,15.23s/it][08:07<11:55,15.23s/it][08:22<11:40,15.23s/it][08:37<11:25,15.23s/it][08:53<11:10,15.23s/it][09:08<10:54,15.23s/it][09:23<10:39,15.23s/it][09:38<10:24,15.23s/it][09:54<10:09,15.23s/it][10:09<09:54,15.23s/it][10:24<09:38,15.23s/it][10:39<09:23,15.23s/it][10:54<09:08,15.23s/it][11:10<08:53,15.23s/it][11:25<08:37,15.23s/it][11:40<08:22,15.23s/it][11:55<08:07,15.23s/it][12:11<07:52,15.23s/it][12:26<07:36,15.23s/it][12:41<07:21,15.23s/it][12:56<07:06,15.23s/it][13:12<06:51,15.23s/it][13:27<06:36,15.23s/it][13:42<06:20,15.23s/it][13:57<06:05,15.23s/it][14:12<05:50,15.23s/it][14:28<05:35,15.23s/it][14:43<05:19,15.23s/it][14:58<05:04,15.23s/it][15:13<04:49,15.23s/it][15:29<04:34,15.23s/it][15:44<04:18,15.23s/it][15:59<04:03,15.23s/it][16:14<03:48,15.23s/it][16:30<03:33,15.23s/it][16:45<03:18,15.23s/it][17:00<03:02,15.23s/it][17:15<02:47,15.23s/it][17:30<02:32,15.23s/it][17:46<02:17,15.23s/it][18:01<02:01,15.23s/it][18:16<01:46,15.23s/it][18:31<01:31,15.23s/it][18:47<01:16,15.23s/it][19:02<01:00,15.23s/it][19:17<00:45,15.23s/it][19:32<00:30,15.23s/it][19:48<00:15,15.23s/it][19:50<00:00,11.38s/it][19:50<00:00,15.07s/it][2025/03/25 01:47:32] - pgn - Run 79: Accuracy: 0.1000
+[2025/03/25 01:47:32] - pgn Mean: 0.1000, Std: 0.0000
+[2025/03/25 01:47:32] - Testing done.
+
+wandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.005 MB uploadedwandb: / 0.005 MB of 0.005 MB uploadedwandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.013 MB of 0.032 MB uploaded (0.003 MB deduped)wandb: | 0.022 MB of 0.033 MB uploaded (0.003 MB deduped)wandb: / 0.022 MB of 0.033 MB uploaded (0.003 MB deduped)wandb: - 0.022 MB of 0.033 MB uploaded (0.003 MB deduped)wandb: \ 0.033 MB of 0.033 MB uploaded (0.003 MB deduped)wandb: 
+wandb: Run history:
+wandb: DeCowA_mean_adv ▁
+wandb:  DeCowA_std_adv ▁
+wandb:   FGSM_mean_adv ▁
+wandb:    FGSM_std_adv ▁
+wandb: Nature Acc Mean ▁
+wandb:  Nature Acc Std ▁
+wandb:   fmaa_mean_adv ▁
+wandb:    fmaa_std_adv ▁
+wandb:    pgn_mean_adv ▁
+wandb:     pgn_std_adv ▁
+wandb: 
+wandb: Run summary:
+wandb: DeCowA_mean_adv 0.88213
+wandb:  DeCowA_std_adv 0.00213
+wandb:   FGSM_mean_adv 0.85123
+wandb:    FGSM_std_adv 0.00148
+wandb: Nature Acc Mean 0.89
+wandb:  Nature Acc Std 0.0
+wandb:   fmaa_mean_adv 0.1
+wandb:    fmaa_std_adv 0.0
+wandb:    pgn_mean_adv 0.1
+wandb:     pgn_std_adv 0.0
+wandb: 
+wandb: 🚀 View run fragrant-elevator-13 at: https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer/runs/x5zjzxue
+wandb: ️⚡ View job at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-blacktransfer/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjU5MDU0NTI2Mg==/version_details/v3
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250324_221438-x5zjzxue/logs
+Exception in thread NetStatThr:
+Traceback (most recent call last):
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 268, in check_network_status
+    self._loop_check_status(
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+    local_handle = request()
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 792, in deliver_network_status
+    return self._deliver_network_status(status)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 500, in _deliver_network_status
+    return self._deliver_record(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 449, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe

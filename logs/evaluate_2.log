@@ -1,0 +1,151 @@
+nohup: ignoring input
+wandb: Currently logged in as: xuanzhu_07 (xuanzhu_07-university-of-sydney). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: wandb version 0.19.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/yxma/hzx/hzx/hzx/rand_defence/wandb/run-20250131_060252-tnupxuw2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fanciful-brook-3
+wandb: ⭐️ View project at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square
+wandb: 🚀 View run at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square/runs/tnupxuw2
+[2025/01/31 06:02:58] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar100', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=True, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='/home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar100/ResNet18/ckpt/model_20241107183716.pth', continue_training=False, lb=2048, pos=0, eot=False, bapp_iterations=1000, bapp_stepsize='geometric_progression', bapp_max_evals=100, bapp_initial_evals=100, hang=False, device=0)
+[2025/01/31 06:02:58] - Dataset: cifar100
+Process ID: 2965574
+Pretrain model path: /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar100/ResNet18/ckpt/model_20241107183716.pth
+Does pretrain model path exist? True
+Downloading https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz to /home/yxma/datasets/CIFAR10/cifar-100-python.tar.gz
+  0%|          | 0/169001437 [00:00<?, ?it/s]  0%|          | 32768/169001437 [00:00<16:21, 172067.98it/s]  0%|          | 65536/169001437 [00:00<16:31, 170312.64it/s]  0%|          | 98304/169001437 [00:00<16:33, 169948.02it/s]  0%|          | 229376/169001437 [00:00<07:35, 370268.52it/s]  0%|          | 458752/169001437 [00:00<04:13, 663969.39it/s]  1%|          | 917504/169001437 [00:01<02:15, 1243985.82it/s]  1%|          | 1835008/169001437 [00:01<01:10, 2386353.83it/s]  2%|▏         | 3670016/169001437 [00:01<00:35, 4640657.39it/s]  4%|▍         | 6782976/169001437 [00:01<00:19, 8212005.66it/s]  6%|▌         | 9928704/169001437 [00:01<00:14, 10656294.25it/s]  8%|▊         | 13074432/169001437 [00:02<00:12, 12343996.56it/s] 10%|▉         | 16187392/169001437 [00:02<00:11, 13523862.36it/s] 11%|█▏        | 19333120/169001437 [00:02<00:10, 14260399.07it/s] 13%|█▎        | 22478848/169001437 [00:02<00:09, 14815130.16it/s] 15%|█▌        | 25591808/169001437 [00:02<00:09, 15287847.33it/s] 17%|█▋        | 28737536/169001437 [00:03<00:09, 15443155.99it/s] 19%|█▉        | 31883264/169001437 [00:03<00:08, 15662512.47it/s] 21%|██        | 34996224/169001437 [00:03<00:08, 15837253.27it/s] 23%|██▎       | 38141952/169001437 [00:03<00:08, 15877513.71it/s] 24%|██▍       | 41287680/169001437 [00:03<00:08, 15942056.42it/s] 26%|██▋       | 44400640/169001437 [00:04<00:07, 16020961.84it/s] 28%|██▊       | 47513600/169001437 [00:04<00:07, 16205933.87it/s] 30%|██▉       | 50528256/169001437 [00:04<00:06, 18740773.19it/s] 31%|███       | 52592640/169001437 [00:04<00:07, 16587712.71it/s] 32%|███▏      | 54394880/169001437 [00:04<00:07, 15492071.89it/s] 34%|███▎      | 56786944/169001437 [00:04<00:06, 16781138.24it/s] 35%|███▍      | 58556416/169001437 [00:04<00:07, 15735496.09it/s] 36%|███▌      | 60194816/169001437 [00:05<00:07, 15081696.66it/s] 37%|███▋      | 62586880/169001437 [00:05<00:06, 17186860.14it/s] 38%|███▊      | 64389120/169001437 [00:05<00:07, 14800664.93it/s] 39%|███▉      | 66125824/169001437 [00:05<00:06, 15283042.97it/s] 40%|████      | 67993600/169001437 [00:05<00:06, 16128997.09it/s] 41%|████      | 69697536/169001437 [00:05<00:06, 15729473.93it/s] 42%|████▏     | 71729152/169001437 [00:05<00:05, 16939894.73it/s] 43%|████▎     | 73498624/169001437 [00:05<00:06, 14251315.39it/s] 45%|████▍     | 75530240/169001437 [00:06<00:05, 15741843.88it/s] 46%|████▌     | 77234176/169001437 [00:06<00:05, 15922464.90it/s] 47%|████▋     | 78905344/169001437 [00:06<00:05, 16088215.70it/s] 48%|████▊     | 80707584/169001437 [00:06<00:05, 16623409.51it/s] 49%|████▉     | 82444288/169001437 [00:06<00:05, 16200315.76it/s] 50%|████▉     | 84148224/169001437 [00:06<00:05, 16196392.37it/s] 51%|█████     | 85819392/169001437 [00:06<00:06, 13772678.28it/s] 52%|█████▏    | 88342528/169001437 [00:06<00:04, 16425233.59it/s] 53%|█████▎    | 90079232/169001437 [00:06<00:04, 16566238.27it/s] 54%|█████▍    | 91815936/169001437 [00:07<00:05, 14124530.77it/s] 56%|█████▌    | 94273536/169001437 [00:07<00:04, 16645478.85it/s] 57%|█████▋    | 96075776/169001437 [00:07<00:04, 16047034.71it/s] 58%|█████▊    | 97943552/169001437 [00:07<00:04, 16708983.23it/s] 59%|█████▉    | 99713024/169001437 [00:07<00:04, 16077330.05it/s] 60%|█████▉    | 101384192/169001437 [00:07<00:04, 13735508.05it/s] 62%|██████▏   | 104169472/169001437 [00:07<00:04, 13954959.36it/s] 63%|██████▎   | 107249664/169001437 [00:08<00:03, 16206651.12it/s] 65%|██████▍   | 109379584/169001437 [00:08<00:03, 17159775.95it/s] 66%|██████▌   | 111181824/169001437 [00:08<00:03, 15272918.11it/s] 67%|██████▋   | 113115136/169001437 [00:08<00:03, 15304654.11it/s] 68%|██████▊   | 115277824/169001437 [00:08<00:03, 16801894.23it/s] 69%|██████▉   | 117047296/169001437 [00:08<00:03, 14591124.00it/s] 71%|███████   | 119275520/169001437 [00:08<00:03, 15610443.58it/s] 72%|███████▏  | 121208832/169001437 [00:08<00:02, 16315438.34it/s] 73%|███████▎  | 122912768/169001437 [00:09<00:03, 14128335.21it/s] 74%|███████▍  | 125501440/169001437 [00:09<00:02, 16275923.10it/s] 75%|███████▌  | 127369216/169001437 [00:09<00:02, 16667560.51it/s] 76%|███████▋  | 129105920/169001437 [00:09<00:02, 14276080.21it/s] 78%|███████▊  | 131694592/169001437 [00:09<00:02, 16539571.72it/s] 79%|███████▉  | 133464064/169001437 [00:09<00:02, 16780938.21it/s] 80%|████████  | 135233536/169001437 [00:09<00:02, 14435701.53it/s] 82%|████████▏ | 137953280/169001437 [00:09<00:01, 16717386.06it/s] 83%|████████▎ | 139722752/169001437 [00:10<00:01, 16624435.43it/s] 84%|████████▎ | 141459456/169001437 [00:10<00:01, 14533588.81it/s] 85%|████████▌ | 144179200/169001437 [00:10<00:01, 16906151.05it/s] 86%|████████▋ | 145981440/169001437 [00:10<00:01, 16424307.47it/s] 87%|████████▋ | 147685376/169001437 [00:10<00:01, 14611389.84it/s] 89%|████████▉ | 150405120/169001437 [00:10<00:01, 16999610.09it/s] 90%|█████████ | 152174592/169001437 [00:10<00:01, 16145985.56it/s] 91%|█████████ | 153845760/169001437 [00:11<00:01, 14651695.59it/s] 93%|█████████▎| 156598272/169001437 [00:11<00:00, 17054278.99it/s] 94%|█████████▎| 158367744/169001437 [00:11<00:00, 15892925.02it/s] 95%|█████████▍| 160006144/169001437 [00:11<00:00, 14797046.22it/s] 96%|█████████▋| 162758656/169001437 [00:11<00:00, 17046833.55it/s] 97%|█████████▋| 164528128/169001437 [00:11<00:00, 15615736.79it/s] 98%|█████████▊| 166133760/169001437 [00:11<00:00, 15712883.99it/s] 99%|█████████▉| 167870464/169001437 [00:11<00:00, 16140425.67it/s]100%|██████████| 169001437/169001437 [00:11<00:00, 14190024.20it/s]
+[2025/01/31 06:03:20] - Evaluating with standard images with random mask...
+Extracting /home/yxma/datasets/CIFAR10/cifar-100-python.tar.gz to /home/yxma/datasets/CIFAR10/
+Files already downloaded and verified
+ResNetPartmask5(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): ModuleList(
+    (0): RandonBasicBlock02(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): MaskedConv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer11): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=100, bias=True)
+  (normalize): NormalizeByChannelMeanStd(mean=tensor([0.4914, 0.4822, 0.4465], device='cuda:0'), std=tensor([0.2471, 0.2435, 0.2616], device='cuda:0'))
+)
+Different keys:
+normalize.mean
+normalize.std
+Nature:
+[2025/01/31 06:03:21] - Nature Acc Mean: 0.6474, Std: 0.0000
+tensor([[[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.]]],
+
+
+        ...,
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.]]],
+
+
+        [[[0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 1.]]]], device='cuda:0')
+Square attacking
+[00:00<?,?it/s][00:25<32:37,25.10s/it][00:49<31:32,24.58s/it][01:13<30:54,24.41s/it][01:32<27:51,22.28s/it][02:56<54:49,44.45s/it][04:48<1:22:10,67.54s/it][06:28<1:33:50,78.20s/it][08:16<1:43:29,87.45s/it][09:52<1:45:28,90.41s/it][11:35<1:48:16,94.15s/it][13:27<1:52:57,99.67s/it][15:12<1:53:06,101.29s/it][16:52<1:51:04,100.97s/it][18:29<1:48:03,99.74s/it] [20:12<1:47:14,100.54s/it][21:55<1:46:32,101.48s/it][23:39<1:45:27,102.05s/it][24:44<1:32:35,91.08s/it] [26:32<1:35:57,95.95s/it][28:17<1:37:04,98.72s/it][29:55<1:35:21,98.64s/it][31:34<1:33:53,98.83s/it][33:25<1:35:37,102.45s/it][35:09<1:34:10,102.73s/it][36:48<1:31:28,101.64s/it][38:36<1:31:32,103.64s/it][40:20<1:29:58,103.83s/it][41:58<1:26:46,102.10s/it][43:46<1:26:29,103.78s/it][45:33<1:25:34,104.79s/it][47:14<1:22:53,103.61s/it][49:03<1:22:25,105.23s/it][50:47<1:20:17,104.72s/it][52:26<1:17:18,103.08s/it][54:11<1:15:57,103.59s/it][55:56<1:14:31,103.98s/it][57:18<1:08:10,97.38s/it] 

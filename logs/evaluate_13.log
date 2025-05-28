@@ -1,0 +1,239 @@
+nohup: ignoring input
+wandb: Currently logged in as: xuanzhu_07 (xuanzhu_07-university-of-sydney). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/yxma/hzx/hzx/hzx/rand_defence/wandb/run-20250131_202659-51wmecm1
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run charmed-frost-60
+wandb: ⭐️ View project at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square
+wandb: 🚀 View run at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square/runs/51wmecm1
+[2025/01/31 20:27:02] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='WideResNet34', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=True, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth', continue_training=False, lb=2048, pos=0, eot=False, bapp_iterations=1000, bapp_stepsize='geometric_progression', bapp_max_evals=100, bapp_initial_evals=100, hang=False, device=3)
+[2025/01/31 20:27:02] - Dataset: cifar10
+/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Process ID: 3696372
+Pretrain model path: ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth
+Does pretrain model path exist? True
+Files already downloaded and verified
+Files already downloaded and verified
+WideResNet6(
+  (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (block1): NetworkBlock4(
+    (layer): Sequential(
+      (0): RandomBasicBlock2222(
+        (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): MaskedConv2d(16, 160, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (convShortcut): Conv2d(16, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      )
+      (1): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (2): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (3): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (4): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (block2): NetworkBlock(
+    (layer): Sequential(
+      (0): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 320, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (convShortcut): Conv2d(160, 320, kernel_size=(1, 1), stride=(2, 2), bias=False)
+      )
+      (1): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (2): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (3): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (4): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (block3): NetworkBlock(
+    (layer): Sequential(
+      (0): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 640, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (convShortcut): Conv2d(320, 640, kernel_size=(1, 1), stride=(2, 2), bias=False)
+      )
+      (1): BasicBlock(
+        (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (2): BasicBlock(
+        (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (3): BasicBlock(
+        (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (4): BasicBlock(
+        (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (fc): Linear(in_features=640, out_features=10, bias=True)
+  (normalize): NormalizeByChannelMeanStd(mean=tensor([0.4914, 0.4822, 0.4465], device='cuda:3'), std=tensor([0.2471, 0.2435, 0.2616], device='cuda:3'))
+)[2025/01/31 20:27:04] - Evaluating with standard images with random mask...
+
+Different keys:
+normalize.mean
+normalize.std
+Nature:
+[2025/01/31 20:27:08] - Nature Acc Mean: 0.9066, Std: 0.0000
+tensor([[[[0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.]]],
+
+
+        [[[0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.]]],
+
+
+        [[[0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.]]],
+
+
+        ...,
+
+
+        [[[0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.]]],
+
+
+        [[[0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.]]],
+
+
+        [[[0., 0., 0., 0., 1.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 0., 0.],
+          [0., 0., 0., 1., 0.]]]], device='cuda:3')
+torch.Size([160, 1, 5, 5])
+Pixel attacking
+[00:00<?,?it/s]/home/yxma/anaconda3/envs/py39_torch/lib/python3.9/site-packages/torchattacks/attacks/_differential_evolution.py:592: RuntimeWarning: divide by zero encountered in scalar divide
+  convergence=self.tol / convergence) is True):
+[00:09<12:44, 9.80s/it][00:19<12:14, 9.54s/it][00:28<12:05, 9.54s/it][00:38<12:01, 9.62s/it][00:48<12:04, 9.78s/it][00:57<11:46, 9.67s/it][01:07<11:29, 9.58s/it][01:16<11:21, 9.59s/it][01:26<11:06, 9.52s/it][01:35<10:58, 9.54s/it][01:45<10:43, 9.46s/it][01:54<10:34, 9.47s/it][02:04<10:30, 9.56s/it][02:14<10:23, 9.60s/it][02:23<10:11, 9.55s/it][02:32<09:58, 9.50s/it][02:43<10:03, 9.73s/it][02:52<09:46, 9.61s/it][03:02<09:42, 9.71s/it][03:11<09:16, 9.43s/it][03:21<09:15, 9.58s/it][03:31<09:10, 9.66s/it][03:40<09:04, 9.73s/it][03:50<08:59, 9.81s/it][04:00<08:48, 9.80s/it][04:10<08:33, 9.70s/it][04:19<08:23, 9.68s/it][04:30<08:23, 9.87s/it][04:39<08:10, 9.80s/it][04:50<08:07, 9.95s/it][05:00<08:00,10.01s/it][05:09<07:45, 9.91s/it][05:19<07:36, 9.91s/it][05:29<07:18, 9.74s/it][05:38<07:08, 9.75s/it][05:48<07:01, 9.81s/it][05:58<06:45, 9.67s/it][06:07<06:35, 9.64s/it][06:17<06:25, 9.65s/it][06:27<06:14, 9.61s/it][06:36<05:58, 9.43s/it][06:45<05:49, 9.44s/it][06:54<05:36, 9.34s/it][07:03<05:27, 9.35s/it][07:13<05:17, 9.33s/it][07:21<05:01, 9.13s/it][07:31<04:54, 9.20s/it][07:40<04:45, 9.20s/it][07:49<04:36, 9.21s/it][07:59<04:31, 9.36s/it][08:08<04:23, 9.40s/it][08:17<04:11, 9.30s/it][08:27<04:01, 9.27s/it][08:36<03:53, 9.33s/it][08:45<03:41, 9.22s/it][08:54<03:32, 9.24s/it][09:04<03:23, 9.27s/it][09:13<03:15, 9.31s/it][09:22<03:06, 9.32s/it][09:32<02:56, 9.29s/it][09:41<02:46, 9.24s/it][09:50<02:35, 9.16s/it][09:59<02:27, 9.23s/it][10:08<02:17, 9.15s/it][10:18<02:10, 9.36s/it][10:27<02:00, 9.29s/it][10:36<01:51, 9.26s/it][10:46<01:42, 9.28s/it][10:55<01:33, 9.36s/it][11:05<01:25, 9.46s/it][11:14<01:15, 9.50s/it][11:24<01:07, 9.58s/it][11:34<00:57, 9.59s/it][11:43<00:47, 9.49s/it][11:53<00:38, 9.51s/it][12:03<00:29, 9.70s/it][12:12<00:19, 9.64s/it][12:21<00:09, 9.51s/it][12:23<00:00, 7.02s/it][12:23<00:00, 9.41s/it][2025/01/31 20:39:31] - pixel - Run 79: Accuracy: 0.8635
+
+[00:00<?,?it/s][00:09<12:21, 9.51s/it][00:18<12:01, 9.37s/it][00:28<11:51, 9.36s/it][00:37<11:47, 9.43s/it][00:47<11:55, 9.66s/it][00:57<11:43, 9.64s/it][01:06<11:29, 9.58s/it][01:16<11:14, 9.49s/it][01:25<10:54, 9.35s/it][01:34<10:45, 9.36s/it][01:43<10:35, 9.34s/it][01:53<10:25, 9.34s/it][02:02<10:20, 9.40s/it][02:11<09:58, 9.21s/it][02:20<09:47, 9.17s/it][02:29<09:29, 9.04s/it][02:38<09:31, 9.21s/it][02:48<09:24, 9.25s/it][02:57<09:20, 9.34s/it][03:06<09:01, 9.18s/it][03:16<09:00, 9.31s/it][03:25<08:56, 9.42s/it][03:35<08:50, 9.48s/it][03:44<08:36, 9.39s/it][03:54<08:30, 9.45s/it][04:03<08:19, 9.43s/it][04:12<08:05, 9.34s/it][04:22<07:57, 9.36s/it][04:31<07:45, 9.31s/it][04:40<07:35, 9.29s/it][04:50<07:27, 9.33s/it][04:59<07:22, 9.42s/it][05:09<07:12, 9.40s/it][05:18<07:01, 9.36s/it][05:27<06:54, 9.43s/it][05:36<06:36, 9.23s/it][05:46<06:30, 9.30s/it][05:55<06:21, 9.31s/it][06:04<06:15, 9.38s/it][06:14<06:06, 9.39s/it][06:23<05:53, 9.29s/it][06:32<05:44, 9.32s/it][06:42<05:37, 9.38s/it][06:51<05:30, 9.45s/it][07:01<05:18, 9.36s/it][07:10<05:04, 9.22s/it][07:19<04:54, 9.20s/it][07:28<04:47, 9.27s/it][07:38<04:40, 9.34s/it][07:47<04:34, 9.46s/it][07:57<04:24, 9.44s/it][08:06<04:12, 9.36s/it][08:15<04:03, 9.36s/it][08:25<03:54, 9.40s/it][08:34<03:42, 9.26s/it][08:44<03:37, 9.48s/it][08:53<03:27, 9.45s/it][09:03<03:18, 9.46s/it][09:12<03:08, 9.45s/it][09:21<02:58, 9.41s/it][09:31<02:48, 9.38s/it][09:40<02:38, 9.32s/it][09:49<02:29, 9.37s/it][09:58<02:18, 9.26s/it][10:07<02:08, 9.21s/it][10:17<01:59, 9.20s/it][10:26<01:50, 9.23s/it][10:35<01:42, 9.28s/it][10:45<01:33, 9.40s/it][10:54<01:25, 9.45s/it][11:04<01:15, 9.49s/it][11:14<01:07, 9.58s/it][11:23<00:57, 9.51s/it][11:33<00:47, 9.46s/it][11:42<00:37, 9.44s/it][11:52<00:28, 9.63s/it][12:01<00:19, 9.53s/it][12:11<00:09, 9.48s/it][12:12<00:00, 7.00s/it][12:12<00:00, 9.27s/it][2025/01/31 20:51:43] - pixel - Run 79: Accuracy: 0.8626
+[2025/01/31 20:51:43] - pixel Mean: 0.8631, Std: 0.0005
+[2025/01/31 20:51:43] - Testing done.
+
+wandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.020 MB uploadedwandb: / 0.014 MB of 0.027 MB uploadedwandb: - 0.014 MB of 0.027 MB uploadedwandb: \ 0.014 MB of 0.027 MB uploadedwandb: | 0.027 MB of 0.027 MB uploadedwandb: 
+wandb: Run history:
+wandb: Nature Acc Mean ▁
+wandb:  Nature Acc Std ▁
+wandb:  pixel_mean_adv ▁
+wandb:   pixel_std_adv ▁
+wandb: 
+wandb: Run summary:
+wandb: Nature Acc Mean 0.9066
+wandb:  Nature Acc Std 0.0
+wandb:  pixel_mean_adv 0.86305
+wandb:   pixel_std_adv 0.00045
+wandb: 
+wandb: 🚀 View run charmed-frost-60 at: https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square/runs/51wmecm1
+wandb: ️⚡ View job at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-square/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjU1NDQ3MTUxMg==/version_details/v3
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250131_202659-51wmecm1/logs

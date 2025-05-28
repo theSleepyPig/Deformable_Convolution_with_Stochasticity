@@ -1,0 +1,33 @@
+[2023/05/23 21:40:34] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=10, restarts=1, save_dir='logs/ResNet18_CTRW_CIFAR10', pretrain='ResNet18_CTRW_CIFAR10.pth', continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=0)
+[2023/05/23 21:40:34] - Dataset: cifar10
+[2023/05/23 21:40:36] - Evaluating with standard images with random weight...
+[2023/05/23 21:40:38] - Nature Acc: 0.8363 	
+[2023/05/23 21:41:49] - pgd
+[2023/05/23 21:41:49] - adv: 0.6944 	
+[2023/05/23 21:41:49] - PGD Acc: 0.6944 	
+[2023/05/23 21:41:54] - fgsm
+[2023/05/23 21:41:54] - adv: 0.6616 	
+[2023/05/23 21:42:13] - mifgsm
+[2023/05/23 21:42:13] - adv: 0.6554 	
+[2023/05/23 21:50:13] - deepfool
+[2023/05/23 21:50:13] - adv: 0.8272 	
+[2023/05/23 21:58:52] - cwl2
+[2023/05/23 21:58:52] - adv: 0.8375 	
+[2023/08/02 16:44:12] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=10, restarts=1, save_dir='logs/ResNet18_CTRW_CIFAR10', pretrain='ResNet18_CTRW_CIFAR10.pth', continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=0)
+[2023/08/02 16:44:12] - Dataset: cifar10
+[2023/08/02 16:44:51] - Evaluating with standard images with random weight...
+[2023/08/02 16:44:53] - Nature Acc: 0.8366 	
+[2023/08/02 16:46:03] - pgd
+[2023/08/02 16:46:03] - adv: 0.6929 	
+[2023/08/02 16:46:03] - PGD Acc: 0.6929 	
+[2023/08/02 16:46:08] - fgsm
+[2023/08/02 16:46:08] - adv: 0.6653 	
+[2023/08/02 16:46:26] - mifgsm
+[2023/08/02 16:46:26] - adv: 0.6596 	
+[2023/08/02 16:54:28] - deepfool
+[2023/08/02 16:54:28] - adv: 0.8278 	
+[2023/08/02 17:03:13] - cwl2
+[2023/08/02 17:03:13] - adv: 0.8341 	
+[2023/08/02 17:21:26] - autoattack
+[2023/08/02 17:21:26] - adv: 0.7320 	
+[2023/08/02 17:21:26] - Testing done.

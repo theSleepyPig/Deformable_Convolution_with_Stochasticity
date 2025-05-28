@@ -1,0 +1,456 @@
+nohup: ignoring input
+wandb: Currently logged in as: xuanzhu_07 (xuanzhu_07-university-of-sydney). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: wandb version 0.18.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.3
+wandb: Run data is saved locally in /home/yxma/hzx/hzx/hzx/rand_defence/wandb/run-20241120_161359-f9q2ga3g
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run solar-capybara-6
+wandb: ⭐️ View project at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-boundary-aa
+wandb: 🚀 View run at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-boundary-aa/runs/f9q2ga3g
+[2024/11/20 16:14:05] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=True, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='/home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20241119142125.pth', continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=1)
+[2024/11/20 16:14:05] - Dataset: cifar10
+[2024/11/20 16:14:07] - Evaluating with standard images with random mask...
+Process ID: 1237325
+Pretrain model path: /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/ResNet18/ckpt/model_20241119142125.pth
+Does pretrain model path exist? True
+Files already downloaded and verified
+Files already downloaded and verified
+ResNetPartmask5(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): ModuleList(
+    (0): RandonBasicBlock043(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): MaskedConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer11): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): ModuleList(
+    (0): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+  (normalize): NormalizeByChannelMeanStd(mean=tensor([0.4914, 0.4822, 0.4465], device='cuda:1'), std=tensor([0.2471, 0.2435, 0.2616], device='cuda:1'))
+)
+Different keys:
+normalize.mean
+normalize.std
+Nature:
+[2024/11/20 16:14:07] - Evaluating with standard images with random mask...
+tensor([[[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]],
+
+
+        [[[1., 0., 0.],
+          [0., 0., 1.],
+          [0., 0., 0.]]]], device='cuda:1')
+[2024/11/20 16:14:08] - Evaluating with standard images with random mask...
+[2024/11/20 16:14:08] - Evaluating with standard images with random mask...
+[2024/11/20 16:14:08] - Evaluating with standard images with random mask...
+[2024/11/20 16:14:09] - Nature Acc Mean: 0.8502, Std: 0.0013
+AA attacking
+[00:00<?,?it/s][00:00<00:18, 4.23it/s][00:00<00:13, 5.66it/s][00:00<00:12, 5.95it/s][00:00<00:11, 6.32it/s][00:00<00:10, 7.25it/s][00:00<00:10, 7.24it/s][00:01<00:10, 7.20it/s][00:01<00:09, 7.79it/s][00:01<00:09, 7.56it/s][00:01<00:09, 7.34it/s][00:01<00:09, 7.17it/s][00:01<00:08, 7.78it/s][00:01<00:08, 7.54it/s][00:01<00:08, 7.40it/s][00:02<00:08, 7.92it/s][00:02<00:07, 8.44it/s][00:02<00:07, 8.85it/s][00:02<00:07, 8.23it/s][00:02<00:07, 8.53it/s][00:02<00:06, 8.84it/s][00:02<00:06, 9.04it/s][00:02<00:06, 8.26it/s][00:02<00:06, 8.60it/s][00:03<00:06, 8.88it/s][00:03<00:05, 8.84it/s][00:03<00:05, 9.46it/s][00:03<00:04, 9.86it/s][00:03<00:05, 9.24it/s][00:03<00:05, 9.26it/s][00:04<00:04, 9.31it/s][00:04<00:04, 9.33it/s][00:04<00:04, 9.39it/s][00:04<00:04, 8.62it/s][00:04<00:05, 8.11it/s][00:04<00:04, 8.57it/s][00:04<00:04, 8.84it/s][00:04<00:04, 9.00it/s][00:04<00:04, 9.19it/s][00:05<00:03, 9.29it/s][00:05<00:03, 9.40it/s][00:05<00:03, 9.44it/s][00:05<00:03, 9.47it/s][00:05<00:03, 9.46it/s][00:05<00:03, 9.41it/s][00:05<00:03, 9.44it/s][00:05<00:03, 9.54it/s][00:05<00:03, 9.62it/s][00:05<00:02, 9.65it/s][00:06<00:02, 9.54it/s][00:06<00:02, 9.55it/s][00:06<00:02, 9.59it/s][00:06<00:02, 9.57it/s][00:06<00:02, 9.57it/s][00:06<00:02, 9.60it/s][00:06<00:02, 9.68it/s][00:06<00:02, 9.70it/s][00:06<00:01, 9.61it/s][00:07<00:01, 9.60it/s][00:07<00:01, 9.56it/s][00:07<00:01, 9.59it/s][00:07<00:01, 9.41it/s][00:07<00:01, 9.45it/s][00:07<00:01, 9.30it/s][00:07<00:01, 8.44it/s][00:07<00:01, 9.07it/s][00:08<00:01, 8.25it/s][00:08<00:00, 8.57it/s][00:08<00:00, 8.78it/s][00:08<00:00, 9.03it/s][00:08<00:00, 9.26it/s][00:08<00:00, 9.31it/s][00:08<00:00, 8.39it/s][00:08<00:00, 8.74it/s][00:08<00:00, 8.94it/s][00:09<00:00, 8.35it/s][00:09<00:00, 8.69it/s][2024/11/20 16:14:18] - autoattack - Run 79: Accuracy: 0.5381
+
+[00:00<?,?it/s][00:00<00:08, 8.97it/s][00:00<00:08, 9.13it/s][00:00<00:08, 9.27it/s][00:00<00:08, 9.29it/s][00:00<00:07, 9.29it/s][00:00<00:07, 9.45it/s][00:00<00:07, 9.46it/s][00:00<00:07, 9.49it/s][00:00<00:07, 9.54it/s][00:01<00:07, 9.59it/s][00:01<00:07, 9.53it/s][00:01<00:07, 9.49it/s][00:01<00:06, 9.45it/s][00:01<00:06, 9.43it/s][00:01<00:06, 9.46it/s][00:01<00:06, 9.51it/s][00:01<00:06, 9.52it/s][00:01<00:06, 9.52it/s][00:02<00:06, 9.58it/s][00:02<00:06, 9.57it/s][00:02<00:06, 9.48it/s][00:02<00:06, 9.47it/s][00:02<00:05, 9.43it/s][00:02<00:05, 9.50it/s][00:02<00:05, 9.51it/s][00:02<00:05, 9.54it/s][00:02<00:05, 9.61it/s][00:02<00:05, 9.60it/s][00:03<00:05, 9.58it/s][00:03<00:05, 9.58it/s][00:03<00:05, 9.57it/s][00:03<00:04, 9.48it/s][00:03<00:04, 9.52it/s][00:03<00:04, 9.53it/s][00:03<00:04, 9.51it/s][00:03<00:04, 9.60it/s][00:03<00:04, 9.58it/s][00:03<00:04, 9.67it/s][00:04<00:04, 9.47it/s][00:04<00:04, 9.38it/s][00:04<00:03, 9.51it/s][00:04<00:03, 9.44it/s][00:04<00:03, 9.64it/s][00:04<00:03, 9.66it/s][00:04<00:03, 9.72it/s][00:05<00:03, 9.76it/s][00:05<00:02, 9.88it/s][00:05<00:02, 9.77it/s][00:05<00:02, 9.62it/s][00:05<00:02, 9.59it/s][00:05<00:02, 9.58it/s][00:05<00:02, 9.63it/s][00:05<00:02, 9.62it/s][00:05<00:02, 9.71it/s][00:06<00:02, 9.65it/s][00:06<00:02, 9.60it/s][00:06<00:02, 9.38it/s][00:06<00:01, 9.52it/s][00:06<00:01, 9.56it/s][00:06<00:01, 9.75it/s][00:06<00:01, 9.88it/s][00:07<00:01,10.05it/s][00:07<00:00,10.06it/s][00:07<00:00, 9.96it/s][00:07<00:00,10.06it/s][00:07<00:00, 9.97it/s][00:08<00:00,10.07it/s][00:08<00:00, 9.67it/s][2024/11/20 16:14:26] - autoattack - Run 79: Accuracy: 0.5452
+
+[00:00<?,?it/s][00:00<00:08, 8.87it/s][00:00<00:08, 9.48it/s][00:00<00:07, 9.57it/s][00:00<00:07, 9.69it/s][00:00<00:07, 9.80it/s][00:00<00:07,10.16it/s][00:00<00:06,10.27it/s][00:01<00:07, 9.61it/s][00:01<00:06, 9.83it/s][00:01<00:06,10.04it/s][00:01<00:06,10.18it/s][00:01<00:05,10.29it/s][00:02<00:05,10.32it/s][00:02<00:05,10.28it/s][00:02<00:05,10.29it/s][00:02<00:05,10.34it/s][00:02<00:04,10.27it/s][00:03<00:04,10.22it/s][00:03<00:04,10.17it/s][00:03<00:04,10.14it/s][00:03<00:04,10.25it/s][00:03<00:03,10.32it/s][00:04<00:03,10.21it/s][00:04<00:03,10.24it/s][00:04<00:03,10.25it/s][00:04<00:03,10.22it/s][00:04<00:02,10.13it/s][00:05<00:02,10.12it/s][00:05<00:02,10.10it/s][00:05<00:02,10.08it/s][00:05<00:02,10.14it/s][00:05<00:01,10.18it/s][00:06<00:01,10.15it/s][00:06<00:01,10.22it/s][00:06<00:01,10.19it/s][00:06<00:01,10.14it/s][00:06<00:00,10.20it/s][00:07<00:00,10.09it/s][00:07<00:00,10.13it/s][00:07<00:00,10.17it/s][00:07<00:00,10.18it/s][00:07<00:00, 9.89it/s][00:07<00:00,10.12it/s][2024/11/20 16:14:34] - autoattack - Run 79: Accuracy: 0.4939
+
+[00:00<?,?it/s][00:00<00:08, 8.78it/s][00:00<00:07, 9.80it/s][00:00<00:07, 9.71it/s][00:00<00:07, 9.69it/s][00:00<00:07,10.00it/s][00:00<00:07, 9.85it/s][00:01<00:06,10.04it/s][00:01<00:06, 9.98it/s][00:01<00:06, 9.92it/s][00:01<00:06,10.11it/s][00:01<00:06,10.11it/s][00:01<00:05,10.26it/s][00:01<00:05,10.21it/s][00:02<00:05,10.10it/s][00:02<00:05,10.02it/s][00:02<00:05,10.13it/s][00:02<00:05,10.08it/s][00:02<00:04,10.19it/s][00:03<00:04,10.02it/s][00:03<00:04,10.11it/s][00:03<00:04,10.10it/s][00:03<00:04,10.22it/s][00:03<00:03,10.13it/s][00:04<00:03,10.10it/s][00:04<00:03,10.09it/s][00:04<00:03,10.18it/s][00:04<00:03,10.13it/s][00:04<00:02,10.08it/s][00:05<00:02,10.03it/s][00:05<00:02,10.08it/s][00:05<00:02,10.05it/s][00:05<00:02,10.06it/s][00:05<00:01,10.03it/s][00:06<00:01,10.10it/s][00:06<00:01, 9.96it/s][00:06<00:01, 9.96it/s][00:06<00:01,10.07it/s][00:06<00:00,10.06it/s][00:07<00:00,10.08it/s][00:07<00:00,10.10it/s][00:07<00:00,10.09it/s][00:07<00:00,10.14it/s][00:07<00:00,10.09it/s][2024/11/20 16:14:42] - autoattack - Run 79: Accuracy: 0.4847
+
+[00:00<?,?it/s][00:00<00:08, 9.11it/s][00:00<00:08, 9.60it/s][00:00<00:07, 9.98it/s][00:00<00:07, 9.96it/s][00:00<00:07,10.11it/s][00:00<00:06,10.12it/s][00:01<00:06,10.09it/s][00:01<00:06,10.00it/s][00:01<00:06,10.01it/s][00:01<00:06,10.09it/s][00:01<00:05,10.14it/s][00:02<00:05,10.05it/s][00:02<00:05,10.03it/s][00:02<00:05, 9.93it/s][00:02<00:05,10.00it/s][00:02<00:05, 9.96it/s][00:03<00:04, 9.92it/s][00:03<00:04, 9.86it/s][00:03<00:04, 9.88it/s][00:03<00:04, 9.85it/s][00:03<00:04, 9.96it/s][00:03<00:03,10.04it/s][00:04<00:03,10.02it/s][00:04<00:03,10.01it/s][00:04<00:03,10.01it/s][00:04<00:03, 9.99it/s][00:04<00:03,10.04it/s][00:05<00:02, 9.99it/s][00:05<00:02,10.04it/s][00:05<00:02,10.08it/s][00:05<00:02,10.16it/s][00:05<00:02,10.18it/s][00:05<00:01,10.20it/s][00:06<00:01,10.19it/s][00:06<00:01,10.12it/s][00:06<00:01,10.01it/s][00:06<00:01,10.07it/s][00:06<00:00,10.06it/s][00:07<00:00,10.04it/s][00:07<00:00,10.10it/s][00:07<00:00,10.08it/s][00:07<00:00,10.16it/s][00:07<00:00,10.06it/s][2024/11/20 16:14:50] - autoattack - Run 79: Accuracy: 0.5128
+[2024/11/20 16:14:50] - autoattack Mean: 0.5149, Std: 0.0237
+[2024/11/20 16:14:50] - Testing done.
+
+wandb: - 0.005 MB of 0.005 MB uploadedwandb: \ 0.005 MB of 0.005 MB uploadedwandb: | 0.005 MB of 0.005 MB uploadedwandb: / 0.005 MB of 0.005 MB uploadedwandb: - 0.012 MB of 0.034 MB uploadedwandb: \ 0.027 MB of 0.034 MB uploadedwandb: | 0.027 MB of 0.034 MB uploadedwandb: / 0.027 MB of 0.034 MB uploadedwandb: - 0.034 MB of 0.034 MB uploadedwandb: 
+wandb: Run history:
+wandb:     Nature Acc Mean ▁
+wandb:      Nature Acc Std ▁
+wandb: autoattack_mean_adv ▁
+wandb:  autoattack_std_adv ▁
+wandb: 
+wandb: Run summary:
+wandb:     Nature Acc Mean 0.85022
+wandb:      Nature Acc Std 0.00134
+wandb: autoattack_mean_adv 0.51494
+wandb:  autoattack_std_adv 0.02372
+wandb: 
+wandb: 🚀 View run solar-capybara-6 at: https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-boundary-aa/runs/f9q2ga3g
+wandb: ️⚡ View job at https://wandb.ai/xuanzhu_07-university-of-sydney/-Test-boundary-aa/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjQ5NzM2MjQ4Mw==/version_details/v0
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20241120_161359-f9q2ga3g/logs
