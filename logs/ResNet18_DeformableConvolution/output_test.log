@@ -4552,3 +4552,15 @@
 [2025/05/29 04:09:25] - Evaluating with standard images with random mask...
 [2025/05/29 04:09:29] - Nature Acc Mean: 0.5111, Std: 0.0031
 [2025/05/29 04:11:25] - pgd - Run 79: Accuracy: 0.5677
+[2025/05/29 04:19:51] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='earlyVit', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=True, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='/home/yxma/hzx/hzx/rand_defence/ckpt/cifar10/earlyVit/ckpt/model_20250330015217.pth', continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=0)
+[2025/05/29 04:19:51] - Dataset: cifar10
+[2025/05/29 04:19:53] - Evaluating with standard images with random mask...
+[2025/05/29 04:19:58] - Evaluating with standard images with random mask...
+[2025/05/29 04:20:01] - Evaluating with standard images with random mask...
+[2025/05/29 04:20:05] - Nature Acc Mean: 0.5101, Std: 0.0026
+[2025/05/29 04:22:01] - pgd - Run 79: Accuracy: 0.4870
+[2025/05/29 04:23:57] - pgd - Run 79: Accuracy: 0.4983
+[2025/05/29 04:25:54] - pgd - Run 79: Accuracy: 0.4842
+[2025/05/29 04:25:54] - pgd Mean: 0.4898, Std: 0.0061
+[2025/05/29 04:25:54] - PGD Acc: Mean: 0.4898, Variance: 0.0061
+[2025/05/29 04:25:54] - Testing done.

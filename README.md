@@ -58,7 +58,7 @@ python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset ci
 ### Training:
 Stage one:
 ```
-python train_vit_pretrain.py --device 0 --randpos_deform_training --optimizer sgd --network earlyVit --dataset cifar10 --lr_max 0.1 --weight_decay 5e-4 --lr_schedule multistep --batch_size 128 --epochs 200 --fix
+python train_vit_pretrain.py --device 0 --optimizer sgd --network earlyVit --dataset cifar10 --lr_max 0.01 --weight_decay 5e-4 --lr_schedule multistep --batch_size 128 --epochs 200 --fix
 ```
 Stage two:
 ```
