@@ -41,7 +41,7 @@ python train.py --network ResNet18 --dataset cifar10 --batch_size 128  --device 
 nohup python train.py [other hyperparameters] --hang > [name of log file] 2>&1 &
 ``` -->
 
-## Evaluation of DCS (CIFAR10 as example)
+## Evaluation of DCS (CIFAR-10 as example)
 
 ### Evaluate a trained model under multiple types of attacks:
 
@@ -53,6 +53,10 @@ python evaluate_nonrepeated.py --network ResNet18 --dataset cifar10 --batch_size
 ```
 python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset cifar10 --batch_size 128  --device 1 --pretrain /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth --pretraina /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20240803034941.pth --randpos_deform_training
 ``` -->
+
+## DCS on Transformer (Vit)
+
+Coming soon!
 
 
 ## Notable Arguments

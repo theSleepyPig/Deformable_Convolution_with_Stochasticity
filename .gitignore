@@ -3,3 +3,4 @@ ckpt/
 __pycache__/
 .vscode/
 model/__pycache__/
+wandb/
