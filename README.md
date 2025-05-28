@@ -54,7 +54,7 @@ python evaluate_nonrepeated.py --network ResNet18 --dataset cifar10 --batch_size
 python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset cifar10 --batch_size 128  --device 1 --pretrain /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth --pretraina /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20240803034941.pth --randpos_deform_training
 ``` -->
 
-## DCS on Transformer (Vit) (Organizing)
+## DCS on Transformer (Vit)
 ### Training:
 Stage one:
 ```
