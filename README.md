@@ -13,7 +13,7 @@ A random adversarial defense method based on stochastic deformable convolution
 - scipy: 1.9.1
 
 
-## Training
+## Main Training
 
 ### View all available options:
 
@@ -41,9 +41,9 @@ python train.py --network ResNet18 --dataset cifar10 --batch_size 128  --device 
 nohup python train.py [other hyperparameters] --hang > [name of log file] 2>&1 &
 ``` -->
 
-## Evaluation of DCS (CIFAR-10 as example)
+## Main Evaluation
 
-### Evaluate a trained model under multiple types of attacks:
+### Evaluate a trained model under multiple types of attacks (ResNet18 on CIFAR-10):
 
 ```
 python evaluate_nonrepeated.py --network ResNet18 --dataset cifar10 --batch_size 128  --device 0 --randpos_deform_training --pretrain [path_to_model_ckpt]
@@ -54,10 +54,25 @@ python evaluate_nonrepeated.py --network ResNet18 --dataset cifar10 --batch_size
 python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset cifar10 --batch_size 128  --device 1 --pretrain /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth --pretraina /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20240803034941.pth --randpos_deform_training
 ``` -->
 
-## DCS on Transformer (Vit)
-
-Coming soon!
-
+## DCS on Transformer (Vit) (Organizing)
+### Training:
+Stage one:
+```
+python train_vit_pretrain.py --device 0 --randpos_deform_training --optimizer sgd --network earlyVit --dataset cifar10 --lr_max 0.1 --weight_decay 5e-4 --lr_schedule multistep --batch_size 128 --epochs 200 --fix
+```
+Stage two:
+```
+python train_vit_pretrain_2.py --device 0 --optimizer sgd --network earlyVit --dataset cifar10 --lr_max 0.01 --weight_decay 5e-4 --lr_schedule cosine --batch_size 128 --epochs 200 --vit_pretrained_path [path_to_model_stage_one] --randpos_deform_training 
+```
+### Evaluation:
+BASE(ViT-t+Conv):
+```
+python evaluate_vit_repeat_2.py --device 0 --network earlyVit --dataset cifar10 --batch_size 128 --pretrain [path_to_model_base]
+```
+DCS(ViT-t+DCS):
+```
+python evaluate_vit_repeat_2.py --device 0 --network earlyVit --dataset cifar10 --batch_size 128 --pretrain [path_to_model_dcs] --randpos_deform_training
+```
 
 ## Notable Arguments
 

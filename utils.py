@@ -12,6 +12,9 @@ import torchvision.models as models
 cifar10_mean = (0.4914, 0.4822, 0.4465)
 cifar10_std = (0.2471, 0.2435, 0.2616)
 
+imagenet_mean = [0.485, 0.456, 0.406]
+imagenet_std = [0.229, 0.224, 0.225]
+
 mu = torch.tensor(cifar10_mean).view(3, 1, 1)
 std = torch.tensor(cifar10_std).view(3, 1, 1)
 
@@ -28,6 +31,9 @@ def load_baseline(name):
     elif name == 'ResNet50':
         from model.resnet50 import ResNet50
         return ResNet50
+    elif name == 'earlyVit':
+        from model.earlyCon import EarlyConvViT
+        return EarlyConvViT
     else:
         raise Exception("Not a good name.")
 
@@ -51,6 +57,9 @@ def load_randpos_deform(args):
     elif args.network == 'WideResNet34':
         from model.widepos_resnet import WideResNet34_1layer
         return WideResNet34_1layer
+    elif args.network == 'earlyVit':
+        from model.earlyCon_DCS import EarlyConvViT
+        return EarlyConvViT
     elif args.network == 'Vit':
         if args.randType == 'repeated':
             from model.vit_mask_repeated_7 import vit_b_16_mask
@@ -203,6 +212,77 @@ def get_224loaders(dir_, batch_size, dataset='cifar10', worker=4, norm=True):
             transforms.RandomCrop(224, padding=4),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
+            transforms.Normalize(imagenet_mean, imagenet_std),
+        ])
+        test_transform = transforms.Compose([
+            transforms.Resize(224),  
+            transforms.ToTensor(),
+            transforms.Normalize(imagenet_mean, imagenet_std),
+        ])
+        dataset_normalization = None
+
+    else:
+        train_transform = transforms.Compose([
+            transforms.Resize(224),  
+            transforms.RandomCrop(224, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+        ])
+        test_transform = transforms.Compose([
+            transforms.Resize(224),  
+            transforms.ToTensor(),
+        ])
+        dataset_normalization = NormalizeByChannelMeanStd(
+            mean=imagenet_mean, std=imagenet_std)
+        
+    if dataset == 'cifar10':
+        train_dataset = datasets.CIFAR10(
+            dir_, train=True, transform=train_transform, download=True)
+        test_dataset = datasets.CIFAR10(
+            dir_, train=False, transform=test_transform, download=True)
+    elif dataset == 'cifar100':
+        train_dataset = datasets.CIFAR100(
+            dir_, train=True, transform=train_transform, download=True)
+        test_dataset = datasets.CIFAR100(
+            dir_, train=False, transform=test_transform, download=True)
+    elif dataset == 'tiny-imagenet':
+        train_dataset = datasets.ImageFolder(
+            root="/mnt/ssd_2/yxma/tiny-imagenet-200/train", transform=train_transform)
+        test_dataset = datasets.ImageFolder(
+            root="/mnt/ssd_2/yxma/tiny-imagenet-200/val", transform=test_transform)
+    elif dataset == 'imagenet':
+        train_dataset = datasets.ImageFolder(
+            root="/mnt/ssd_1/ykwang/imagenet/train", transform=train_transform)
+        test_dataset = datasets.ImageFolder(
+            root="/mnt/ssd_1/ykwang/imagenet/val", transform=test_transform)
+    else:
+        print('Wrong dataset:', dataset)
+        exit()
+
+    train_loader = torch.utils.data.DataLoader(
+        dataset=train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        pin_memory=True,
+        num_workers=worker,
+    )
+    test_loader = torch.utils.data.DataLoader(
+        dataset=test_dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        pin_memory=True,
+        num_workers=worker,
+    )
+    return train_loader, test_loader, dataset_normalization
+
+def get_224loaders_c10(dir_, batch_size, dataset='cifar10', worker=4, norm=True):
+    
+    if norm:
+        train_transform = transforms.Compose([
+            transforms.Resize(224),  
+            transforms.RandomCrop(224, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
             transforms.Normalize(cifar10_mean, cifar10_std),
         ])
         test_transform = transforms.Compose([
@@ -241,6 +321,11 @@ def get_224loaders(dir_, batch_size, dataset='cifar10', worker=4, norm=True):
             root="/mnt/ssd_2/yxma/tiny-imagenet-200/train", transform=train_transform)
         test_dataset = datasets.ImageFolder(
             root="/mnt/ssd_2/yxma/tiny-imagenet-200/val", transform=test_transform)
+    elif dataset == 'imagenet':
+        train_dataset = datasets.ImageFolder(
+            root="/mnt/ssd_1/ykwang/imagenet/train", transform=train_transform)
+        test_dataset = datasets.ImageFolder(
+            root="/mnt/ssd_1/ykwang/imagenet/val", transform=test_transform)
     else:
         print('Wrong dataset:', dataset)
         exit()
@@ -260,6 +345,66 @@ def get_224loaders(dir_, batch_size, dataset='cifar10', worker=4, norm=True):
         num_workers=worker,
     )
     return train_loader, test_loader, dataset_normalization
+
+from torch.utils.data.distributed import DistributedSampler
+
+def get_224loaders_c10_ddp(dir_, batch_size, dataset='cifar10', worker=4, norm=True):
+    if norm:
+        train_transform = transforms.Compose([
+            transforms.Resize(224),
+            transforms.RandomCrop(224, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+            transforms.Normalize(cifar10_mean, cifar10_std),
+        ])
+        test_transform = transforms.Compose([
+            transforms.Resize(224),
+            transforms.ToTensor(),
+            transforms.Normalize(cifar10_mean, cifar10_std),
+        ])
+        dataset_normalization = None
+    else:
+        train_transform = transforms.Compose([
+            transforms.Resize(224),
+            transforms.RandomCrop(224, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+        ])
+        test_transform = transforms.Compose([
+            transforms.Resize(224),
+            transforms.ToTensor(),
+        ])
+        dataset_normalization = None
+
+    # Load datasets
+    if dataset == 'cifar10':
+        train_dataset = datasets.CIFAR10(dir_, train=True, transform=train_transform, download=True)
+        test_dataset = datasets.CIFAR10(dir_, train=False, transform=test_transform, download=True)
+    elif dataset == 'cifar100':
+        train_dataset = datasets.CIFAR100(dir_, train=True, transform=train_transform, download=True)
+        test_dataset = datasets.CIFAR100(dir_, train=False, transform=test_transform, download=True)
+    elif dataset == 'tiny-imagenet':
+        train_dataset = datasets.ImageFolder("/mnt/ssd_2/yxma/tiny-imagenet-200/train", transform=train_transform)
+        test_dataset = datasets.ImageFolder("/mnt/ssd_2/yxma/tiny-imagenet-200/val", transform=test_transform)
+    elif dataset == 'imagenet':
+        train_dataset = datasets.ImageFolder("/mnt/ssd_1/ykwang/imagenet/train", transform=train_transform)
+        test_dataset = datasets.ImageFolder("/mnt/ssd_1/ykwang/imagenet/val", transform=test_transform)
+    else:
+        raise ValueError(f"Unsupported dataset: {dataset}")
+
+    # ✅ Use DistributedSampler
+    train_sampler = DistributedSampler(train_dataset)
+
+    train_loader = torch.utils.data.DataLoader(
+        train_dataset, batch_size=batch_size, sampler=train_sampler,
+        pin_memory=True, num_workers=worker, drop_last=True)
+
+    test_loader = torch.utils.data.DataLoader(
+        test_dataset, batch_size=batch_size, shuffle=False,
+        pin_memory=True, num_workers=worker)
+
+    return train_loader, test_loader, dataset_normalization, train_sampler
+
 
 # pgd attack
 def attack_pgd(model, X, y, epsilon, alpha, attack_iters, restarts, device):
@@ -304,7 +449,8 @@ def evaluate_standard(device, test_loader, model):
             output = model(X)
             loss = F.cross_entropy(output, y)
             test_loss += loss.item() * y.size(0)
-            test_acc += (output.max(1)[1] == y).sum().item()
+            maxo = output.max(1)[1]
+            test_acc += (maxo == y).sum().item()
             n += y.size(0)
     return test_loss/n, test_acc/n
 
@@ -345,6 +491,8 @@ def evaluate_standard_random_mask(device, test_loader, model, args):
     with torch.no_grad():
         for i, (X, y) in enumerate(test_loader):
             if isinstance(model, nn.DataParallel):
+                model.module.set_rand_mask()
+            elif isinstance(model, nn.parallel.DistributedDataParallel):
                 model.module.set_rand_mask()
             else:
                 model.set_rand_mask()
@@ -426,6 +574,8 @@ def evaluate_pgd_random_mask(device, test_loader, model, attack_iters, restarts,
     
     if isinstance(model, nn.DataParallel):
         modelto = model.module
+    elif isinstance(model, nn.parallel.DistributedDataParallel):
+        modelto = model.module
     else:
         modelto = model
 
@@ -437,6 +587,8 @@ def evaluate_pgd_random_mask(device, test_loader, model, attack_iters, restarts,
             
             if isinstance(model, nn.DataParallel):
                 model.module.set_rand_mask()
+            elif isinstance(model, nn.parallel.DistributedDataParallel):
+                model.module.set_rand_mask()
             else:
                 model.set_rand_mask()
             #set_random_weight(args, model)
@@ -446,6 +598,8 @@ def evaluate_pgd_random_mask(device, test_loader, model, attack_iters, restarts,
             # random select a path to infer
             
             if isinstance(model, nn.DataParallel):
+                model.module.set_rand_mask()
+            elif isinstance(model, nn.parallel.DistributedDataParallel):
                 model.module.set_rand_mask()
             else:
                 model.set_rand_mask()
