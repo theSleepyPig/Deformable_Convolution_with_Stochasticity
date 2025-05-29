@@ -4,3 +4,6 @@ __pycache__/
 .vscode/
 model/__pycache__/
 wandb/
+NIPS_rand_adv/pretrained/
+NIPS_rand_adv/res50_IN_step66/
+NIPS_rand_adv/wandb/
