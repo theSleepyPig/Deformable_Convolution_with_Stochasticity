@@ -118,9 +118,9 @@ Pretrained models are available on [Hugging Face 🤗](https://huggingface.co/xu
 
 Coming soon. Please consider citing us if you find this work helpful.
 
-
+<!-- 
 ## Note
-More codes and weights will be provided after further organization.
+More codes and weights will be provided after further organization. -->
 
 
 <!-- ## Contact
