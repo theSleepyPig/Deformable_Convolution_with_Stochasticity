@@ -4564,3 +4564,8 @@
 [2025/05/29 04:25:54] - pgd Mean: 0.4898, Std: 0.0061
 [2025/05/29 04:25:54] - PGD Acc: Mean: 0.4898, Variance: 0.0061
 [2025/05/29 04:25:54] - Testing done.
+[2025/05/29 20:10:43] - Namespace(batch_size=128, data_dir='~/datasets/CIFAR10/', dataset='cifar10', epochs=200, network='ResNet18', worker=4, lr_schedule='multistep', lr_min=0.0, lr_max=0.1, weight_decay=0.0005, momentum=0.9, none_random_training=True, rand_deform_training=False, randpos_deform_training=True, randpos_multi_deform_training=False, is_n_repeat=False, reNum=5, only_adv_randpos_training=False, rand_path_training=False, epsilon=8, alpha=2, c=0.0001, steps=1000, seed=0, attack_iters=20, restarts=1, save_dir='logs/ResNet18_DeformableConvolution', pretrain='/mnt/ssd_2/yxma/DCS/ckpt/cifar10/ResNet18/ckpt/model_20240928164626.pth', continue_training=False, lb=2048, pos=0, eot=False, hang=False, device=0)
+[2025/05/29 20:10:43] - Dataset: cifar10
+[2025/05/29 20:10:45] - Evaluating with standard images with random mask...
+[2025/05/29 20:10:46] - Nature Acc Mean: 0.8913, Std: 0.0000
+[2025/05/29 20:11:19] - BPDA - Run 79: Accuracy: 0.7975

@@ -48,7 +48,10 @@ nohup python train.py [other hyperparameters] --hang > [name of log file] 2>&1 &
 ```
 python evaluate_nonrepeated.py --network ResNet18 --dataset cifar10 --batch_size 128  --device 0 --randpos_deform_training --pretrain [path_to_model_ckpt]
 ```
-
+### Evaluate a trained model under eotbpda attack (ResNet18 on CIFAR-10):
+```
+python evaluate_nonrepeated_eotbpda.py --network ResNet18 --dataset cifar10 --batch_size 128  --device 0  --randpos_deform_training --pretrain [path_to_model_ckpt]
+```
 <!-- ### Evaluate with bpda:
 ```
 python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset cifar10 --batch_size 128  --device 1 --pretrain /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth --pretraina /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20240803034941.pth --randpos_deform_training
