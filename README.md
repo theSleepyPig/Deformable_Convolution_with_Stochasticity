@@ -73,6 +73,31 @@ DCS(ViT-t+DCS):
 ```
 python evaluate_vit_repeat_2.py --device 0 --network earlyVit --dataset cifar10 --batch_size 128 --pretrain [path_to_model_dcs] --randpos_deform_training
 ```
+## DCS on R50 (imagenet)
+```
+cd NIPS_rand_adv
+```
+### Training:
+```
+python train_rand_mask_imagenet.py --rd
+```
+### Evaluation:
+```
+python train_rand_mask_imagenet.py --rd -e --eval_model_path [path_to_model_dcs]
+```
+
+<!-- ```
+python train_rand_mask_imagenet.py --rd -e --eval_model_path ckpt/model_latest_20240810_132913.pth
+```
+```
+python train_rand_mask_imagenet.py --rd -e --eval_model_path /home/yxma/hzx/NIPS_rand_adv/ckpt/model_best_20240828_140015.pth
+python train_rand_mask_imagenet.py --rd -e --eval_model_path /home/yxma/hzx/NIPS_rand_adv/ckpt/model_best_20240828_140015.pth
+```
+```
+nohup python train_rand_mask_imagenet.py --rd > train_output.log 2>&1 &
+nohup python train_rand_mask_imagenet.py --rd -e --eval_model_path /home/yxma/hzx/NIPS_rand_adv/ckpt/model_best_20240828_140015.pth > evaluate_aa.log 2>&1 &
+nohup python train_rand_mask_imagenet.py --rd > nrp_train_in_r50_rp_test.log 2>&1 &
+``` -->
 
 ## Notable Arguments
 
