@@ -57,6 +57,14 @@ python evaluate_nonrepeated_eotbpda.py --network ResNet18 --dataset cifar10 --ba
 python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset cifar10 --batch_size 128  --device 1 --pretrain /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth --pretraina /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20240803034941.pth --randpos_deform_training
 ``` -->
 
+## Notable Arguments
+
+| Argument                         | Description                                      |
+|----------------------------------|--------------------------------------------------|
+| --randpos_deform_training        | Enable DCS                                       |
+| --is_n_repeat                    | Enable Gradient-Selective Adversarial Training   |
+| --save_dir / --pretrain          | Checkpoint save/load                             |
+
 ## 4️⃣ DCS on Transformer (Vit)
 ### Training:
 Stage one:
@@ -102,22 +110,14 @@ nohup python train_rand_mask_imagenet.py --rd -e --eval_model_path /home/yxma/hz
 nohup python train_rand_mask_imagenet.py --rd > nrp_train_in_r50_rp_test.log 2>&1 &
 ``` -->
 
-## 6️⃣ Notable Arguments
 
-| Argument                         | Description                                      |
-|----------------------------------|--------------------------------------------------|
-| --randpos_deform_training        | Enable DCS                                       |
-| --is_n_repeat                    | Enable Gradient-Selective Adversarial Training   |
-| --save_dir / --pretrain          | Checkpoint save/load                             |
-
-
-## 7️⃣ ⭐ Pretrained Models
+## 6️⃣ ⭐ Pretrained Models
 
 Pretrained models are available on [Hugging Face 🤗](https://huggingface.co/xuanzhu07/Deformable_Convolution_with_Stochasticity_ModelWeight).
 
 
 
-## 8️⃣ Citation
+## 7️⃣ Citation
 
 Coming soon. Please consider citing us if you find this work helpful.
 
