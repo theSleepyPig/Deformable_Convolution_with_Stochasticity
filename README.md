@@ -1,7 +1,7 @@
 # Adversarial Robustness via Deformable Convolution with Stochasticity
 A random adversarial defense method based on stochastic deformable convolution
 
-## Environment
+## 1️⃣ Environment
 - python: 3.9.12
 - pyTorch: 2.2.0
 - torchVision: 0.17.0
@@ -13,7 +13,7 @@ A random adversarial defense method based on stochastic deformable convolution
 - scipy: 1.9.1
 
 
-## Main Training
+## 2️⃣ Main Training
 
 ### View all available options:
 
@@ -41,7 +41,7 @@ python train.py --network ResNet18 --dataset cifar10 --batch_size 128  --device 
 nohup python train.py [other hyperparameters] --hang > [name of log file] 2>&1 &
 ``` -->
 
-## Main Evaluation
+## 3️⃣ Main Evaluation
 
 ### Evaluate a trained model under multiple types of attacks (ResNet18 on CIFAR-10):
 
@@ -57,7 +57,7 @@ python evaluate_nonrepeated_eotbpda.py --network ResNet18 --dataset cifar10 --ba
 python evaluate_nonrepeated_blacktransfer.py --network WideResNet34 --dataset cifar10 --batch_size 128  --device 1 --pretrain /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20241107185544.pth --pretraina /home/yxma/hzx/hzx/hzx/rand_defence/ckpt/cifar10/WideResNet34/ckpt/model_20240803034941.pth --randpos_deform_training
 ``` -->
 
-## DCS on Transformer (Vit)
+## 4️⃣ DCS on Transformer (Vit)
 ### Training:
 Stage one:
 ```
@@ -76,7 +76,7 @@ DCS(ViT-t+DCS):
 ```
 python evaluate_vit_repeat_2.py --device 0 --network earlyVit --dataset cifar10 --batch_size 128 --pretrain [path_to_model_dcs] --randpos_deform_training
 ```
-## DCS on R50 (imagenet)
+## 5️⃣ DCS on R50 (imagenet)
 ```
 cd NIPS_rand_adv
 ```
@@ -102,7 +102,7 @@ nohup python train_rand_mask_imagenet.py --rd -e --eval_model_path /home/yxma/hz
 nohup python train_rand_mask_imagenet.py --rd > nrp_train_in_r50_rp_test.log 2>&1 &
 ``` -->
 
-## Notable Arguments
+## 6️⃣ Notable Arguments
 
 | Argument                         | Description                                      |
 |----------------------------------|--------------------------------------------------|
@@ -111,15 +111,18 @@ nohup python train_rand_mask_imagenet.py --rd > nrp_train_in_r50_rp_test.log 2>&
 | --save_dir / --pretrain          | Checkpoint save/load                             |
 
 
-## Pretrained Models
+## 7️⃣ ⭐ Pretrained Models
 
 Pretrained models are available on [Hugging Face 🤗](https://huggingface.co/xuanzhu07/Deformable_Convolution_with_Stochasticity_ModelWeight).
 
 
 
-## Citation
+## 8️⃣ Citation
 
 Coming soon. Please consider citing us if you find this work helpful.
+
+
+<!-- 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 ⭐ 🌟 -->
 
 <!-- 
 ## Note
