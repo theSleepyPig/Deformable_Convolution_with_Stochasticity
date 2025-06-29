@@ -119,7 +119,14 @@ Pretrained models are available on [Hugging Face 🤗](https://huggingface.co/xu
 
 ## 7️⃣ Citation
 
-Coming soon. Please consider citing us if you find this work helpful.
+If you find this work helpful, please consider citing us:
+
+```bibtex
+@inproceedings{maadversarial,
+  title={Adversarial Robustness via Deformable Convolution with Stochasticity},
+  author={Ma, Yanxiang and Huang, Zixuan and Dong, Minjing and You, Shan and Xu, Chang},
+  booktitle={Forty-second International Conference on Machine Learning}
+}
 
 
 <!-- 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 ⭐ 🌟 -->
