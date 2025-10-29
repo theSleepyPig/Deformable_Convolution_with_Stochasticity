@@ -1,6 +1,8 @@
 # Adversarial Robustness via Deformable Convolution with Stochasticity
 A random adversarial defense method based on stochastic deformable convolution
 
+⭐ Our paper is available at [https://openreview.net/pdf?id=vISiVCssVg](https://openreview.net/pdf?id=vISiVCssVg).
+
 ## 1️⃣ Environment
 - python: 3.9.12
 - pyTorch: 2.2.0
