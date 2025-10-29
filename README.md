@@ -1,4 +1,4 @@
-# Adversarial Robustness via Deformable Convolution with Stochasticity
+# (ICML 2025) Adversarial Robustness via Deformable Convolution with Stochasticity
 A random adversarial defense method based on stochastic deformable convolution
 
 ⭐ Our paper is available at [https://openreview.net/pdf?id=vISiVCssVg](https://openreview.net/pdf?id=vISiVCssVg).
