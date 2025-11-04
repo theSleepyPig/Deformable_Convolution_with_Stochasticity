@@ -1,0 +1,19 @@
+{
+  "link": null,
+  "name": null,
+  "authors": null,
+  "additional_data": null,
+  "number_forward_passes": null,
+  "dataset": "cifar10",
+  "venue": null,
+  "architecture": null,
+  "eps": 0.03137254901960784,
+  "clean_acc": "90.58",
+  "reported": null,
+  "corruptions_acc": null,
+  "corruptions_acc_3d": null,
+  "corruptions_mce": null,
+  "corruptions_mce_3d": null,
+  "autoattack_acc": "68.39",
+  "footnote": null
+}

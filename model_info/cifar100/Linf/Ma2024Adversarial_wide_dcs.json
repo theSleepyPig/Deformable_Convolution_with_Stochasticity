@@ -1,0 +1,19 @@
+{
+  "link": "https://github.com/theSleepyPig/Deformable_Convolution_with_Stochasticity",
+  "name": "Adversarial Robustness via Deformable Convolution with Stochasticity",
+  "authors": "Yanxiang Ma, Zixuan Huang, Minjing Dong, Shan You, Chang Xu",
+  "additional_data": false,
+  "number_forward_passes": 1,
+  "dataset": "cifar100",
+  "venue": "ICML 2025",
+  "architecture": "WideResNet34-10",
+  "eps": 0.03137254901960784,
+  "clean_acc": "66.9",
+  "reported": "48.05",
+  "corruptions_acc": null,
+  "corruptions_acc_3d": null,
+  "corruptions_mce": null,
+  "corruptions_mce_3d": null,
+  "autoattack_acc": "46.54",
+  "footnote": null
+}
